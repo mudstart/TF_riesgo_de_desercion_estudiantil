@@ -1,2 +1,85 @@
-# TF_riesgo_de_desercion_estudiantil
-Trabajo de ciencia de datos II
+# Riesgo de deserción estudiantil
+
+Trabajo final de la asignatura **INF-8239 Ciencia de Datos II** (Modalidad A, Tema 01).
+
+## Descripción
+
+Proyecto reproducible para identificar de forma temprana a los estudiantes con riesgo de deserción, usando el conjunto de datos *Predict Students' Dropout and Academic Success* (UCI ML Repository, id 697, CC BY 4.0).
+
+El decisor es la coordinación académica. El análisis apoya la priorización de acompañamiento temprano con revisión humana; **no** debe usarse para sancionar, excluir ni decidir admisiones. Ver [docs/proyecto.md](docs/proyecto.md).
+
+## Requisitos
+
+- [uv](https://docs.astral.sh/uv/) como gestor de entorno. uv descarga Python **3.12** (fijado en `.python-version`) si no está instalado.
+- Git
+
+## Instalación
+
+1. Instalar uv, si no está instalado ([guía oficial](https://docs.astral.sh/uv/getting-started/installation/)):
+
+   ```bash
+   # Windows (PowerShell)
+   powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+   # Linux / macOS
+   curl -LsSf https://astral.sh/uv/install.sh | sh
+   ```
+
+2. Clonar el repositorio:
+
+   ```bash
+   git clone https://github.com/mudstart/riesgo_de_desercion_estudiantil.git
+   cd riesgo_de_desercion_estudiantil
+   ```
+
+3. Crear el proyecto con Python 3.12 mas uv:
+
+   ```bash
+   uv python install 3.12
+   uv run python --version
+   uv sync
+   uv run pytest -q
+   ```
+
+## Estructura
+
+```text
+data/
+  raw/         Datos originales (no versionados)
+  processed/   Datos procesados
+docs/          Documentación del proyecto y enunciado (docs/enunciado/)
+models/        Modelos entrenados (no versionados)
+notebooks/     Exploración, numerados: 01_, 02_, ...
+reports/
+  figures/     Figuras del informe
+  metrics/     Métricas de evaluación
+src/
+  config.py      Configuración global (semilla)
+  data.py        Carga, validación y preparación de datos
+  features.py    Transformación de características
+  models.py      Construcción y entrenamiento de modelos
+  evaluation.py  Evaluación y comparación de modelos
+tests/         Pruebas automáticas con pytest
+```
+
+## Reproducibilidad
+
+La semilla global está centralizada en `src/config.py`:
+
+```python
+RANDOM_STATE = 42
+```
+
+Todo código con componentes aleatorios (particiones, validación cruzada, modelos) debe importarla en lugar de escribir el valor a mano:
+
+```python
+from src.config import RANDOM_STATE
+```
+
+## Convenciones de trabajo
+
+- **Ramas:** `feature/descripcion-corta` (ej. `feature/2-estructura`).
+- **Pull Requests:** todo cambio entra a `main` por PR, con al menos 1 revisión de otro integrante.
+- **Commits:** descriptivos y con referencia al issue (ej. `feat: agrega baseline logístico #9`).
+- **Cierre de issues:** la descripción del PR incluye `Closes #N`.
+- **Notebooks:** numerados en orden de ejecución (`01_eda.ipynb`, `02_...`).
+- **Datos y modelos:** los datos crudos y los modelos pesados no se suben al repositorio.
