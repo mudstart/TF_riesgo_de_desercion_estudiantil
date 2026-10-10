@@ -27,17 +27,15 @@ El decisor es la coordinación académica. El análisis apoya la priorización d
 2. Clonar el repositorio:
 
    ```bash
-   git clone https://github.com/mudstart/riesgo_de_desercion_estudiantil.git
-   cd riesgo_de_desercion_estudiantil
+   git clone https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil.git
+   cd TF_riesgo_de_desercion_estudiantil
    ```
 
-3. Crear el proyecto con Python 3.12 mas uv:
+3. Instalar el entorno y verificar con las pruebas (uv descarga Python 3.12 automáticamente según `.python-version`):
 
    ```bash
-   uv python install 3.12
-   uv run python --version
    uv sync
-   uv run pytest -q
+   uv run pytest
    ```
 
 ## Estructura
@@ -77,7 +75,7 @@ from src.config import RANDOM_STATE
 
 ## Convenciones de trabajo
 
-- **Ramas:** `feature/descripcion-corta` (ej. `feature/2-estructura`).
+- **Ramas:** `feature/<num-issue>-descripcion-corta` (ej. `feature/2-estructura`).
 - **Pull Requests:** todo cambio entra a `main` por PR, con al menos 1 revisión de otro integrante.
 - **Commits:** descriptivos y con referencia al issue (ej. `feat: agrega baseline logístico #9`).
 - **Cierre de issues:** la descripción del PR incluye `Closes #N`.
