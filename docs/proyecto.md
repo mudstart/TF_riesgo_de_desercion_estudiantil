@@ -54,7 +54,7 @@ El riesgo se identifica al ingreso, una vez disponible la información de matrí
 
 ### Pregunta de análisis
 
-¿Con qué nivel de recall de la clase Dropout, acompañado de su precisión, pueden identificarse estudiantes con riesgo de deserción en el conjunto de datos UCI utilizando exclusivamente variables cuya disponibilidad al ingreso esté documentada, para orientar la priorización de acompañamiento por la coordinación académica?
+¿Con qué nivel de recall de la clase Dropout y de F1-macro, acompañados de la precisión de Dropout, pueden identificarse estudiantes con riesgo de deserción en el conjunto de datos UCI utilizando exclusivamente variables cuya disponibilidad al ingreso esté documentada, para orientar la priorización de acompañamiento por la coordinación académica?
 
 El recall de Dropout representa la proporción de estudiantes que abandonaron y fueron identificados por el modelo como casos de riesgo. Se acompañará de precisión y análisis de errores para no valorar favorablemente un modelo que clasifique a todos como riesgo. No se fija un resultado numérico antes de realizar la evaluación.
 
@@ -93,7 +93,7 @@ La conclusión final explicará al decisor el desempeño obtenido, los errores m
 | DOI | https://doi.org/10.24432/C5MC89 |
 | Ficha | https://archive.ics.uci.edu/dataset/697/predict+students+dropout+and+academic+success |
 
-Se propone conservar las tres clases originales. Enrolled no equivale a graduación ni garantiza que el estudiante no abandonará posteriormente.
+La formulación del target se decidió en [decisiones/002_formulacion_target.md](decisiones/002_formulacion_target.md) (#5): la principal es binaria (Dropout = 1; Graduate y Enrolled = 0, sin eliminar filas) y la secundaria conserva las tres clases originales. Enrolled no equivale a graduación ni garantiza que el estudiante no abandonará posteriormente.
 
 Para el escenario al ingreso, se propone excluir las variables de resultados del primer y segundo semestre. Las variables de deuda, pagos, becas o condiciones económicas requieren verificar su fecha de referencia; no se utilizarán si no se acredita su disponibilidad en el momento definido. Esta regla deberá quedar alineada con el trabajo del integrante responsable de datos.
 
