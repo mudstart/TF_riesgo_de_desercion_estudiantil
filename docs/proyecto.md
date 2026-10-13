@@ -95,23 +95,23 @@ La conclusión final explicará al decisor el desempeño obtenido, los errores m
 
 La formulación del target se decidió en [decisiones/002_formulacion_target.md](decisiones/002_formulacion_target.md) (#5): la principal es binaria (Dropout = 1; Graduate y Enrolled = 0, sin eliminar filas) y la secundaria conserva las tres clases originales. Enrolled no equivale a graduación ni garantiza que el estudiante no abandonará posteriormente.
 
-Para el escenario al ingreso, se propone excluir las variables de resultados del primer y segundo semestre. Las variables de deuda, pagos, becas o condiciones económicas requieren verificar su fecha de referencia; no se utilizarán si no se acredita su disponibilidad en el momento definido. Esta regla deberá quedar alineada con el trabajo del integrante responsable de datos.
+Las variables permitidas se decidieron en [decisiones/001_momento_intervencion.md](decisiones/001_momento_intervencion.md) (#4): el modelo principal usa solo las 18 variables disponibles al ingreso; las de semestre están prohibidas, y las financieras y macroeconómicas, cuya fecha de referencia no está documentada ([ficha_datos.md](ficha_datos.md), sección 5), solo se usan en un análisis de sensibilidad.
 
-### Inventario preliminar de variables según su disponibilidad temporal
+### Inventario de variables según su disponibilidad temporal
 
-La ficha indica que el conjunto incluye información conocida al momento de la matrícula, junto con el rendimiento académico al final del primer y del segundo semestre. La agrupación de esta tabla es una propuesta del equipo: la ficha no clasifica las variables así. El integrante responsable de datos la validará.
+La ficha indica que el conjunto incluye información conocida al momento de la matrícula, junto con el rendimiento académico al final del primer y del segundo semestre. La agrupación de esta tabla es del equipo y se validó contra el artículo de datos de los autores ([ficha_datos.md](ficha_datos.md)).
 
 | Grupo | Variables | Disponibilidad |
 |---|---|---|
 | Demográficas | Marital status, Nacionality (así en el original), Gender, Age at enrollment, International, Displaced, Educational special needs | Al ingreso |
 | Acceso y trayectoria previa | Application mode, Application order, Course, Daytime/evening attendance, Previous qualification, Previous qualification (grade), Admission grade | Al ingreso |
 | Contexto familiar | Mother's qualification, Father's qualification, Mother's occupation, Father's occupation | Al ingreso |
-| Situación financiera | Debtor, Tuition fees up to date, Scholarship holder | Por verificar: la ficha no indica su fecha de referencia |
-| Macroeconómicas | Unemployment rate, Inflation rate, GDP | Por verificar: probablemente asociadas al año de ingreso |
+| Situación financiera | Debtor, Tuition fees up to date, Scholarship holder | No documentada: solo análisis de sensibilidad |
+| Macroeconómicas | Unemployment rate, Inflation rate, GDP | No documentada: solo análisis de sensibilidad |
 | Rendimiento del primer semestre | Curricular units 1st sem: credited, enrolled, evaluations, approved, grade, without evaluations | Al final del primer semestre |
 | Rendimiento del segundo semestre | Curricular units 2nd sem: credited, enrolled, evaluations, approved, grade, without evaluations | Al final del segundo semestre |
 
-Con la delimitación al ingreso, quedan excluidas las 12 variables de rendimiento semestral. Las 3 de situación financiera solo se incorporarán si se acredita su disponibilidad. Como análisis de sensibilidad, se podría comparar el modelo con y sin ellas, siempre que la versión principal sea la que las excluye.
+Con la delimitación al ingreso, quedan prohibidas las 12 variables de rendimiento semestral. Las 3 financieras y las 3 macroeconómicas quedan fuera del modelo principal y solo se comparan en el análisis de sensibilidad.
 
 ## 7. Registro inicial de riesgos
 
