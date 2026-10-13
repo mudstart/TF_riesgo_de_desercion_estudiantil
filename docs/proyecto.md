@@ -83,7 +83,7 @@ La conclusión final explicará al decisor el desempeño obtenido, los errores m
 | Fuente | UCI Machine Learning Repository, conjunto 697 |
 | Contexto | Educación superior en Portugal: Instituto Politécnico de Portalegre, varias titulaciones de pregrado |
 | Unidad de análisis | Estudiante |
-| Archivo suministrado | `data.csv`, dentro del ZIP adjunto |
+| Obtención | Descarga automática con `uv run python -m src.data`, verificada por SHA-256 (ver [ficha_datos.md](ficha_datos.md)) |
 | Tamaño verificado | 4,424 filas y 37 columnas: 36 características y Target |
 | Variable objetivo | `Target` |
 | Clases | Dropout: 1,421; Enrolled: 794; Graduate: 2,209 |
