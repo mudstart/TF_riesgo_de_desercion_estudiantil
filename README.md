@@ -38,6 +38,16 @@ El decisor es la coordinación académica. El análisis apoya la priorización d
    uv run pytest
    ```
 
+## Obtener los datos
+
+Los datos crudos no se versionan. Para descargarlos a `data/raw/data.csv` y verificar su huella SHA-256:
+
+```bash
+uv run python -m src.data
+```
+
+Si el archivo ya existe y es válido, no se vuelve a descargar. Procedencia, licencia (CC BY 4.0, con atribución obligatoria), cobertura y limitaciones del dataset: [docs/ficha_datos.md](docs/ficha_datos.md).
+
 ## Estructura
 
 ```text
