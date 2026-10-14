@@ -93,6 +93,17 @@ splits = load_splits()  # splits["train"], splits["test"], cv_folds(splits)
 
 **El conjunto de test se usa una sola vez, en la evaluación final (#13).** Ver [docs/decisiones/003_particion_validacion.md](docs/decisiones/003_particion_validacion.md).
 
+Todo modelo se construye con `build_pipeline`, que añade el preprocesamiento sin fuga y descarta las variables prohibidas. El pipeline se ajusta solo con train (o con el fold de entrenamiento) y el desbalance se maneja con `class_weight="balanced"`:
+
+```python
+from sklearn.linear_model import LogisticRegression
+from src.models import build_pipeline
+
+pipe = build_pipeline(LogisticRegression(class_weight="balanced", max_iter=5000))
+```
+
+Ver [docs/decisiones/004_preprocesamiento.md](docs/decisiones/004_preprocesamiento.md).
+
 ## Convenciones de trabajo
 
 - **Ramas:** `feature/<num-issue>-descripcion-corta` (ej. `feature/2-estructura`).
