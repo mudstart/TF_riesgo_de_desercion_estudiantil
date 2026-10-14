@@ -89,5 +89,6 @@ from src.config import RANDOM_STATE
 - **Pull Requests:** todo cambio entra a `main` por PR, con al menos 1 revisión de otro integrante.
 - **Commits:** descriptivos y con referencia al issue (ej. `feat: agrega baseline logístico #9`).
 - **Cierre de issues:** la descripción del PR incluye `Closes #N`.
+- **Decisiones (obligatorio):** todo PR que decida sobre datos, variables, target, métricas, validación o preprocesamiento, o que afecte el trabajo de otro integrante, incluye su documento en `docs/decisiones/`. Sin él, el revisor no aprueba el PR. Ver [docs/decisiones/README.md](docs/decisiones/README.md).
 - **Notebooks:** numerados en orden de ejecución (`01_eda.ipynb`, `02_...`).
 - **Datos y modelos:** los datos crudos y los modelos pesados no se suben al repositorio.
