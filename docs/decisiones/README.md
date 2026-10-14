@@ -39,7 +39,8 @@ Una decisión aprobada **no se reescribe**. Se crea una nueva que indique "Reemp
 
 | N.º | Decisión | Issue | Responsable | Estado |
 |---|---|---|---|---|
-| [001](001_momento_intervencion.md) | Momento de intervención al ingreso y variables permitidas | #4 | Jose Maduro | Propuesta |
+| [001](001_momento_intervencion.md) | Momento de intervención al ingreso y variables permitidas | #4 | Jose Maduro | Aprobada |
 | [002](002_formulacion_target.md) | Target binario (principal) y multiclase (secundaria) | #5 | Jose Maduro | Aprobada |
+| [003](003_particion_validacion.md) | Partición 80/20 estratificada y 5 folds fijos; test solo al final | #7 | Jose Maduro | Propuesta |
 
-Decisiones previstas: partición y validación (#7), preprocesamiento (#8), umbral de decisión y criterio de elección del modelo (#13).
+Decisiones previstas: preprocesamiento (#8), umbral de decisión y criterio de elección del modelo (#13).
