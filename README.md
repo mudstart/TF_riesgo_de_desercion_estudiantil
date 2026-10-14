@@ -46,7 +46,7 @@ Los datos crudos no se versionan. Para descargarlos a `data/raw/data.csv` y veri
 uv run python -m src.data
 ```
 
-Si el archivo ya existe y es válido, no se vuelve a descargar. Procedencia, licencia (CC BY 4.0, con atribución obligatoria), cobertura y limitaciones del dataset: [docs/ficha_datos.md](docs/ficha_datos.md).
+Si el archivo ya existe y es válido, no se vuelve a descargar. El mismo comando crea la partición fija `data/processed/splits.json` si todavía no existe. Procedencia, licencia (CC BY 4.0, con atribución obligatoria), cobertura y limitaciones del dataset: [docs/ficha_datos.md](docs/ficha_datos.md).
 
 ## Estructura
 
@@ -82,6 +82,16 @@ Todo código con componentes aleatorios (particiones, validación cruzada, model
 ```python
 from src.config import RANDOM_STATE
 ```
+
+La partición train/test y los 5 folds de validación cruzada están fijados en `data/processed/splits.json` (se crea con `uv run python -m src.data` si no existe). Todos los modelos deben usarlos, sin crear particiones propias:
+
+```python
+from src.data import cv_folds, load_splits
+
+splits = load_splits()  # splits["train"], splits["test"], cv_folds(splits)
+```
+
+**El conjunto de test se usa una sola vez, en la evaluación final (#13).** Ver [docs/decisiones/003_particion_validacion.md](docs/decisiones/003_particion_validacion.md).
 
 ## Convenciones de trabajo
 
