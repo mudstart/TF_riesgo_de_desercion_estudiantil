@@ -4,7 +4,7 @@
 - Rama: `feature/4-momento-intervencion`.
 - Responsable: Jose Maduro.
 - Fecha: 2026-10-13.
-- Estado: propuesta para revisión del equipo en el PR.
+- Estado: Aprobada (PR #24).
 
 ## 1. Contexto
 
