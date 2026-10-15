@@ -1,0 +1,331 @@
+{
+  "modelo": "baseline",
+  "estimador": "LogisticRegression",
+  "hiperparametros": {
+    "C": 0.01,
+    "class_weight": "balanced",
+    "dual": false,
+    "fit_intercept": true,
+    "intercept_scaling": 1,
+    "l1_ratio": 0.0,
+    "max_iter": 5000,
+    "n_jobs": null,
+    "penalty": "deprecated",
+    "random_state": null,
+    "solver": "lbfgs",
+    "tol": 0.0001,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "fecha": "2026-10-15T15:14:47",
+  "n_train": 3539,
+  "umbral": 0.5,
+  "cv": {
+    "f1_macro_media": 0.6698805050063966,
+    "recall_riesgo_media": 0.6314746116392302,
+    "precision_riesgo_media": 0.5271376228965997,
+    "balanced_accuracy_media": 0.6806363875936968,
+    "fit_time_s_media": 0.05756217997986823,
+    "predict_time_ms_1000_media": 21.609272271562656,
+    "f1_macro_std": 0.018320643152744176,
+    "recall_riesgo_std": 0.03087507173058836,
+    "precision_riesgo_std": 0.03038458344770298,
+    "balanced_accuracy_std": 0.015408455924158201,
+    "fit_time_s_std": 0.008906223056199005,
+    "predict_time_ms_1000_std": 7.120097456496476
+  },
+  "oof": {
+    "f1_macro": 0.6699943841493313,
+    "recall_riesgo": 0.6314863676341249,
+    "precision_riesgo": 0.5252377468910022,
+    "balanced_accuracy": 0.6806474302783447
+  },
+  "matriz_confusion": {
+    "tn": 1753,
+    "fp": 649,
+    "fn": 419,
+    "tp": 718
+  },
+  "tiempos": {
+    "entrenamiento_s": 0.05756217997986823,
+    "inferencia_ms_1000": 21.609272271562656,
+    "entrenamiento_train_completo_s": 0.05799310002475977
+  },
+  "ajuste": {
+    "parametro": "C",
+    "rejilla": [
+      0.001,
+      0.0031622776601683794,
+      0.01,
+      0.03162277660168379,
+      0.1,
+      0.31622776601683794,
+      1.0,
+      3.1622776601683795,
+      10.0,
+      31.622776601683793,
+      100.0
+    ],
+    "criterio": "regla de un error estándar: el C más regularizado con F1-macro medio >= mejor - 1 desviación (umbral 0.5)",
+    "elegido": 0.01,
+    "resultados": [
+      {
+        "C": 0.001,
+        "f1_macro_media": 0.657132552054801,
+        "f1_macro_std": 0.02370101042741522,
+        "recall_riesgo_media": 0.5725558389365485,
+        "recall_riesgo_std": 0.02105109800860743,
+        "precision_riesgo_media": 0.5241744524593974,
+        "precision_riesgo_std": 0.04311517614133145,
+        "dentro_1se": false
+      },
+      {
+        "C": 0.0031622776601683794,
+        "f1_macro_media": 0.6635472816988272,
+        "f1_macro_std": 0.023853254888090626,
+        "recall_riesgo_media": 0.5989527784218256,
+        "recall_riesgo_std": 0.03528861373237743,
+        "precision_riesgo_media": 0.5262119918047655,
+        "precision_riesgo_std": 0.03851097128444771,
+        "dentro_1se": false
+      },
+      {
+        "C": 0.01,
+        "f1_macro_media": 0.6698805050063966,
+        "f1_macro_std": 0.018320643152744176,
+        "recall_riesgo_media": 0.6314746116392302,
+        "recall_riesgo_std": 0.03087507173058836,
+        "precision_riesgo_media": 0.5271376228965997,
+        "precision_riesgo_std": 0.03038458344770298,
+        "dentro_1se": true
+      },
+      {
+        "C": 0.03162277660168379,
+        "f1_macro_media": 0.6704875894601324,
+        "f1_macro_std": 0.01611658792590328,
+        "recall_riesgo_media": 0.6499304428472061,
+        "recall_riesgo_std": 0.03449659734576305,
+        "precision_riesgo_media": 0.5234454263126121,
+        "precision_riesgo_std": 0.025369924695809797,
+        "dentro_1se": true
+      },
+      {
+        "C": 0.1,
+        "f1_macro_media": 0.669763358455253,
+        "f1_macro_std": 0.006619781695521949,
+        "recall_riesgo_media": 0.6578290439755776,
+        "recall_riesgo_std": 0.028672299714556825,
+        "precision_riesgo_media": 0.5198518650195711,
+        "precision_riesgo_std": 0.014516905170651934,
+        "dentro_1se": true
+      },
+      {
+        "C": 0.31622776601683794,
+        "f1_macro_media": 0.6710866095723178,
+        "f1_macro_std": 0.006206214260127778,
+        "recall_riesgo_media": 0.6586907798129685,
+        "recall_riesgo_std": 0.034432206641412534,
+        "precision_riesgo_media": 0.5211658300878825,
+        "precision_riesgo_std": 0.009677055512373337,
+        "dentro_1se": true
+      },
+      {
+        "C": 1.0,
+        "f1_macro_media": 0.6726113468451042,
+        "f1_macro_std": 0.004696040751514863,
+        "recall_riesgo_media": 0.6586946440992348,
+        "recall_riesgo_std": 0.032520659814160024,
+        "precision_riesgo_media": 0.5232156641120225,
+        "precision_riesgo_std": 0.006593661346398782,
+        "dentro_1se": true
+      },
+      {
+        "C": 3.1622776601683795,
+        "f1_macro_media": 0.6734011183909459,
+        "f1_macro_std": 0.005105558858294301,
+        "recall_riesgo_media": 0.6630960661565808,
+        "recall_riesgo_std": 0.03319627256920821,
+        "precision_riesgo_media": 0.5234656107656396,
+        "precision_riesgo_std": 0.007332793618484115,
+        "dentro_1se": true
+      },
+      {
+        "C": 10.0,
+        "f1_macro_media": 0.6719547284652082,
+        "f1_macro_std": 0.0054277550156658074,
+        "recall_riesgo_media": 0.6613416801916686,
+        "recall_riesgo_std": 0.03125192571873194,
+        "precision_riesgo_media": 0.5216469580481444,
+        "precision_riesgo_std": 0.006972466060516312,
+        "dentro_1se": true
+      },
+      {
+        "C": 31.622776601683793,
+        "f1_macro_media": 0.6723921132097855,
+        "f1_macro_std": 0.006526115811131386,
+        "recall_riesgo_media": 0.6648659092665585,
+        "recall_riesgo_std": 0.03139160446541088,
+        "precision_riesgo_media": 0.5214969458018681,
+        "precision_riesgo_std": 0.0074562719678182236,
+        "dentro_1se": true
+      },
+      {
+        "C": 100.0,
+        "f1_macro_media": 0.6725333182496573,
+        "f1_macro_std": 0.0058414310549539045,
+        "recall_riesgo_media": 0.6639848519978361,
+        "recall_riesgo_std": 0.030975350158627693,
+        "precision_riesgo_media": 0.5219770072613605,
+        "precision_riesgo_std": 0.008218805736180067,
+        "dentro_1se": true
+      }
+    ]
+  },
+  "referencia_dummy": {
+    "estrategia": "stratified",
+    "cv": {
+      "f1_macro_media": 0.5077249876657355,
+      "recall_riesgo_media": 0.32100239585748513,
+      "precision_riesgo_media": 0.33213781652137814,
+      "balanced_accuracy_media": 0.5077157682683129,
+      "fit_time_s_media": 0.055111339990980925,
+      "predict_time_ms_1000_media": 23.03462338941262,
+      "f1_macro_std": 0.01993487260439218,
+      "recall_riesgo_std": 0.026657051356311794,
+      "precision_riesgo_std": 0.028103968941992477,
+      "balanced_accuracy_std": 0.019762930218125464,
+      "fit_time_s_std": 0.029889405305624,
+      "predict_time_ms_1000_std": 6.693451990792316
+    }
+  },
+  "coeficientes": {
+    "archivo": "baseline_coeficientes.csv",
+    "n_columnas": 112,
+    "aumentan_riesgo": [
+      {
+        "variable": "Gender",
+        "coef": 0.4276,
+        "odds_ratio": 1.5336,
+        "signo_estable": 1.0
+      },
+      {
+        "variable": "Age at enrollment",
+        "coef": 0.2997,
+        "odds_ratio": 1.3495,
+        "signo_estable": 1.0
+      },
+      {
+        "variable": "Application mode_39",
+        "coef": 0.2953,
+        "odds_ratio": 1.3435,
+        "signo_estable": 1.0
+      },
+      {
+        "variable": "Course_9853",
+        "coef": 0.2194,
+        "odds_ratio": 1.2454,
+        "signo_estable": 1.0
+      },
+      {
+        "variable": "Mother's occupation_0",
+        "coef": 0.205,
+        "odds_ratio": 1.2275,
+        "signo_estable": 1.0
+      },
+      {
+        "variable": "Course_9130",
+        "coef": 0.1986,
+        "odds_ratio": 1.2197,
+        "signo_estable": 1.0
+      },
+      {
+        "variable": "Mother's qualification_34",
+        "coef": 0.1952,
+        "odds_ratio": 1.2156,
+        "signo_estable": 1.0
+      },
+      {
+        "variable": "Course_171",
+        "coef": 0.1734,
+        "odds_ratio": 1.1893,
+        "signo_estable": 1.0
+      },
+      {
+        "variable": "Application mode_7",
+        "coef": 0.1666,
+        "odds_ratio": 1.1812,
+        "signo_estable": 1.0
+      },
+      {
+        "variable": "Father's occupation_0",
+        "coef": 0.1359,
+        "odds_ratio": 1.1456,
+        "signo_estable": 1.0
+      }
+    ],
+    "reducen_riesgo": [
+      {
+        "variable": "Course_9500",
+        "coef": -0.4096,
+        "odds_ratio": 0.6639,
+        "signo_estable": 1.0
+      },
+      {
+        "variable": "Application mode_1",
+        "coef": -0.3201,
+        "odds_ratio": 0.7261,
+        "signo_estable": 1.0
+      },
+      {
+        "variable": "Course_8014",
+        "coef": -0.2026,
+        "odds_ratio": 0.8166,
+        "signo_estable": 1.0
+      },
+      {
+        "variable": "Course_9238",
+        "coef": -0.1828,
+        "odds_ratio": 0.833,
+        "signo_estable": 1.0
+      },
+      {
+        "variable": "Admission grade",
+        "coef": -0.1757,
+        "odds_ratio": 0.8388,
+        "signo_estable": 1.0
+      },
+      {
+        "variable": "Previous qualification_1",
+        "coef": -0.1734,
+        "odds_ratio": 0.8408,
+        "signo_estable": 1.0
+      },
+      {
+        "variable": "Father's occupation_infrequent_sklearn",
+        "coef": -0.1591,
+        "odds_ratio": 0.8529,
+        "signo_estable": 1.0
+      },
+      {
+        "variable": "Father's qualification_38",
+        "coef": -0.1437,
+        "odds_ratio": 0.8662,
+        "signo_estable": 1.0
+      },
+      {
+        "variable": "Mother's occupation_infrequent_sklearn",
+        "coef": -0.1169,
+        "odds_ratio": 0.8897,
+        "signo_estable": 1.0
+      },
+      {
+        "variable": "Father's occupation_7",
+        "coef": -0.1167,
+        "odds_ratio": 0.8898,
+        "signo_estable": 1.0
+      }
+    ]
+  },
+  "energia_kwh": null,
+  "emisiones_gco2eq": null
+}
