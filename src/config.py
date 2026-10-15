@@ -76,3 +76,49 @@ FEATURES_SEM2 = (
 
 # Posteriores al momento de intervención: nunca entran en un modelo.
 FEATURES_PROHIBIDAS = FEATURES_SEM1 + FEATURES_SEM2
+
+# Preprocesamiento (ver docs/decisiones/004_preprocesamiento.md)
+
+# Permitidas pero redundantes de forma exacta (International se deduce de
+# Nacionality y Daytime/evening attendance de Course): fuera del modelo,
+# disponibles para describir subgrupos.
+FEATURES_REDUNDANTES = ("International", "Daytime/evening attendance")
+
+# Códigos enteros sin orden: one-hot.
+FEATURES_NOMINALES = (
+    "Marital Status",
+    "Application mode",
+    "Course",
+    "Previous qualification",
+    "Nacionality",
+    "Mother's qualification",
+    "Father's qualification",
+    "Mother's occupation",
+    "Father's occupation",
+)
+
+# Magnitudes: escalado estándar.
+FEATURES_NUMERICAS = (
+    "Application order",
+    "Previous qualification (grade)",
+    "Admission grade",
+    "Age at enrollment",
+    "Unemployment rate",
+    "Inflation rate",
+    "GDP",
+)
+
+# 0/1: sin transformar.
+FEATURES_BINARIAS = (
+    "Displaced",
+    "Educational special needs",
+    "Gender",
+    "Debtor",
+    "Tuition fees up to date",
+    "Scholarship holder",
+)
+
+# Categorías con menos casos que este mínimo en train se agrupan en una sola.
+MIN_FREQUENCY = 10
+
+MODELS_DIR = PROJECT_ROOT / "models"
