@@ -122,9 +122,3 @@ FEATURES_BINARIAS = (
 MIN_FREQUENCY = 10
 
 MODELS_DIR = PROJECT_ROOT / "models"
-
-REPORTS_DIR = PROJECT_ROOT / "reports"
-METRICS_DIR = REPORTS_DIR / "metrics"
-
-# Nombre con que el baseline (#9) guarda su pipeline (save_pipeline).
-BASELINE = "baseline"
