@@ -122,3 +122,23 @@ FEATURES_BINARIAS = (
 MIN_FREQUENCY = 10
 
 MODELS_DIR = PROJECT_ROOT / "models"
+
+# Comparación y selección del modelo final
+# (ver docs/decisiones/005_criterio_seleccion.md)
+
+REPORTS_DIR = PROJECT_ROOT / "reports"
+METRICS_DIR = REPORTS_DIR / "metrics"
+FIGURES_DIR = REPORTS_DIR / "figures"
+
+# Nombres con que #9, #11 y #12 guardan su pipeline (save_pipeline), del más
+# simple al más complejo: este orden desempata.
+MODELOS_COMPARADOS = ("baseline", "random_forest", "gradient_boosting")
+BASELINE = "baseline"
+
+# Piso de F1-macro: cada modelo usa el umbral de mayor recall de riesgo que
+# lo respeta, y solo es elegible si lo alcanza.
+MIN_F1_MACRO = 0.62
+
+# Remuestreos del bootstrap pareado y nivel de los intervalos.
+N_BOOTSTRAP = 2000
+CONFIDENCE = 0.95

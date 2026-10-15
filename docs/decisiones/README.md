@@ -43,5 +43,4 @@ Una decisión aprobada **no se reescribe**. Se crea una nueva que indique "Reemp
 | [002](002_formulacion_target.md) | Target binario (principal) y multiclase (secundaria) | #5 | Jose Maduro | Aprobada |
 | [003](003_particion_validacion.md) | Partición 80/20 estratificada y 5 folds fijos; test solo al final | #7 | Jose Maduro | Aprobada |
 | [004](004_preprocesamiento.md) | Preprocesamiento sin fuga: one-hot con infrecuentes, escalado y class_weight | #8 | Jose Maduro | Propuesta |
-
-Decisiones previstas: umbral de decisión y criterio de elección del modelo (#13).
+| [005](005_criterio_seleccion.md) | Umbral de mayor recall con F1-macro ≥ 0.62; empate por bootstrap → el más simple | #13 | Mannix Mueses | Propuesta |
