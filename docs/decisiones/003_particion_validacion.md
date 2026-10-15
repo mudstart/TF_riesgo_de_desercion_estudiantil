@@ -4,7 +4,7 @@
 - Rama: `feature/7-particion-train-test`.
 - Responsable: Jose Maduro.
 - Fecha: 2026-10-13.
-- Estado: Propuesta.
+- Estado: Aprobada (PR #26).
 - Reemplaza a: No aplica.
 
 ## 1. Contexto
