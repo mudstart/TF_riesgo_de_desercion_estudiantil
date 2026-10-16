@@ -41,10 +41,12 @@ def tune(
     """Elige el valor de param (un hiperparámetro del estimador) en grid.
 
     Para cada valor, validación cruzada con los folds fijos y F1-macro medio
-    entre folds al umbral 0.5. Regla de un error estándar: gana el primero de
-    grid cuyo F1-macro alcanza el mejor menos la desviación estándar del mejor
-    entre folds. Diferencias menores no se distinguen del ruido y se prefiere
-    el modelo más simple, así que grid va del más simple al más complejo.
+    entre folds al umbral 0.5. Regla de una desviación estándar: gana el
+    primero de grid cuyo F1-macro alcanza el mejor menos la desviación estándar
+    del mejor entre folds (no el error estándar std/√k de la regla 1-SE; ver
+    docs/decisiones/005_ajuste_y_metricas.md). Diferencias menores no se
+    distinguen del ruido y se prefiere el modelo más simple, así que grid va
+    del más simple al más complejo.
 
     Devuelve el valor elegido, una fila por valor probado (media y desviación
     de F1-macro, recall y precisión de riesgo) y la validación cruzada del
@@ -64,8 +66,8 @@ def tune(
 
     table = pd.DataFrame(rows)
     top = table.loc[table["f1_macro_media"].idxmax()]
-    table["dentro_1se"] = table["f1_macro_media"] >= top["f1_macro_media"] - top["f1_macro_std"]
-    best = int(table["dentro_1se"].idxmax())  # primer True: el más simple
+    table["dentro_1de"] = table["f1_macro_media"] >= top["f1_macro_media"] - top["f1_macro_std"]
+    best = int(table["dentro_1de"].idxmax())  # primer True: el más simple
     return grid[best], table, evaluations[best]
 
 
@@ -88,7 +90,11 @@ def model_report(name: str, pipeline: Pipeline, ev: dict, y: pd.Series) -> dict:
     return {
         "modelo": name,
         "estimador": type(modelo).__name__,
-        "hiperparametros": {k: v for k, v in modelo.get_params().items() if np.isscalar(v) or v is None},
+        "hiperparametros": {
+            k: v
+            for k, v in modelo.get_params().items()
+            if (np.isscalar(v) or v is None) and v != "deprecated"  # p. ej. penalty en sklearn >= 1.8
+        },
         "fecha": datetime.now().isoformat(timespec="seconds"),
         "n_train": int(len(y)),
         "umbral": THRESHOLD,
@@ -115,5 +121,5 @@ def save_metrics(report: dict, metrics_dir: Path = METRICS_DIR) -> Path:
     previous = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
     report = {**report, **{k: previous.get(k) for k in GREEN_AI_KEYS}}
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
+    path.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return path

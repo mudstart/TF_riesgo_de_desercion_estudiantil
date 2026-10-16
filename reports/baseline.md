@@ -15,7 +15,7 @@ Salidas: `reports/metrics/baseline.json` (métricas en el formato estándar de `
 - `LogisticRegression(class_weight="balanced", max_iter=5000)` dentro de `build_pipeline` (#8): escenario principal, 16 columnas disponibles al ingreso, 112 tras el one-hot.
 - Solo train (3,539 filas) y los 5 folds fijos estratificados ([decisión 003](../docs/decisiones/003_particion_validacion.md)). El test no se toca.
 - Métricas al umbral 0.5. El umbral de decisión de todos los modelos se fija después, en #13, con un mismo criterio.
-- **Ajuste ligero de `C`:** 11 valores de 0.001 a 100 en escala logarítmica, con F1-macro medio entre folds. Se aplica la **regla de un error estándar**: gana el C más regularizado (más simple) cuyo F1-macro alcanza el del mejor menos su desviación entre folds.
+- **Ajuste ligero de `C`:** 11 valores de 0.001 a 100 en escala logarítmica, con F1-macro medio entre folds. Se aplica la **regla de una desviación estándar** ([decisión 005](../docs/decisiones/005_ajuste_y_metricas.md)): gana el C más regularizado (más simple) cuyo F1-macro alcanza el del mejor menos su desviación estándar entre folds. Es más conservadora que la regla 1-SE clásica, que resta el error estándar (std/√5): con ella el corte sería 0.671 y saldría C = 1.
 
 | C | 0.001 | 0.003 | **0.01** | 0.032 | 0.1 | 0.32 | 1 | 3.2 | 10 | 32 | 100 |
 |---|---|---|---|---|---|---|---|---|---|---|---|
@@ -42,7 +42,7 @@ Matriz de confusión out-of-fold, sobre todo train:
 
 El baseline supera claramente al azar (+0.16 de F1-macro). Al umbral 0.5 detecta a 718 de 1,137 desertores (63 %), y algo más de la mitad de los marcados lo son (precisión 0.53, frente a 0.32 al azar). El recall de Dropout es la métrica prioritaria del proyecto: subirlo moviendo el umbral, y cuánto cuesta en precisión, se decide en #13 para todos los modelos por igual.
 
-**Coste:** entrenamiento ≈ 0.06 s por fold y con todo train; inferencia ≈ 22 ms por cada 1,000 registros. Energía y emisiones: pendientes (#15).
+**Coste:** entrenamiento ≈ 0.06 s por fold y con todo train; inferencia ≈ 18 ms por cada 1,000 registros. Energía y emisiones: pendientes (#15).
 
 ## 3. Interpretación de los coeficientes
 
@@ -78,7 +78,7 @@ Nombres de los cursos según [docs/ficha_datos.md](../docs/ficha_datos.md). Los 
 
 ## 4. Lo que pasa a otros issues
 
-- **#11 y #12:** ajustan y reportan con las mismas funciones de `src/training.py` (`tune`, `model_report`, `save_metrics`), con la rejilla ordenada del modelo más simple al más complejo.
+- **#11 y #12:** ajustan y reportan con las mismas funciones de `src/training.py` (`tune`, `model_report`, `save_metrics`), con la rejilla ordenada del modelo más simple al más complejo ([decisión 005](../docs/decisiones/005_ajuste_y_metricas.md)).
 - **#13:** carga `models/baseline.joblib` (C = 0.01) como modelo `baseline` y fija su umbral con el mismo criterio que el de los candidatos.
 - **#15:** escribe `energia_kwh` y `emisiones_gco2eq` en `reports/metrics/baseline.json`; volver a ejecutar este script conserva esos valores.
 - **#14:** revisa el peso de `Gender` y de la formación de la madre «desconocida».
