@@ -24,15 +24,25 @@ def fake_cv(f1_by_C: dict):
     return cross_validate
 
 
-def test_tune_picks_simplest_value_within_one_standard_error(monkeypatch):
+def test_tune_picks_simplest_value_within_one_standard_deviation(monkeypatch):
     # Mejor: C=1 con 0.70 ± 0.025 -> umbral 0.675: entra 0.1 (0.69), no 0.01 (0.65).
+    # Con el error estándar (0.025/√5 ≈ 0.011) el umbral sería 0.689 y entraría igual 0.1.
     f1 = {0.01: (0.65, 0.02), 0.1: (0.69, 0.02), 1.0: (0.70, 0.025)}
     monkeypatch.setattr(src.training, "cross_validate_model", fake_cv(f1))
     best, table, _ = tune(LogisticRegression(), "C", list(f1), None, None, None)
     top = table.loc[table["f1_macro_media"].idxmax()]
     assert top["C"] == 1.0
     assert best == 0.1
-    assert table["dentro_1se"].tolist() == [False, True, True]
+    assert table["dentro_1de"].tolist() == [False, True, True]
+
+
+def test_tune_uses_standard_deviation_not_standard_error(monkeypatch):
+    # Mejor: 0.70 ± 0.02. Con la desviación el umbral es 0.68 y entra 0.1 (0.685);
+    # con el error estándar (0.02/√5 ≈ 0.009) sería 0.691 y quedaría fuera.
+    f1 = {0.1: (0.685, 0.02), 1.0: (0.70, 0.02)}
+    monkeypatch.setattr(src.training, "cross_validate_model", fake_cv(f1))
+    best, _, _ = tune(LogisticRegression(), "C", list(f1), None, None, None)
+    assert best == 0.1
 
 
 def test_tune_keeps_best_when_others_are_clearly_worse(monkeypatch):
@@ -76,6 +86,7 @@ def test_report_has_the_standard_format(report_and_y):
         "cv", "oof", "matriz_confusion", "tiempos",
     }  # fmt: skip
     assert report["umbral"] == 0.5
+    assert "deprecated" not in report["hiperparametros"].values()
     assert set(report["oof"]) == {"f1_macro", "recall_riesgo", "precision_riesgo", "balanced_accuracy"}
     assert {"f1_macro_media", "f1_macro_std"} <= set(report["cv"])
     assert set(report["matriz_confusion"]) == {"tn", "fp", "fn", "tp"}

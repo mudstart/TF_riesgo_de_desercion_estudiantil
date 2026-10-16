@@ -8,9 +8,10 @@ candidatos (#11, #12). Puede ganar la comparación (#13). Desde la raíz:
 Solo usa train y los 5 folds fijos (decisión 003). Pasos:
 
 1. Piso absoluto: DummyClassifier(strategy="stratified") con CV.
-2. Ajuste ligero de C con CV: F1-macro al umbral 0.5 y regla de un error
-   estándar (el C más simple dentro de 1 desviación del mejor). Del C elegido se
-   guardan sus métricas de CV y los tiempos de entrenamiento e inferencia.
+2. Ajuste ligero de C con CV: F1-macro al umbral 0.5 y regla de una
+   desviación estándar (el C más simple dentro de 1 desviación del mejor,
+   decisión 005). Del C elegido se guardan sus métricas de CV y los tiempos de
+   entrenamiento e inferencia.
 3. Pipeline final entrenado con todo train -> models/baseline.joblib.
 4. Coeficientes con todo train y su estabilidad entre folds.
 
@@ -104,7 +105,7 @@ def main() -> dict:
     dummy_summary = summarize_folds({"dummy": dummy_folds}).loc["dummy"]
     print(f"  F1-macro {dummy_summary['f1_macro_media']:.3f}, recall {dummy_summary['recall_riesgo_media']:.3f}")
 
-    print("2. Ajuste de C (F1-macro al umbral 0.5, regla de un error estándar)")
+    print("2. Ajuste de C (F1-macro al umbral 0.5, regla de una desviación estándar)")
     estimator = build_baseline().named_steps["modelo"]
     best_C, grid_table, ev = tune(estimator, "C", C_GRID, X_train, y_train, folds)
     print(f"  C elegido: {best_C:g}")
@@ -124,7 +125,7 @@ def main() -> dict:
     report["ajuste"] = {
         "parametro": "C",
         "rejilla": C_GRID,
-        "criterio": "regla de un error estándar: el C más regularizado con F1-macro medio >= mejor - 1 desviación (umbral 0.5)",
+        "criterio": "regla de una desviación estándar: el C más regularizado con F1-macro medio >= mejor - 1 desviación estándar entre folds (umbral 0.5)",
         "elegido": best_C,
         "resultados": grid_table.to_dict(orient="records"),
     }
