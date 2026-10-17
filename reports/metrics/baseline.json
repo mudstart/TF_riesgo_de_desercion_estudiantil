@@ -16,7 +16,7 @@
     "verbose": 0,
     "warm_start": false
   },
-  "fecha": "2026-10-16T16:54:57",
+  "fecha": "2026-10-16T20:48:51",
   "n_train": 3539,
   "umbral": 0.5,
   "cv": {
@@ -24,14 +24,14 @@
     "recall_riesgo_media": 0.6314746116392302,
     "precision_riesgo_media": 0.5271376228965997,
     "balanced_accuracy_media": 0.6806363875936968,
-    "fit_time_s_media": 0.05525770001113415,
-    "predict_time_ms_1000_media": 17.502917552641087,
+    "fit_time_s_media": 0.06910608001053334,
+    "predict_time_ms_1000_media": 23.703095123165944,
     "f1_macro_std": 0.018320643152744176,
     "recall_riesgo_std": 0.03087507173058836,
     "precision_riesgo_std": 0.03038458344770298,
     "balanced_accuracy_std": 0.015408455924158201,
-    "fit_time_s_std": 0.002976800011096279,
-    "predict_time_ms_1000_std": 1.216308993312176
+    "fit_time_s_std": 0.012117424958078948,
+    "predict_time_ms_1000_std": 7.353414125266234
   },
   "oof": {
     "f1_macro": 0.6699943841493313,
@@ -46,9 +46,9 @@
     "tp": 718
   },
   "tiempos": {
-    "entrenamiento_s": 0.05525770001113415,
-    "inferencia_ms_1000": 17.502917552641087,
-    "entrenamiento_train_completo_s": 0.060925600002519786
+    "entrenamiento_s": 0.06910608001053334,
+    "inferencia_ms_1000": 23.703095123165944,
+    "entrenamiento_train_completo_s": 0.07742720004171133
   },
   "ajuste": {
     "parametro": "C",
@@ -187,14 +187,14 @@
       "recall_riesgo_media": 0.32100239585748513,
       "precision_riesgo_media": 0.33213781652137814,
       "balanced_accuracy_media": 0.5077157682683129,
-      "fit_time_s_media": 0.059618100011721256,
-      "predict_time_ms_1000_media": 17.353762018110753,
+      "fit_time_s_media": 0.06592802002560347,
+      "predict_time_ms_1000_media": 17.84596480239803,
       "f1_macro_std": 0.01993487260439218,
       "recall_riesgo_std": 0.026657051356311794,
       "precision_riesgo_std": 0.028103968941992477,
       "balanced_accuracy_std": 0.019762930218125464,
-      "fit_time_s_std": 0.052856184079965104,
-      "predict_time_ms_1000_std": 0.25968508937223606
+      "fit_time_s_std": 0.07390685801347553,
+      "predict_time_ms_1000_std": 2.8764436311755093
     }
   },
   "coeficientes": {

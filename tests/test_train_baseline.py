@@ -4,7 +4,7 @@ import pytest
 from sklearn.model_selection import StratifiedKFold
 
 from src.config import FEATURES_BINARIAS, FEATURES_NOMINALES, FEATURES_NUMERICAS, FEATURES_REDUNDANTES
-from src.train_baseline import C_GRID, build_baseline, coefficient_table, top_coefficients
+from src.models.train_baseline import C_GRID, build_baseline, coefficient_table, top_coefficients
 
 N = 400
 
