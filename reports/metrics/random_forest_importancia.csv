@@ -1,0 +1,17 @@
+variable,importancia_media,importancia_std,folds_positiva
+Age at enrollment,0.025043,0.005452,5
+Application mode,0.017061,0.010576,5
+Course,0.014273,0.011791,4
+Gender,0.009663,0.009808,4
+Mother's occupation,0.006088,0.005138,5
+Father's qualification,0.003861,0.004283,4
+Mother's qualification,0.002522,0.002344,4
+Marital Status,0.002231,0.002346,4
+Previous qualification (grade),0.001461,0.006277,3
+Previous qualification,0.000874,0.004919,3
+Educational special needs,-0.000174,0.001047,1
+Nacionality,-0.000265,0.000515,2
+Displaced,-0.001210,0.002665,1
+Father's occupation,-0.001435,0.004863,2
+Admission grade,-0.001778,0.005755,3
+Application order,-0.002725,0.002210,1

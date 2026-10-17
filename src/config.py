@@ -128,3 +128,6 @@ METRICS_DIR = REPORTS_DIR / "metrics"
 
 # Nombre con que el baseline (#9) guarda su pipeline (save_pipeline).
 BASELINE = "baseline"
+
+# Nombre con que el Random Forest (#11) guarda su pipeline y sus métricas.
+RANDOM_FOREST = "random_forest"
