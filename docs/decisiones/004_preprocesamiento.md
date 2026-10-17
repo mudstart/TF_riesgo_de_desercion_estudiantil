@@ -28,7 +28,7 @@ La auditoría de datos (#6, [reports/auditoria_datos.md](../../reports/auditoria
 
 ## 3. Decisión
 
-El pipeline es un `ColumnTransformer` seguido del modelo (`build_pipeline` en `src/models.py`, `build_preprocessor` en `src/features.py`):
+El pipeline es un `ColumnTransformer` seguido del modelo (`build_pipeline` en `src/models/__init__.py`, `build_preprocessor` en `src/features.py`):
 
 | Grupo | Columnas (modelo principal) | Transformación |
 |---|---|---|
