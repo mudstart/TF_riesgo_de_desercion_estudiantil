@@ -66,6 +66,7 @@ src/
   features.py    Transformación de características
   models/        Construcción de modelos (__init__.py) y un script de entrenamiento por modelo
     train_baseline.py  Baseline de regresión logística (#9)
+    train_rf.py        Candidato 1: Random Forest (#11)
   training.py    Ajuste de hiperparámetros y reporte estándar de métricas
   evaluation.py  Evaluación y comparación de modelos
 tests/         Pruebas automáticas con pytest
