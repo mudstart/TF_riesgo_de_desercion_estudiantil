@@ -5,7 +5,7 @@ Modelo de referencia simple e interpretable. **No es un trámite:** compite con 
 Se reproduce con:
 
 ```bash
-uv run python -m src.train_baseline
+uv run python -m src.models.train_baseline
 ```
 
 Salidas: `reports/metrics/baseline.json` (métricas en el formato estándar de `src/training.py`, el mismo que usarán #11 y #12), `reports/metrics/baseline_coeficientes.csv` (los 112 coeficientes) y `models/baseline.joblib` (no versionado).

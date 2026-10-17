@@ -3,7 +3,7 @@
 Modelo de referencia simple e interpretable contra el que se comparan los
 candidatos (#11, #12). Puede ganar la comparación (#13). Desde la raíz:
 
-    uv run python -m src.train_baseline
+    uv run python -m src.models.train_baseline
 
 Solo usa train y los 5 folds fijos (decisión 003). Pasos:
 

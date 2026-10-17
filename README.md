@@ -64,7 +64,9 @@ src/
   config.py      Configuración global (semilla)
   data.py        Carga, validación y preparación de datos
   features.py    Transformación de características
-  models.py      Construcción y entrenamiento de modelos
+  models/        Construcción de modelos (__init__.py) y un script de entrenamiento por modelo
+    train_baseline.py  Baseline de regresión logística (#9)
+  training.py    Ajuste de hiperparámetros y reporte estándar de métricas
   evaluation.py  Evaluación y comparación de modelos
 tests/         Pruebas automáticas con pytest
 ```
