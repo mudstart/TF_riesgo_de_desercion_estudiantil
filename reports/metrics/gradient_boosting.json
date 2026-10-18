@@ -1,0 +1,441 @@
+{
+  "modelo": "gradient_boosting",
+  "estimador": "HistGradientBoostingClassifier",
+  "hiperparametros": {
+    "categorical_features": "from_dtype",
+    "class_weight": "balanced",
+    "early_stopping": true,
+    "interaction_cst": null,
+    "l2_regularization": 1.0,
+    "learning_rate": 0.05,
+    "loss": "log_loss",
+    "max_bins": 255,
+    "max_depth": 8,
+    "max_features": 0.5,
+    "max_iter": 500,
+    "max_leaf_nodes": 31,
+    "min_samples_leaf": 20,
+    "monotonic_cst": null,
+    "n_iter_no_change": 10,
+    "random_state": 42,
+    "scoring": "loss",
+    "tol": 1e-07,
+    "validation_fraction": 0.1,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "fecha": "2026-10-17T22:05:56",
+  "n_train": 3539,
+  "umbral": 0.5,
+  "cv": {
+    "f1_macro_media": 0.67383813749608,
+    "recall_riesgo_media": 0.6534546719220959,
+    "precision_riesgo_media": 0.5262765642001727,
+    "balanced_accuracy_media": 0.6872574814911935,
+    "fit_time_s_media": 0.28124552000081166,
+    "predict_time_ms_1000_media": 13.32393920767034,
+    "f1_macro_std": 0.006468263626133657,
+    "recall_riesgo_std": 0.014596151475308024,
+    "precision_riesgo_std": 0.012042540086432641,
+    "balanced_accuracy_std": 0.0036392618038693396,
+    "fit_time_s_std": 0.020807993085898823,
+    "predict_time_ms_1000_std": 1.6170649884574106
+  },
+  "oof": {
+    "f1_macro": 0.6738813829418693,
+    "recall_riesgo": 0.6534740545294635,
+    "precision_riesgo": 0.5258315640481246,
+    "balanced_accuracy": 0.6872699165236826
+  },
+  "matriz_confusion": {
+    "tn": 1732,
+    "fp": 670,
+    "fn": 394,
+    "tp": 743
+  },
+  "tiempos": {
+    "entrenamiento_s": 0.28124552000081166,
+    "inferencia_ms_1000": 13.32393920767034,
+    "entrenamiento_train_completo_s": 0.3177473000250757,
+    "busqueda_total_s": 35.89856599998893
+  },
+  "busqueda": {
+    "metodo": "RandomizedSearchCV",
+    "n_iter": 25,
+    "n_combinaciones_espacio": 768,
+    "espacio": {
+      "learning_rate": [
+        0.02,
+        0.05,
+        0.1,
+        0.2
+      ],
+      "max_depth": [
+        3,
+        5,
+        8,
+        null
+      ],
+      "min_samples_leaf": [
+        10,
+        20,
+        50,
+        100
+      ],
+      "l2_regularization": [
+        0.0,
+        0.1,
+        1.0,
+        10.0
+      ],
+      "max_features": [
+        0.5,
+        0.8,
+        1.0
+      ]
+    },
+    "criterio": "mayor F1-macro medio entre los 5 folds fijos (umbral 0.5); decisión 006",
+    "elegido": {
+      "min_samples_leaf": 20,
+      "max_features": 0.5,
+      "max_depth": 8,
+      "learning_rate": 0.05,
+      "l2_regularization": 1.0
+    },
+    "resultados": [
+      {
+        "learning_rate": 0.05,
+        "max_depth": 8,
+        "min_samples_leaf": 20,
+        "l2_regularization": 1.0,
+        "max_features": 0.5,
+        "f1_macro_media": 0.67383813749608,
+        "f1_macro_std": 0.005785390865769657,
+        "fit_time_s_media": 0.2802722454071045
+      },
+      {
+        "learning_rate": 0.1,
+        "max_depth": 3,
+        "min_samples_leaf": 20,
+        "l2_regularization": 0.0,
+        "max_features": 0.5,
+        "f1_macro_media": 0.6733380595830969,
+        "f1_macro_std": 0.009427946798873694,
+        "fit_time_s_media": 0.18628625869750975
+      },
+      {
+        "learning_rate": 0.2,
+        "max_depth": 3,
+        "min_samples_leaf": 10,
+        "l2_regularization": 0.1,
+        "max_features": 0.5,
+        "f1_macro_media": 0.6722856300244461,
+        "f1_macro_std": 0.011739944400582902,
+        "fit_time_s_media": 0.16344919204711914
+      },
+      {
+        "learning_rate": 0.2,
+        "max_depth": 5,
+        "min_samples_leaf": 10,
+        "l2_regularization": 1.0,
+        "max_features": 0.8,
+        "f1_macro_media": 0.6717785673326391,
+        "f1_macro_std": 0.009588096998247671,
+        "fit_time_s_media": 0.16861414909362793
+      },
+      {
+        "learning_rate": 0.2,
+        "max_depth": 3,
+        "min_samples_leaf": 10,
+        "l2_regularization": 0.0,
+        "max_features": 0.8,
+        "f1_macro_media": 0.6707408685827545,
+        "f1_macro_std": 0.007500802088104984,
+        "fit_time_s_media": 0.15358638763427734
+      },
+      {
+        "learning_rate": 0.02,
+        "max_depth": 5,
+        "min_samples_leaf": 10,
+        "l2_regularization": 0.1,
+        "max_features": 0.8,
+        "f1_macro_media": 0.6703442008069492,
+        "f1_macro_std": 0.008158323504776452,
+        "fit_time_s_media": 0.3690530776977539
+      },
+      {
+        "learning_rate": 0.05,
+        "max_depth": 3,
+        "min_samples_leaf": 10,
+        "l2_regularization": 10.0,
+        "max_features": 0.5,
+        "f1_macro_media": 0.6692746426511935,
+        "f1_macro_std": 0.012855639614681356,
+        "fit_time_s_media": 0.2361063003540039
+      },
+      {
+        "learning_rate": 0.05,
+        "max_depth": 5,
+        "min_samples_leaf": 10,
+        "l2_regularization": 10.0,
+        "max_features": 0.5,
+        "f1_macro_media": 0.6692026492658943,
+        "f1_macro_std": 0.007936778611032534,
+        "fit_time_s_media": 0.2523196220397949
+      },
+      {
+        "learning_rate": 0.02,
+        "max_depth": 5,
+        "min_samples_leaf": 10,
+        "l2_regularization": 0.1,
+        "max_features": 0.5,
+        "f1_macro_media": 0.6690925509879287,
+        "f1_macro_std": 0.007557668801449484,
+        "fit_time_s_media": 0.3584582805633545
+      },
+      {
+        "learning_rate": 0.1,
+        "max_depth": 5,
+        "min_samples_leaf": 20,
+        "l2_regularization": 1.0,
+        "max_features": 1.0,
+        "f1_macro_media": 0.668982520524324,
+        "f1_macro_std": 0.00829420995221889,
+        "fit_time_s_media": 0.1863250255584717
+      },
+      {
+        "learning_rate": 0.2,
+        "max_depth": null,
+        "min_samples_leaf": 10,
+        "l2_regularization": 10.0,
+        "max_features": 0.8,
+        "f1_macro_media": 0.6688544587586196,
+        "f1_macro_std": 0.008968690233567162,
+        "fit_time_s_media": 0.2060260772705078
+      },
+      {
+        "learning_rate": 0.02,
+        "max_depth": 8,
+        "min_samples_leaf": 10,
+        "l2_regularization": 10.0,
+        "max_features": 0.8,
+        "f1_macro_media": 0.6683121688050233,
+        "f1_macro_std": 0.009159190893398427,
+        "fit_time_s_media": 0.5991150379180908
+      },
+      {
+        "learning_rate": 0.05,
+        "max_depth": 8,
+        "min_samples_leaf": 20,
+        "l2_regularization": 0.1,
+        "max_features": 0.5,
+        "f1_macro_media": 0.6661095417347497,
+        "f1_macro_std": 0.009100402999925504,
+        "fit_time_s_media": 0.31688365936279295
+      },
+      {
+        "learning_rate": 0.05,
+        "max_depth": null,
+        "min_samples_leaf": 10,
+        "l2_regularization": 10.0,
+        "max_features": 1.0,
+        "f1_macro_media": 0.6651867812642549,
+        "f1_macro_std": 0.014871572275102735,
+        "fit_time_s_media": 0.4368485450744629
+      },
+      {
+        "learning_rate": 0.2,
+        "max_depth": 5,
+        "min_samples_leaf": 10,
+        "l2_regularization": 0.1,
+        "max_features": 1.0,
+        "f1_macro_media": 0.6646202615064967,
+        "f1_macro_std": 0.006524390394270502,
+        "fit_time_s_media": 0.15446505546569825
+      },
+      {
+        "learning_rate": 0.02,
+        "max_depth": 5,
+        "min_samples_leaf": 20,
+        "l2_regularization": 0.1,
+        "max_features": 1.0,
+        "f1_macro_media": 0.6638264246424901,
+        "f1_macro_std": 0.013456621545631554,
+        "fit_time_s_media": 0.39183268547058103
+      },
+      {
+        "learning_rate": 0.02,
+        "max_depth": 5,
+        "min_samples_leaf": 10,
+        "l2_regularization": 0.1,
+        "max_features": 1.0,
+        "f1_macro_media": 0.6635519404348823,
+        "f1_macro_std": 0.011934487132465114,
+        "fit_time_s_media": 0.35671181678771974
+      },
+      {
+        "learning_rate": 0.1,
+        "max_depth": null,
+        "min_samples_leaf": 10,
+        "l2_regularization": 0.1,
+        "max_features": 0.5,
+        "f1_macro_media": 0.6631840652019713,
+        "f1_macro_std": 0.012409328673360122,
+        "fit_time_s_media": 0.23911852836608888
+      },
+      {
+        "learning_rate": 0.05,
+        "max_depth": null,
+        "min_samples_leaf": 20,
+        "l2_regularization": 0.1,
+        "max_features": 0.8,
+        "f1_macro_media": 0.6631054350096868,
+        "f1_macro_std": 0.006263796774203878,
+        "fit_time_s_media": 0.3059414863586426
+      },
+      {
+        "learning_rate": 0.05,
+        "max_depth": null,
+        "min_samples_leaf": 50,
+        "l2_regularization": 0.0,
+        "max_features": 0.5,
+        "f1_macro_media": 0.6624479444225146,
+        "f1_macro_std": 0.010741833514129842,
+        "fit_time_s_media": 0.2685227394104004
+      },
+      {
+        "learning_rate": 0.05,
+        "max_depth": null,
+        "min_samples_leaf": 20,
+        "l2_regularization": 1.0,
+        "max_features": 0.8,
+        "f1_macro_media": 0.6614157411861392,
+        "f1_macro_std": 0.009338456562070033,
+        "fit_time_s_media": 0.30883030891418456
+      },
+      {
+        "learning_rate": 0.1,
+        "max_depth": 5,
+        "min_samples_leaf": 50,
+        "l2_regularization": 10.0,
+        "max_features": 0.8,
+        "f1_macro_media": 0.6602150702639191,
+        "f1_macro_std": 0.010518228350255643,
+        "fit_time_s_media": 0.18975605964660644
+      },
+      {
+        "learning_rate": 0.2,
+        "max_depth": null,
+        "min_samples_leaf": 10,
+        "l2_regularization": 1.0,
+        "max_features": 0.8,
+        "f1_macro_media": 0.6595957051291974,
+        "f1_macro_std": 0.01387371892820089,
+        "fit_time_s_media": 0.18991308212280272
+      },
+      {
+        "learning_rate": 0.02,
+        "max_depth": 3,
+        "min_samples_leaf": 100,
+        "l2_regularization": 0.1,
+        "max_features": 0.8,
+        "f1_macro_media": 0.6595924438197805,
+        "f1_macro_std": 0.014107354835596633,
+        "fit_time_s_media": 0.29300851821899415
+      },
+      {
+        "learning_rate": 0.05,
+        "max_depth": null,
+        "min_samples_leaf": 100,
+        "l2_regularization": 10.0,
+        "max_features": 0.8,
+        "f1_macro_media": 0.6490755023566095,
+        "f1_macro_std": 0.01120839556076411,
+        "fit_time_s_media": 0.24934649467468262
+      }
+    ]
+  },
+  "early_stopping": {
+    "early_stopping": true,
+    "validation_fraction": 0.1,
+    "n_iter_no_change": 10,
+    "max_iter": 500,
+    "validacion": "10 % estratificado del train de cada ajuste; nunca el fold de validación ni el test",
+    "arboles_por_fold": [
+      75,
+      95,
+      67,
+      86,
+      83
+    ],
+    "arboles_modelo_final": 83
+  },
+  "importancia": {
+    "metodo": "permutation importance (F1-macro, 5 repeticiones) en el fold de validación de cada fold",
+    "archivo": "gradient_boosting_importancia.csv",
+    "top": [
+      {
+        "variable": "Age at enrollment",
+        "importancia_media": 0.065,
+        "importancia_std": 0.0039,
+        "folds_positiva": 5
+      },
+      {
+        "variable": "Course",
+        "importancia_media": 0.0276,
+        "importancia_std": 0.0137,
+        "folds_positiva": 5
+      },
+      {
+        "variable": "Gender",
+        "importancia_media": 0.0189,
+        "importancia_std": 0.009,
+        "folds_positiva": 5
+      },
+      {
+        "variable": "Application mode",
+        "importancia_media": 0.0167,
+        "importancia_std": 0.0083,
+        "folds_positiva": 5
+      },
+      {
+        "variable": "Father's occupation",
+        "importancia_media": 0.0115,
+        "importancia_std": 0.007,
+        "folds_positiva": 5
+      },
+      {
+        "variable": "Mother's occupation",
+        "importancia_media": 0.0098,
+        "importancia_std": 0.0088,
+        "folds_positiva": 4
+      },
+      {
+        "variable": "Previous qualification (grade)",
+        "importancia_media": 0.0095,
+        "importancia_std": 0.0073,
+        "folds_positiva": 4
+      },
+      {
+        "variable": "Admission grade",
+        "importancia_media": 0.0085,
+        "importancia_std": 0.0075,
+        "folds_positiva": 4
+      },
+      {
+        "variable": "Mother's qualification",
+        "importancia_media": 0.0075,
+        "importancia_std": 0.0067,
+        "folds_positiva": 5
+      },
+      {
+        "variable": "Father's qualification",
+        "importancia_media": 0.005,
+        "importancia_std": 0.0064,
+        "folds_positiva": 4
+      }
+    ]
+  },
+  "energia_kwh": null,
+  "emisiones_gco2eq": null
+}
