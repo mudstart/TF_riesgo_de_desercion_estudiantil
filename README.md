@@ -48,6 +48,26 @@ uv run python -m src.data
 
 Si el archivo ya existe y es válido, no se vuelve a descargar. El mismo comando crea la partición fija `data/processed/splits.json` si todavía no existe. Procedencia, licencia (CC BY 4.0, con atribución obligatoria), cobertura y limitaciones del dataset: [docs/ficha_datos.md](docs/ficha_datos.md).
 
+## Ejecutar el proyecto
+
+Desde la raíz del repositorio, en este orden. Cada paso es reproducible (semilla fija) y usa solo train y los 5 folds fijos; el conjunto de test no se usa hasta la evaluación final (#13).
+
+| Paso | Comando | Resultado | Tiempo aprox. |
+|---|---|---|---|
+| 1. Datos y partición | `uv run python -m src.data` | `data/raw/data.csv` y `data/processed/splits.json` | segundos |
+| 2. Auditoría de datos (EDA, #6) | `uv run jupyter nbconvert --to notebook --execute --inplace notebooks/01_auditoria_datos.ipynb` | Notebook ejecutado y figuras en `reports/figures/` | < 1 min |
+| 3. Baseline: regresión logística (#9) | `uv run python -m src.models.train_baseline` | `models/baseline.joblib`, `reports/metrics/baseline.json` y `baseline_coeficientes.csv` | < 1 min |
+| 4. Candidato 1: Random Forest (#11) | `uv run python -m src.models.train_rf` | `models/random_forest.joblib`, `reports/metrics/random_forest.json` y `random_forest_importancia.csv` | ~2 min |
+| 5. Candidato 2: Gradient Boosting (#12) | `uv run python -m src.models.train_gb` | `models/gradient_boosting.joblib`, `reports/metrics/gradient_boosting.json` y `gradient_boosting_importancia.csv` | ~1 min |
+
+Los pasos 3 a 5 son independientes entre sí, pero todos requieren el paso 1. Los modelos (`models/`) no se versionan; las métricas (`reports/metrics/`) sí.
+
+Para comprobar que todo funciona:
+
+```bash
+uv run pytest
+```
+
 ## Estructura
 
 ```text
@@ -67,6 +87,7 @@ src/
   models/        Construcción de modelos (__init__.py) y un script de entrenamiento por modelo
     train_baseline.py  Baseline de regresión logística (#9)
     train_rf.py        Candidato 1: Random Forest (#11)
+    train_gb.py        Candidato 2: Gradient Boosting (#12)
   training.py    Ajuste de hiperparámetros y reporte estándar de métricas
   evaluation.py  Evaluación y comparación de modelos
 tests/         Pruebas automáticas con pytest

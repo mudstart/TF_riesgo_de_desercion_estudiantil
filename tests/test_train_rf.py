@@ -10,7 +10,8 @@ from src.config import (
     FEATURES_REDUNDANTES,
 )
 from src.features import model_columns
-from src.models.train_rf import SEARCH_SPACE, build_rf, importance_table, search
+from src.models.train_rf import SEARCH_SPACE, build_rf, search
+from src.training import permutation_importance_table
 
 N = 200
 
@@ -53,7 +54,7 @@ def test_search_returns_values_from_the_space(data):
 
 def test_importance_has_one_row_per_model_column(data):
     X, y, folds = data
-    table = importance_table(build_rf(n_estimators=10), X, y, folds)
+    table = permutation_importance_table(build_rf(n_estimators=10), X, y, folds)
     assert set(table.index) == set(model_columns())
     assert table["importancia_media"].is_monotonic_decreasing
     assert table.index[0] == "Age at enrollment"
