@@ -59,8 +59,10 @@ Desde la raíz del repositorio, en este orden. Cada paso es reproducible (semill
 | 3. Baseline: regresión logística (#9) | `uv run python -m src.models.train_baseline` | `models/baseline.joblib`, `reports/metrics/baseline.json` y `baseline_coeficientes.csv` | < 1 min |
 | 4. Candidato 1: Random Forest (#11) | `uv run python -m src.models.train_rf` | `models/random_forest.joblib`, `reports/metrics/random_forest.json` y `random_forest_importancia.csv` | ~2 min |
 | 5. Candidato 2: Gradient Boosting (#12) | `uv run python -m src.models.train_gb` | `models/gradient_boosting.joblib`, `reports/metrics/gradient_boosting.json` y `gradient_boosting_importancia.csv` | ~1 min |
+| 6. Comparación con CV y selección (#13) | `uv run python -m src.comparacion` | `reports/metrics/comparacion_cv.json` y `.md`, `reports/figures/13_*.png` | ~1 min |
+| 7. Evaluación final en test (#13), **una sola vez** | `uv run python -m src.comparacion --test` | `reports/metrics/test_final.json` y `reports/figures/13_confusion_test.png` | segundos |
 
-Los pasos 3 a 5 son independientes entre sí, pero todos requieren el paso 1. Los modelos (`models/`) no se versionan; las métricas (`reports/metrics/`) sí.
+Los pasos 3 a 5 son independientes entre sí, pero todos requieren el paso 1. El paso 6 requiere los pasos 3 a 5. El paso 7 ya se ejecutó y su resultado está versionado: el script se niega a repetirlo mientras exista `test_final.json` ([decisión 008](docs/decisiones/008_criterio_seleccion.md)). Los modelos (`models/`) no se versionan; las métricas (`reports/metrics/`) sí.
 
 Para comprobar que todo funciona:
 
@@ -90,6 +92,7 @@ src/
     train_gb.py        Candidato 2: Gradient Boosting (#12)
   training.py    Ajuste de hiperparámetros y reporte estándar de métricas
   evaluation.py  Evaluación y comparación de modelos
+  comparacion.py Comparación final, selección y evaluación única en test (#13)
 tests/         Pruebas automáticas con pytest
 ```
 

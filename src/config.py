@@ -125,6 +125,7 @@ MODELS_DIR = PROJECT_ROOT / "models"
 
 REPORTS_DIR = PROJECT_ROOT / "reports"
 METRICS_DIR = REPORTS_DIR / "metrics"
+FIGURES_DIR = REPORTS_DIR / "figures"
 
 # Nombre con que el baseline (#9) guarda su pipeline (save_pipeline).
 BASELINE = "baseline"
@@ -134,3 +135,17 @@ RANDOM_FOREST = "random_forest"
 
 # Nombre con que el Gradient Boosting (#12) guarda su pipeline y sus métricas.
 GRADIENT_BOOSTING = "gradient_boosting"
+
+# Comparación y selección del modelo final (#13)
+# (ver docs/decisiones/008_criterio_seleccion.md)
+
+# Modelos comparados, del más simple al más complejo: este orden desempata.
+MODELOS_COMPARADOS = (BASELINE, RANDOM_FOREST, GRADIENT_BOOSTING)
+
+# Piso de F1-macro: cada modelo usa el umbral de mayor recall de riesgo que
+# lo respeta, y solo es elegible si lo alcanza.
+MIN_F1_MACRO = 0.62
+
+# Remuestreos del bootstrap pareado y nivel de los intervalos.
+N_BOOTSTRAP = 2000
+CONFIDENCE = 0.95
