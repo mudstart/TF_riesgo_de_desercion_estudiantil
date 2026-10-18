@@ -22,13 +22,15 @@ El commit del criterio (`docs: criterio de seleccion y umbral de decision antes 
 
 ## 2. Tabla comparativa (validación cruzada, 5 folds, media ± desviación)
 
-Al umbral ajustado; el umbral de cada fold se elige con los otros cuatro, así que estas cifras no están infladas:
+Al umbral ajustado; el umbral de cada fold se elige con los otros cuatro, así que estas cifras no están infladas. Los tiempos son por fold y salen de `reports/metrics/<modelo>.json`, medidos al entrenar cada modelo (#9, #11, #12):
 
-| Modelo | Umbral | F1-macro | Recall Dropout | Precisión Dropout | Balanced acc. |
-|---|---|---|---|---|---|
-| Baseline | 0.431 ± 0.005 | 0.620 ± 0.023 | 0.773 ± 0.014 | 0.453 ± 0.021 | 0.665 ± 0.016 |
-| **Random Forest** | 0.382 ± 0.007 | 0.620 ± 0.021 | **0.808 ± 0.021** | 0.454 ± 0.018 | 0.673 ± 0.014 |
-| Gradient Boosting | 0.385 ± 0.007 | 0.618 ± 0.023 | 0.792 ± 0.012 | 0.452 ± 0.020 | 0.668 ± 0.017 |
+| Modelo | Umbral | F1-macro | Recall Dropout | Precisión Dropout | Balanced acc. | Entrenamiento (s) | Inferencia (ms/1,000) | Emisiones (gCO2eq) |
+|---|---|---|---|---|---|---|---|---|
+| Baseline | 0.431 ± 0.005 | 0.620 ± 0.023 | 0.773 ± 0.014 | 0.453 ± 0.021 | 0.665 ± 0.016 | 0.07 ± 0.01 | 23.7 ± 7.4 | pendiente (#15) |
+| **Random Forest** | 0.382 ± 0.007 | 0.620 ± 0.021 | **0.808 ± 0.021** | 0.454 ± 0.018 | 0.673 ± 0.014 | 0.45 ± 0.00 | 90.5 ± 2.0 | pendiente (#15) |
+| Gradient Boosting | 0.385 ± 0.007 | 0.618 ± 0.023 | 0.792 ± 0.012 | 0.452 ± 0.020 | 0.668 ± 0.017 | 0.28 ± 0.02 | 13.3 ± 1.6 | pendiente (#15) |
+
+Coste de la búsqueda de hiperparámetros (una vez, no por fold): Random Forest 58 s y Gradient Boosting 36 s (25 combinaciones × 5 folds, decisión 006); el baseline ajusta un solo hiperparámetro, `C`, en menos de 1 s por valor. Las emisiones se añaden cuando #15 escriba `emisiones_gco2eq` en cada `reports/metrics/<modelo>.json`: basta con volver a ejecutar `uv run python -m src.comparacion` (solo CV, sin tocar test).
 
 Al umbral 0.5, como referencia (los valores de #9, #11 y #12):
 
@@ -38,15 +40,7 @@ Al umbral 0.5, como referencia (los valores de #9, #11 y #12):
 | Random Forest | 0.676 ± 0.016 | 0.602 ± 0.018 | 0.545 ± 0.029 | 0.681 ± 0.014 |
 | Gradient Boosting | 0.674 ± 0.006 | 0.653 ± 0.015 | 0.526 ± 0.012 | 0.687 ± 0.004 |
 
-Coste computacional (por fold, de `reports/metrics/<modelo>.json`, medido al entrenar cada modelo):
-
-| Modelo | Entrenamiento | Inferencia por 1,000 registros | Búsqueda de hiperparámetros | Energía y emisiones |
-|---|---|---|---|---|
-| Baseline | 0.07 s | 24 ms | — | pendiente (#15) |
-| Random Forest | 0.45 s | 90 ms | 61 s | pendiente (#15) |
-| Gradient Boosting | 0.32 s | 14 ms | 41 s | pendiente (#15) |
-
-`comparacion_cv.md` repite estos tiempos medidos durante la comparación; allí son más altos porque se midieron con el equipo bajo más carga, pero el orden entre modelos se mantiene salvo en la inferencia del baseline.
+`comparacion_cv.md` incluye además los tiempos medidos durante la comparación. Allí son más altos porque se midieron con el equipo bajo más carga, así que para comparar coste se usan los de esta tabla.
 
 ## 3. ¿Diferencias reales o ruido?
 
