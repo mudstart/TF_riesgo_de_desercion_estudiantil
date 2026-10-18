@@ -131,3 +131,6 @@ BASELINE = "baseline"
 
 # Nombre con que el Random Forest (#11) guarda su pipeline y sus métricas.
 RANDOM_FOREST = "random_forest"
+
+# Nombre con que el Gradient Boosting (#12) guarda su pipeline y sus métricas.
+GRADIENT_BOOSTING = "gradient_boosting"

@@ -1,9 +1,10 @@
 """Ajuste ligero de hiperparámetros y reporte estándar de métricas.
 
 Lo usan #9 (baseline), #11 y #12 para que los tres modelos se ajusten y se
-reporten igual. El hiperparámetro se elige por F1-macro medio entre folds al
-umbral 0.5; el umbral de decisión de cada modelo se fija después, en la
-comparación (#13), con el mismo criterio para todos.
+reporten igual. El baseline ajusta un hiperparámetro con tune (decisión 005);
+los candidatos usan random_search (decisión 006). En ambos casos se elige por
+F1-macro medio entre folds al umbral 0.5; el umbral de decisión de cada modelo
+se fija después, en la comparación (#13), con el mismo criterio para todos.
 
 Todo se calcula solo con train y los folds fijos de cv_folds(splits).
 """
@@ -16,11 +17,14 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 from sklearn.base import BaseEstimator, clone
+from sklearn.inspection import permutation_importance
 from sklearn.metrics import confusion_matrix
+from sklearn.model_selection import RandomizedSearchCV
 from sklearn.pipeline import Pipeline
 
-from src.config import METRICS_DIR
+from src.config import METRICS_DIR, RANDOM_STATE
 from src.evaluation import classification_metrics, cross_validate_model, predict_at, summarize_folds
+from src.features import model_columns
 from src.models import build_pipeline
 
 # Umbral de las métricas de este reporte; el ajustado lo fija #13.
@@ -69,6 +73,84 @@ def tune(
     table["dentro_1de"] = table["f1_macro_media"] >= top["f1_macro_media"] - top["f1_macro_std"]
     best = int(table["dentro_1de"].idxmax())  # primer True: el más simple
     return grid[best], table, evaluations[best]
+
+
+def random_search(
+    pipeline: Pipeline,
+    space: dict,
+    X: pd.DataFrame,
+    y: pd.Series,
+    folds: list[tuple[np.ndarray, np.ndarray]],
+    n_iter: int,
+) -> tuple[dict, pd.DataFrame, float]:
+    """Búsqueda aleatoria por F1-macro medio con los folds fijos (decisión 006).
+
+    space usa nombres del pipeline ("modelo__<parámetro>"). Devuelve los
+    hiperparámetros ganadores sin el prefijo "modelo__", una fila por
+    combinación probada ordenada de mejor a peor y el tiempo total (s).
+    """
+    searcher = RandomizedSearchCV(
+        pipeline,
+        space,
+        n_iter=n_iter,
+        scoring="f1_macro",
+        cv=folds,
+        refit=False,
+        random_state=RANDOM_STATE,
+    )
+    start = time.perf_counter()
+    searcher.fit(X, y)
+    elapsed = time.perf_counter() - start
+
+    results = pd.DataFrame(searcher.cv_results_)
+    table = pd.DataFrame(
+        {
+            **{p.removeprefix("modelo__"): results[f"param_{p}"] for p in space},
+            "f1_macro_media": results["mean_test_score"],
+            "f1_macro_std": results["std_test_score"],
+            "fit_time_s_media": results["mean_fit_time"],
+        }
+    ).sort_values("f1_macro_media", ascending=False, kind="stable")
+    best = {p.removeprefix("modelo__"): v for p, v in searcher.best_params_.items()}
+    return best, table.reset_index(drop=True), elapsed
+
+
+def permutation_importance_table(
+    pipeline: Pipeline,
+    X: pd.DataFrame,
+    y: pd.Series,
+    folds: list[tuple[np.ndarray, np.ndarray]],
+    n_repeats: int = 5,
+) -> pd.DataFrame:
+    """Permutation importance por columna del modelo (caída de F1-macro).
+
+    En cada fold el pipeline se entrena con las filas de entrenamiento y se
+    permuta cada columna en las de validación. Se reporta la media y la
+    desviación entre folds, y en cuántos folds la importancia es positiva.
+    """
+    columns = model_columns()
+    per_fold = {}
+    for k, (tr, va) in enumerate(folds):
+        model = clone(pipeline).fit(X.iloc[tr], y.iloc[tr])
+        result = permutation_importance(
+            model,
+            X.iloc[va][columns],
+            y.iloc[va],
+            scoring="f1_macro",
+            n_repeats=n_repeats,
+            random_state=RANDOM_STATE,
+        )
+        per_fold[k] = pd.Series(result.importances_mean, index=columns)
+    per_fold = pd.DataFrame(per_fold)
+    table = pd.DataFrame(
+        {
+            "importancia_media": per_fold.mean(axis=1),
+            "importancia_std": per_fold.std(axis=1, ddof=1),
+            "folds_positiva": (per_fold > 0).sum(axis=1),
+        }
+    )
+    table.index.name = "variable"
+    return table.sort_values("importancia_media", ascending=False)
 
 
 def confusion(y_true, y_pred) -> dict[str, int]:

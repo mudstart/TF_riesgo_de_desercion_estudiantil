@@ -18,22 +18,17 @@ Salidas: reports/metrics/random_forest.json y
 reports/metrics/random_forest_importancia.csv.
 """
 
-import time
-
 import numpy as np
 import pandas as pd
-from sklearn.base import clone
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.inspection import permutation_importance
-from sklearn.model_selection import RandomizedSearchCV
 from sklearn.pipeline import Pipeline
 
 from src.config import METRICS_DIR, RANDOM_FOREST, RANDOM_STATE
 from src.data import build_target, cv_folds, load_raw, load_splits
 from src.evaluation import cross_validate_model
-from src.features import model_columns, select_features
+from src.features import select_features
 from src.models import build_pipeline, save_pipeline
-from src.training import fit_full_train, model_report, save_metrics
+from src.training import fit_full_train, model_report, permutation_importance_table, random_search, save_metrics
 
 # Espacio de búsqueda: 4 x 5 x 6 x 4 = 480 combinaciones.
 SEARCH_SPACE = {
@@ -59,67 +54,8 @@ def build_rf(**params) -> Pipeline:
 def search(
     X: pd.DataFrame, y: pd.Series, folds, n_iter: int = N_ITER, space: dict = SEARCH_SPACE
 ) -> tuple[dict, pd.DataFrame, float]:
-    """Búsqueda aleatoria por F1-macro medio con los folds fijos.
-
-    Devuelve los hiperparámetros ganadores (sin el prefijo "modelo__"), una
-    fila por combinación probada ordenada de mejor a peor y el tiempo total (s).
-    """
-    searcher = RandomizedSearchCV(
-        build_rf(),
-        space,
-        n_iter=n_iter,
-        scoring="f1_macro",
-        cv=folds,
-        refit=False,
-        random_state=RANDOM_STATE,
-    )
-    start = time.perf_counter()
-    searcher.fit(X, y)
-    elapsed = time.perf_counter() - start
-
-    results = pd.DataFrame(searcher.cv_results_)
-    table = pd.DataFrame(
-        {
-            **{p.removeprefix("modelo__"): results[f"param_{p}"] for p in space},
-            "f1_macro_media": results["mean_test_score"],
-            "f1_macro_std": results["std_test_score"],
-            "fit_time_s_media": results["mean_fit_time"],
-        }
-    ).sort_values("f1_macro_media", ascending=False, kind="stable")
-    best = {p.removeprefix("modelo__"): v for p, v in searcher.best_params_.items()}
-    return best, table.reset_index(drop=True), elapsed
-
-
-def importance_table(pipeline: Pipeline, X: pd.DataFrame, y: pd.Series, folds) -> pd.DataFrame:
-    """Permutation importance por columna del modelo (caída de F1-macro).
-
-    En cada fold el pipeline se entrena con las filas de entrenamiento y se
-    permuta cada columna en las de validación. Se reporta la media y la
-    desviación entre folds, y en cuántos folds la importancia es positiva.
-    """
-    columns = model_columns()
-    per_fold = {}
-    for k, (tr, va) in enumerate(folds):
-        model = clone(pipeline).fit(X.iloc[tr], y.iloc[tr])
-        result = permutation_importance(
-            model,
-            X.iloc[va][columns],
-            y.iloc[va],
-            scoring="f1_macro",
-            n_repeats=N_REPEATS,
-            random_state=RANDOM_STATE,
-        )
-        per_fold[k] = pd.Series(result.importances_mean, index=columns)
-    per_fold = pd.DataFrame(per_fold)
-    table = pd.DataFrame(
-        {
-            "importancia_media": per_fold.mean(axis=1),
-            "importancia_std": per_fold.std(axis=1, ddof=1),
-            "folds_positiva": (per_fold > 0).sum(axis=1),
-        }
-    )
-    table.index.name = "variable"
-    return table.sort_values("importancia_media", ascending=False)
+    """Búsqueda aleatoria del Random Forest (ver random_search)."""
+    return random_search(build_rf(), space, X, y, folds, n_iter)
 
 
 def main() -> dict:
@@ -142,7 +78,7 @@ def main() -> dict:
     print(f"  Guardado en {model_path}")
 
     print("4. Permutation importance en los folds de validación")
-    importance = importance_table(build_rf(**best), X_train, y_train, folds)
+    importance = permutation_importance_table(build_rf(**best), X_train, y_train, folds, N_REPEATS)
     METRICS_DIR.mkdir(parents=True, exist_ok=True)
     importance.to_csv(IMPORTANCE_PATH, float_format="%.6f", encoding="utf-8")
 
