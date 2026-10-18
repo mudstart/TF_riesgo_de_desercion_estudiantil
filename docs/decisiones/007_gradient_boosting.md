@@ -4,7 +4,7 @@
 - Rama: `feature/12-gradient-boosting`.
 - Responsable: Jose Maduro.
 - Fecha: 2026-10-17.
-- Estado: Propuesta.
+- Estado: Aprobada (PR #35).
 - Reemplaza a: No aplica.
 
 ## 1. Contexto
@@ -75,6 +75,6 @@ Permutation importance (5 folds): `Age at enrollment` (0.065, positiva en los 5 
 
 | Campo | Valor |
 |---|---|
-| Revisado por | POR COMPLETAR: revisión del PR |
-| Fecha | POR COMPLETAR |
-| Evidencia | POR COMPLETAR: enlace al PR |
+| Revisado por | Manicaotex Mueses |
+| Fecha | 2026-10-18 |
+| Evidencia | [PR #35](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/pull/35): `uv run pytest` en verde (61 pruebas) y `train_gb` reproduce las métricas (solo cambian los tiempos) |
