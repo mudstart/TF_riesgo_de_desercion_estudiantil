@@ -1,0 +1,1520 @@
+{
+  "fecha": "2026-10-18T18:25:56",
+  "modelo": "random_forest",
+  "umbral": 0.38157939505275656,
+  "n_train": 3539,
+  "parametros": {
+    "ancho_abstencion": 0.05,
+    "max_brecha_recall": 0.1,
+    "min_riesgo_subgrupo": 30,
+    "limites_edad": [
+      20,
+      25
+    ],
+    "n_bootstrap": 2000,
+    "confidence": 0.95
+  },
+  "metricas_oof": {
+    "f1_macro": 0.6201021934760698,
+    "recall_riesgo": 0.8100263852242744,
+    "precision_riesgo": 0.45257985257985256,
+    "balanced_accuracy": 0.6731231010217957
+  },
+  "fpr_oof": 0.46378018318068276,
+  "matriz_confusion_oof": {
+    "tn": 1288,
+    "fp": 1114,
+    "fn": 216,
+    "tp": 921
+  },
+  "falsos_positivos_por_clase": {
+    "falsos_positivos": {
+      "Graduate": 735,
+      "Enrolled": 379
+    },
+    "no_desertores": {
+      "Graduate": 1767,
+      "Enrolled": 635
+    }
+  },
+  "subgrupos": {
+    "Gender": [
+      {
+        "subgrupo": "Mujer",
+        "n": 2298,
+        "n_riesgo": 581,
+        "prevalencia": 0.25282854656222803,
+        "tasa_marcados": 0.44473455178416016,
+        "recall_riesgo": 0.7005163511187608,
+        "recall_ic": [
+          0.6626506024096386,
+          0.7383820998278829
+        ],
+        "fpr": 0.3581828771112405,
+        "fpr_ic": [
+          0.33546884100174723,
+          0.3808969132207338
+        ],
+        "precision_riesgo": 0.39823874755381605,
+        "brecha_recall": -0.22394408053591552,
+        "brecha_recall_ic": [
+          -0.26713392624970583,
+          -0.18129403533971447
+        ],
+        "brecha_fpr": -0.37028427617343096,
+        "brecha_fpr_ic": [
+          -0.40937488574963127,
+          -0.32775907732464954
+        ],
+        "evaluable": true,
+        "alerta": true
+      },
+      {
+        "subgrupo": "Hombre",
+        "n": 1241,
+        "n_riesgo": 556,
+        "prevalencia": 0.44802578565672846,
+        "tasa_marcados": 0.8162771958098308,
+        "recall_riesgo": 0.9244604316546763,
+        "recall_ic": [
+          0.9028776978417267,
+          0.9460431654676259
+        ],
+        "fpr": 0.7284671532846715,
+        "fpr_ic": [
+          0.6934306569343066,
+          0.762043795620438
+        ],
+        "precision_riesgo": 0.5074037512339585,
+        "brecha_recall": 0.22394408053591552,
+        "brecha_recall_ic": [
+          0.1820903862108248,
+          0.26806501442563674
+        ],
+        "brecha_fpr": 0.37028427617343096,
+        "brecha_fpr_ic": [
+          0.32857645103282335,
+          0.41114488434674296
+        ],
+        "evaluable": true,
+        "alerta": false
+      }
+    ],
+    "Rango de edad": [
+      {
+        "subgrupo": "Hasta 20",
+        "n": 2061,
+        "n_riesgo": 435,
+        "prevalencia": 0.21106259097525473,
+        "tasa_marcados": 0.3444929645803008,
+        "recall_riesgo": 0.5632183908045977,
+        "recall_ic": [
+          0.5172413793103449,
+          0.6091954022988506
+        ],
+        "fpr": 0.2859778597785978,
+        "fpr_ic": [
+          0.26383763837638374,
+          0.3075030750307503
+        ],
+        "precision_riesgo": 0.34507042253521125,
+        "brecha_recall": -0.39974457215836523,
+        "brecha_recall_ic": [
+          -0.44738014539738674,
+          -0.35179290696532073
+        ],
+        "brecha_fpr": -0.5503623464069692,
+        "brecha_fpr_ic": [
+          -0.5849523211726962,
+          -0.5171453173938957
+        ],
+        "evaluable": true,
+        "alerta": true
+      },
+      {
+        "subgrupo": "21 a 25",
+        "n": 648,
+        "n_riesgo": 237,
+        "prevalencia": 0.36574074074074076,
+        "tasa_marcados": 0.7762345679012346,
+        "recall_riesgo": 0.8987341772151899,
+        "recall_ic": [
+          0.8607594936708861,
+          0.9367088607594937
+        ],
+        "fpr": 0.7055961070559611,
+        "fpr_ic": [
+          0.6642335766423357,
+          0.7469586374695864
+        ],
+        "precision_riesgo": 0.4234592445328032,
+        "brecha_recall": 0.11206751054852326,
+        "brecha_recall_ic": [
+          0.06610337552742616,
+          0.15738924050632908
+        ],
+        "brecha_fpr": 0.29173372634275163,
+        "brecha_fpr_ic": [
+          0.2446840465794371,
+          0.3389669571465756
+        ],
+        "evaluable": true,
+        "alerta": false
+      },
+      {
+        "subgrupo": "Más de 25",
+        "n": 830,
+        "n_riesgo": 465,
+        "prevalencia": 0.5602409638554217,
+        "tasa_marcados": 0.9903614457831326,
+        "recall_riesgo": 0.9956989247311828,
+        "recall_ic": [
+          0.989247311827957,
+          1.0
+        ],
+        "fpr": 0.9835616438356164,
+        "fpr_ic": [
+          0.9698630136986301,
+          0.9945205479452055
+        ],
+        "precision_riesgo": 0.5632603406326034,
+        "brecha_recall": 0.31415130568356375,
+        "brecha_recall_ic": [
+          0.2800842453917051,
+          0.34839405721966193
+        ],
+        "brecha_fpr": 0.6129185412337509,
+        "brecha_fpr_ic": [
+          0.5875172325673668,
+          0.6373411745717917
+        ],
+        "evaluable": true,
+        "alerta": false
+      }
+    ],
+    "Estado civil": [
+      {
+        "subgrupo": "Soltero/a",
+        "n": 3144,
+        "n_riesgo": 948,
+        "prevalencia": 0.3015267175572519,
+        "tasa_marcados": 0.5270356234096693,
+        "recall_riesgo": 0.7742616033755274,
+        "recall_ic": [
+          0.747863924050633,
+          0.8006329113924051
+        ],
+        "fpr": 0.4203096539162113,
+        "fpr_ic": [
+          0.40027322404371585,
+          0.4394353369763206
+        ],
+        "precision_riesgo": 0.44296922148461076,
+        "brecha_recall": -0.215156386042462,
+        "brecha_recall_ic": [
+          -0.24578059071729963,
+          -0.18453176277543365
+        ],
+        "brecha_fpr": -0.5068748121032063,
+        "brecha_fpr_ic": [
+          -0.5455638672254939,
+          -0.46516150282066254
+        ],
+        "evaluable": true,
+        "alerta": true
+      },
+      {
+        "subgrupo": "Otro estado civil",
+        "n": 395,
+        "n_riesgo": 189,
+        "prevalencia": 0.47848101265822784,
+        "tasa_marcados": 0.9569620253164557,
+        "recall_riesgo": 0.9894179894179894,
+        "recall_ic": [
+          0.9735449735449735,
+          1.0
+        ],
+        "fpr": 0.9271844660194175,
+        "fpr_ic": [
+          0.8932038834951457,
+          0.9611650485436893
+        ],
+        "precision_riesgo": 0.4947089947089947,
+        "brecha_recall": 0.215156386042462,
+        "brecha_recall_ic": [
+          0.1855451744692251,
+          0.24472573839662448
+        ],
+        "brecha_fpr": 0.5068748121032063,
+        "brecha_fpr_ic": [
+          0.46515763435726043,
+          0.5466594160609757
+        ],
+        "evaluable": true,
+        "alerta": false
+      }
+    ],
+    "Scholarship holder": [
+      {
+        "subgrupo": "No becario",
+        "n": 2645,
+        "n_riesgo": 1022,
+        "prevalencia": 0.38638941398865784,
+        "tasa_marcados": 0.6483931947069943,
+        "recall_riesgo": 0.8307240704500979,
+        "recall_ic": [
+          0.8072407045009785,
+          0.8542074363992173
+        ],
+        "fpr": 0.5335797905113987,
+        "fpr_ic": [
+          0.5095348120764017,
+          0.5563924830560689
+        ],
+        "precision_riesgo": 0.49504373177842564,
+        "brecha_recall": 0.2046371139283587,
+        "brecha_recall_ic": [
+          0.11658874329958303,
+          0.2983378711818258
+        ],
+        "brecha_fpr": 0.21522292273219457,
+        "brecha_fpr_ic": [
+          0.1732670683064453,
+          0.257180062436873
+        ],
+        "evaluable": true,
+        "alerta": false
+      },
+      {
+        "subgrupo": "Becario",
+        "n": 894,
+        "n_riesgo": 115,
+        "prevalencia": 0.12863534675615212,
+        "tasa_marcados": 0.3579418344519016,
+        "recall_riesgo": 0.6260869565217392,
+        "recall_ic": [
+          0.5389130434782613,
+          0.7130434782608696
+        ],
+        "fpr": 0.31835686777920413,
+        "fpr_ic": [
+          0.28754813863928114,
+          0.35301668806161746
+        ],
+        "precision_riesgo": 0.225,
+        "brecha_recall": -0.2046371139283587,
+        "brecha_recall_ic": [
+          -0.29822449587339406,
+          -0.11485578150259501
+        ],
+        "brecha_fpr": -0.21522292273219457,
+        "brecha_fpr_ic": [
+          -0.2565112230556103,
+          -0.17136131603071067
+        ],
+        "evaluable": true,
+        "alerta": true
+      }
+    ],
+    "Displaced": [
+      {
+        "subgrupo": "Desplazado",
+        "n": 1942,
+        "n_riesgo": 534,
+        "prevalencia": 0.2749742533470649,
+        "tasa_marcados": 0.4721936148300721,
+        "recall_riesgo": 0.7322097378277154,
+        "recall_ic": [
+          0.6947097378277155,
+          0.7696629213483146
+        ],
+        "fpr": 0.37357954545454547,
+        "fpr_ic": [
+          0.34730113636363635,
+          0.3984375
+        ],
+        "precision_riesgo": 0.42639040348964014,
+        "brecha_recall": -0.1467289023049546,
+        "brecha_recall_ic": [
+          -0.1941323345817727,
+          -0.09980178694542281
+        ],
+        "brecha_fpr": -0.2179697503201024,
+        "brecha_fpr_ic": [
+          -0.2556733154609475,
+          -0.17902721728095852
+        ],
+        "evaluable": true,
+        "alerta": true
+      },
+      {
+        "subgrupo": "No desplazado",
+        "n": 1597,
+        "n_riesgo": 603,
+        "prevalencia": 0.3775829680651221,
+        "tasa_marcados": 0.7000626174076393,
+        "recall_riesgo": 0.87893864013267,
+        "recall_ic": [
+          0.8507462686567164,
+          0.9054726368159204
+        ],
+        "fpr": 0.5915492957746479,
+        "fpr_ic": [
+          0.5613682092555332,
+          0.6217303822937625
+        ],
+        "precision_riesgo": 0.4740608228980322,
+        "brecha_recall": 0.1467289023049546,
+        "brecha_recall_ic": [
+          0.10162413587493242,
+          0.19140393537928332
+        ],
+        "brecha_fpr": 0.2179697503201024,
+        "brecha_fpr_ic": [
+          0.1784928319919517,
+          0.2572155232531552
+        ],
+        "evaluable": true,
+        "alerta": false
+      }
+    ],
+    "International": [
+      {
+        "subgrupo": "Nacional",
+        "n": 3453,
+        "n_riesgo": 1114,
+        "prevalencia": 0.3226180133217492,
+        "tasa_marcados": 0.5748624384593107,
+        "recall_riesgo": 0.8105924596050269,
+        "recall_ic": [
+          0.7881283662477558,
+          0.8348294434470377
+        ],
+        "fpr": 0.4625908507909363,
+        "fpr_ic": [
+          0.44249679350149634,
+          0.48268490808037623
+        ],
+        "precision_riesgo": 0.454911838790932,
+        "brecha_recall": 0.027983763952852958,
+        "brecha_recall_ic": [
+          -0.1258127780813363,
+          0.20997580204511745
+        ],
+        "brecha_fpr": -0.045345657145571594,
+        "brecha_fpr_ic": [
+          -0.1646012744559132,
+          0.07474500702375865
+        ],
+        "evaluable": true,
+        "alerta": false
+      },
+      {
+        "subgrupo": "Internacional",
+        "n": 86,
+        "n_riesgo": 23,
+        "prevalencia": 0.26744186046511625,
+        "tasa_marcados": 0.5813953488372093,
+        "recall_riesgo": 0.782608695652174,
+        "recall_ic": [
+          0.6086956521739131,
+          0.9565217391304348
+        ],
+        "fpr": 0.5079365079365079,
+        "fpr_ic": [
+          0.3968253968253968,
+          0.6349206349206349
+        ],
+        "precision_riesgo": 0.36,
+        "brecha_recall": -0.027983763952852958,
+        "brecha_recall_ic": [
+          -0.20907813597689484,
+          0.13695261884318166
+        ],
+        "brecha_fpr": 0.045345657145571594,
+        "brecha_fpr_ic": [
+          -0.07357896129807202,
+          0.17026642779101084
+        ],
+        "evaluable": false,
+        "alerta": false
+      }
+    ],
+    "Educational special needs": [
+      {
+        "subgrupo": "Sin necesidades especiales",
+        "n": 3498,
+        "n_riesgo": 1124,
+        "prevalencia": 0.3213264722698685,
+        "tasa_marcados": 0.5769010863350486,
+        "recall_riesgo": 0.8131672597864769,
+        "recall_ic": [
+          0.7909030249110321,
+          0.8362989323843416
+        ],
+        "fpr": 0.4650379106992418,
+        "fpr_ic": [
+          0.4452295703454086,
+          0.4856781802864364
+        ],
+        "precision_riesgo": 0.4529236868186323,
+        "brecha_recall": 0.2747057213249384,
+        "brecha_recall_ic": [
+          0.025186490555707732,
+          0.5250701478237064
+        ],
+        "brecha_fpr": 0.10789505355638462,
+        "brecha_fpr_ic": [
+          -0.07700535563846429,
+          0.28354946443615336
+        ],
+        "evaluable": true,
+        "alerta": false
+      },
+      {
+        "subgrupo": "Con necesidades especiales",
+        "n": 41,
+        "n_riesgo": 13,
+        "prevalencia": 0.3170731707317073,
+        "tasa_marcados": 0.4146341463414634,
+        "recall_riesgo": 0.5384615384615384,
+        "recall_ic": [
+          0.23076923076923078,
+          0.7692307692307693
+        ],
+        "fpr": 0.35714285714285715,
+        "fpr_ic": [
+          0.17857142857142858,
+          0.5357142857142857
+        ],
+        "precision_riesgo": 0.4117647058823529,
+        "brecha_recall": -0.2747057213249384,
+        "brecha_recall_ic": [
+          -0.5699425130030111,
+          -0.03059129482617018
+        ],
+        "brecha_fpr": -0.10789505355638462,
+        "brecha_fpr_ic": [
+          -0.284792092911301,
+          0.07869027560476585
+        ],
+        "evaluable": false,
+        "alerta": false
+      }
+    ],
+    "Course": [
+      {
+        "subgrupo": "Nursing",
+        "n": 607,
+        "n_riesgo": 90,
+        "prevalencia": 0.14827018121911037,
+        "tasa_marcados": 0.17298187808896212,
+        "recall_riesgo": 0.5333333333333333,
+        "recall_ic": [
+          0.4330555555555561,
+          0.6333333333333333
+        ],
+        "fpr": 0.1102514506769826,
+        "fpr_ic": [
+          0.08317214700193423,
+          0.13926499032882012
+        ],
+        "precision_riesgo": 0.45714285714285713,
+        "brecha_recall": -0.30047755491881567,
+        "brecha_recall_ic": [
+          -0.4077706144539955,
+          -0.1966483603947788
+        ],
+        "brecha_fpr": -0.4504912548933092,
+        "brecha_fpr_ic": [
+          -0.4859067308333633,
+          -0.4141915201452986
+        ],
+        "evaluable": true,
+        "alerta": true
+      },
+      {
+        "subgrupo": "Management",
+        "n": 302,
+        "n_riesgo": 109,
+        "prevalencia": 0.3609271523178808,
+        "tasa_marcados": 0.6456953642384106,
+        "recall_riesgo": 0.8348623853211009,
+        "recall_ic": [
+          0.7614678899082569,
+          0.8990825688073395
+        ],
+        "fpr": 0.538860103626943,
+        "fpr_ic": [
+          0.47150259067357514,
+          0.6113989637305699
+        ],
+        "precision_riesgo": 0.4666666666666667,
+        "brecha_recall": 0.027469389212151474,
+        "brecha_recall_ic": [
+          -0.045935592403526945,
+          0.09474172705529582
+        ],
+        "brecha_fpr": 0.08163964187954603,
+        "brecha_fpr_ic": [
+          0.009552243882187113,
+          0.15509643779451454
+        ],
+        "evaluable": true,
+        "alerta": false
+      },
+      {
+        "subgrupo": "Social Service",
+        "n": 291,
+        "n_riesgo": 55,
+        "prevalencia": 0.18900343642611683,
+        "tasa_marcados": 0.27491408934707906,
+        "recall_riesgo": 0.45454545454545453,
+        "recall_ic": [
+          0.32727272727272727,
+          0.5818181818181818
+        ],
+        "fpr": 0.2330508474576271,
+        "fpr_ic": [
+          0.18220338983050846,
+          0.288135593220339
+        ],
+        "precision_riesgo": 0.3125,
+        "brecha_recall": -0.373550663753991,
+        "brecha_recall_ic": [
+          -0.50702865064695,
+          -0.2518232229877332
+        ],
+        "brecha_fpr": -0.2558688201324006,
+        "brecha_fpr_ic": [
+          -0.3117167081396623,
+          -0.1969263032693241
+        ],
+        "evaluable": true,
+        "alerta": true
+      },
+      {
+        "subgrupo": "Veterinary Nursing",
+        "n": 277,
+        "n_riesgo": 79,
+        "prevalencia": 0.2851985559566787,
+        "tasa_marcados": 0.4693140794223827,
+        "recall_riesgo": 0.759493670886076,
+        "recall_ic": [
+          0.6708860759493671,
+          0.8481012658227848
+        ],
+        "fpr": 0.35353535353535354,
+        "fpr_ic": [
+          0.2878787878787879,
+          0.42424242424242425
+        ],
+        "precision_riesgo": 0.46153846153846156,
+        "brecha_recall": -0.05430595104209035,
+        "brecha_recall_ic": [
+          -0.14954416022588585,
+          0.040199743964011284
+        ],
+        "brecha_fpr": -0.12014885699096223,
+        "brecha_fpr_ic": [
+          -0.1893175172780436,
+          -0.04976798383105101
+        ],
+        "evaluable": true,
+        "alerta": false
+      },
+      {
+        "subgrupo": "Journalism and Communication",
+        "n": 267,
+        "n_riesgo": 82,
+        "prevalencia": 0.30711610486891383,
+        "tasa_marcados": 0.48314606741573035,
+        "recall_riesgo": 0.6463414634146342,
+        "recall_ic": [
+          0.5487804878048781,
+          0.7439024390243902
+        ],
+        "fpr": 0.41081081081081083,
+        "fpr_ic": [
+          0.34054054054054056,
+          0.4810810810810811
+        ],
+        "precision_riesgo": 0.4108527131782946,
+        "brecha_recall": -0.17640735175124256,
+        "brecha_recall_ic": [
+          -0.2824991330482025,
+          -0.0740596462836669
+        ],
+        "brecha_fpr": -0.05738945982518373,
+        "brecha_fpr_ic": [
+          -0.13039162978946467,
+          0.01603506077119065
+        ],
+        "evaluable": true,
+        "alerta": true
+      },
+      {
+        "subgrupo": "Management (evening)",
+        "n": 217,
+        "n_riesgo": 113,
+        "prevalencia": 0.5207373271889401,
+        "tasa_marcados": 0.967741935483871,
+        "recall_riesgo": 0.9823008849557522,
+        "recall_ic": [
+          0.9557522123893806,
+          1.0
+        ],
+        "fpr": 0.9519230769230769,
+        "fpr_ic": [
+          0.9038461538461539,
+          0.9903846153846154
+        ],
+        "precision_riesgo": 0.5285714285714286,
+        "brecha_recall": 0.19128525995575218,
+        "brecha_recall_ic": [
+          0.1551509350801991,
+          0.2255859375
+        ],
+        "brecha_fpr": 0.5102346522059316,
+        "brecha_fpr_ic": [
+          0.46167298486978653,
+          0.5530157913235589
+        ],
+        "evaluable": true,
+        "alerta": false
+      },
+      {
+        "subgrupo": "Advertising and Marketing Management",
+        "n": 213,
+        "n_riesgo": 70,
+        "prevalencia": 0.3286384976525822,
+        "tasa_marcados": 0.6338028169014085,
+        "recall_riesgo": 0.8142857142857143,
+        "recall_ic": [
+          0.7285714285714285,
+          0.9
+        ],
+        "fpr": 0.5454545454545454,
+        "fpr_ic": [
+          0.46153846153846156,
+          0.6223776223776224
+        ],
+        "precision_riesgo": 0.4222222222222222,
+        "brecha_recall": 0.004538760208863346,
+        "brecha_recall_ic": [
+          -0.09077520417726603,
+          0.09893894765028773
+        ],
+        "brecha_fpr": 0.08684454102780792,
+        "brecha_fpr_ic": [
+          0.005494726610264455,
+          0.16820108842021192
+        ],
+        "evaluable": true,
+        "alerta": false
+      },
+      {
+        "subgrupo": "Tourism",
+        "n": 198,
+        "n_riesgo": 78,
+        "prevalencia": 0.3939393939393939,
+        "tasa_marcados": 0.7424242424242424,
+        "recall_riesgo": 0.8076923076923077,
+        "recall_ic": [
+          0.717948717948718,
+          0.8974358974358975
+        ],
+        "fpr": 0.7,
+        "fpr_ic": [
+          0.6166666666666667,
+          0.775
+        ],
+        "precision_riesgo": 0.42857142857142855,
+        "brecha_recall": -0.0025059925909783898,
+        "brecha_recall_ic": [
+          -0.09415177598605362,
+          0.08669644802789271
+        ],
+        "brecha_fpr": 0.2486415425065731,
+        "brecha_fpr_ic": [
+          0.15610575518550984,
+          0.32934195150452816
+        ],
+        "evaluable": true,
+        "alerta": false
+      },
+      {
+        "subgrupo": "Animation and Multimedia Design",
+        "n": 175,
+        "n_riesgo": 67,
+        "prevalencia": 0.38285714285714284,
+        "tasa_marcados": 0.6971428571428572,
+        "recall_riesgo": 0.7611940298507462,
+        "recall_ic": [
+          0.6567164179104478,
+          0.8656716417910447
+        ],
+        "fpr": 0.6574074074074074,
+        "fpr_ic": [
+          0.5740740740740741,
+          0.75
+        ],
+        "precision_riesgo": 0.4180327868852459,
+        "brecha_recall": -0.051890082298786444,
+        "brecha_recall_ic": [
+          -0.16472381085228066,
+          0.05258752964151203
+        ],
+        "brecha_fpr": 0.20274306564629146,
+        "brecha_fpr_ic": [
+          0.11427011689108471,
+          0.2954571506990861
+        ],
+        "evaluable": true,
+        "alerta": false
+      },
+      {
+        "subgrupo": "Communication Design",
+        "n": 174,
+        "n_riesgo": 39,
+        "prevalencia": 0.22413793103448276,
+        "tasa_marcados": 0.5057471264367817,
+        "recall_riesgo": 0.7435897435897436,
+        "recall_ic": [
+          0.5897435897435898,
+          0.8717948717948718
+        ],
+        "fpr": 0.43703703703703706,
+        "fpr_ic": [
+          0.35555555555555557,
+          0.5185185185185185
+        ],
+        "precision_riesgo": 0.32954545454545453,
+        "brecha_recall": -0.0687964130587081,
+        "brecha_recall_ic": [
+          -0.22173182009247583,
+          0.06305170239596469
+        ],
+        "brecha_fpr": -0.028335702266006624,
+        "brecha_fpr_ic": [
+          -0.11469146694113605,
+          0.05669027430606597
+        ],
+        "evaluable": true,
+        "alerta": false
+      },
+      {
+        "subgrupo": "Agronomy",
+        "n": 171,
+        "n_riesgo": 67,
+        "prevalencia": 0.391812865497076,
+        "tasa_marcados": 0.8011695906432749,
+        "recall_riesgo": 0.9253731343283582,
+        "recall_ic": [
+          0.8656716417910447,
+          0.9850746268656716
+        ],
+        "fpr": 0.7211538461538461,
+        "fpr_ic": [
+          0.6346153846153846,
+          0.8076923076923077
+        ],
+        "precision_riesgo": 0.45255474452554745,
+        "brecha_recall": 0.12256939601060124,
+        "brecha_recall_ic": [
+          0.05074557120937366,
+          0.18323336588087602
+        ],
+        "brecha_fpr": 0.26902155720693577,
+        "brecha_fpr_ic": [
+          0.18235798687822197,
+          0.356764870790654
+        ],
+        "evaluable": true,
+        "alerta": false
+      },
+      {
+        "subgrupo": "Social Service (evening)",
+        "n": 165,
+        "n_riesgo": 53,
+        "prevalencia": 0.3212121212121212,
+        "tasa_marcados": 0.9454545454545454,
+        "recall_riesgo": 0.9811320754716981,
+        "recall_ic": [
+          0.9433962264150944,
+          1.0
+        ],
+        "fpr": 0.9285714285714286,
+        "fpr_ic": [
+          0.875,
+          0.9732142857142857
+        ],
+        "precision_riesgo": 0.3333333333333333,
+        "brecha_recall": 0.1794715588665321,
+        "brecha_recall_ic": [
+          0.12973264638306767,
+          0.21863468634686345
+        ],
+        "brecha_fpr": 0.4875233936369308,
+        "brecha_fpr_ic": [
+          0.4319586322520274,
+          0.5343557002495322
+        ],
+        "evaluable": true,
+        "alerta": false
+      },
+      {
+        "subgrupo": "Basic Education",
+        "n": 158,
+        "n_riesgo": 72,
+        "prevalencia": 0.45569620253164556,
+        "tasa_marcados": 0.7721518987341772,
+        "recall_riesgo": 0.875,
+        "recall_ic": [
+          0.805208333333334,
+          0.9444444444444444
+        ],
+        "fpr": 0.686046511627907,
+        "fpr_ic": [
+          0.5813953488372093,
+          0.7790697674418605
+        ],
+        "precision_riesgo": 0.5163934426229508,
+        "brecha_recall": 0.06936619718309855,
+        "brecha_recall_ic": [
+          -0.00967233959311429,
+          0.14709409233176823
+        ],
+        "brecha_fpr": 0.2305197413342973,
+        "brecha_fpr_ic": [
+          0.1270936257380407,
+          0.32617458930794874
+        ],
+        "evaluable": true,
+        "alerta": false
+      },
+      {
+        "subgrupo": "Informatics Engineering",
+        "n": 133,
+        "n_riesgo": 68,
+        "prevalencia": 0.5112781954887218,
+        "tasa_marcados": 0.9022556390977443,
+        "recall_riesgo": 0.9558823529411765,
+        "recall_ic": [
+          0.8970588235294118,
+          1.0
+        ],
+        "fpr": 0.8461538461538461,
+        "fpr_ic": [
+          0.7538461538461538,
+          0.9384615384615385
+        ],
+        "precision_riesgo": 0.5416666666666666,
+        "brecha_recall": 0.15513398998514283,
+        "brecha_recall_ic": [
+          0.09603223188246299,
+          0.20486435921421886
+        ],
+        "brecha_fpr": 0.393008788387479,
+        "brecha_fpr_ic": [
+          0.2925496198281821,
+          0.48106744346795693
+        ],
+        "evaluable": true,
+        "alerta": false
+      },
+      {
+        "subgrupo": "Equinculture",
+        "n": 115,
+        "n_riesgo": 64,
+        "prevalencia": 0.5565217391304348,
+        "tasa_marcados": 0.9217391304347826,
+        "recall_riesgo": 0.984375,
+        "recall_ic": [
+          0.953125,
+          1.0
+        ],
+        "fpr": 0.8431372549019608,
+        "fpr_ic": [
+          0.7254901960784313,
+          0.9411764705882353
+        ],
+        "precision_riesgo": 0.5943396226415094,
+        "brecha_recall": 0.18474778657968316,
+        "brecha_recall_ic": [
+          0.14302772600186398,
+          0.2190121155638397
+        ],
+        "brecha_fpr": 0.3875864254676775,
+        "brecha_fpr_ic": [
+          0.2737579336285769,
+          0.4830831269130365
+        ],
+        "evaluable": true,
+        "alerta": false
+      },
+      {
+        "subgrupo": "Oral Hygiene",
+        "n": 66,
+        "n_riesgo": 24,
+        "prevalencia": 0.36363636363636365,
+        "tasa_marcados": 0.6515151515151515,
+        "recall_riesgo": 0.875,
+        "recall_ic": [
+          0.75,
+          1.0
+        ],
+        "fpr": 0.5238095238095238,
+        "fpr_ic": [
+          0.38095238095238093,
+          0.6666666666666666
+        ],
+        "precision_riesgo": 0.4883720930232558,
+        "brecha_recall": 0.06637466307277629,
+        "brecha_recall_ic": [
+          -0.08053964510332427,
+          0.19137466307277629
+        ],
+        "brecha_fpr": 0.0610976594027442,
+        "brecha_fpr_ic": [
+          -0.094058212267958,
+          0.20404408797417267
+        ],
+        "evaluable": false,
+        "alerta": false
+      },
+      {
+        "subgrupo": "Biofuel Production Technologies",
+        "n": 10,
+        "n_riesgo": 7,
+        "prevalencia": 0.7,
+        "tasa_marcados": 1.0,
+        "recall_riesgo": 1.0,
+        "recall_ic": [
+          1.0,
+          1.0
+        ],
+        "fpr": 1.0,
+        "fpr_ic": [
+          1.0,
+          1.0
+        ],
+        "precision_riesgo": 0.7,
+        "brecha_recall": 0.19115044247787616,
+        "brecha_recall_ic": [
+          0.16814159292035402,
+          0.21418141592920337
+        ],
+        "brecha_fpr": 0.5368903709879116,
+        "brecha_fpr_ic": [
+          0.5152146727803251,
+          0.5564818674447687
+        ],
+        "evaluable": false,
+        "alerta": false
+      }
+    ]
+  },
+  "alertas": [
+    {
+      "variable": "Gender",
+      "subgrupo": "Mujer",
+      "recall_riesgo": 0.7005163511187608,
+      "brecha_recall": -0.22394408053591552
+    },
+    {
+      "variable": "Rango de edad",
+      "subgrupo": "Hasta 20",
+      "recall_riesgo": 0.5632183908045977,
+      "brecha_recall": -0.39974457215836523
+    },
+    {
+      "variable": "Estado civil",
+      "subgrupo": "Soltero/a",
+      "recall_riesgo": 0.7742616033755274,
+      "brecha_recall": -0.215156386042462
+    },
+    {
+      "variable": "Scholarship holder",
+      "subgrupo": "Becario",
+      "recall_riesgo": 0.6260869565217392,
+      "brecha_recall": -0.2046371139283587
+    },
+    {
+      "variable": "Displaced",
+      "subgrupo": "Desplazado",
+      "recall_riesgo": 0.7322097378277154,
+      "brecha_recall": -0.1467289023049546
+    },
+    {
+      "variable": "Course",
+      "subgrupo": "Nursing",
+      "recall_riesgo": 0.5333333333333333,
+      "brecha_recall": -0.30047755491881567
+    },
+    {
+      "variable": "Course",
+      "subgrupo": "Social Service",
+      "recall_riesgo": 0.45454545454545453,
+      "brecha_recall": -0.373550663753991
+    },
+    {
+      "variable": "Course",
+      "subgrupo": "Journalism and Communication",
+      "recall_riesgo": 0.6463414634146342,
+      "brecha_recall": -0.17640735175124256
+    }
+  ],
+  "perfil_errores": [
+    {
+      "variable": "Age at enrollment",
+      "TP": 27.6775,
+      "FN": 19.1991,
+      "FP": 25.2307,
+      "TN": 19.0489,
+      "FN - TP": -8.4785,
+      "FP - TN": 6.1818
+    },
+    {
+      "variable": "Admission grade",
+      "TP": 123.8392,
+      "FN": 128.9694,
+      "FP": 125.7034,
+      "TN": 129.7127,
+      "FN - TP": 5.1302,
+      "FP - TN": -4.0092
+    },
+    {
+      "variable": "Previous qualification (grade)",
+      "TP": 130.0506,
+      "FN": 135.2556,
+      "FP": 130.3114,
+      "TN": 136.1898,
+      "FN - TP": 5.205,
+      "FP - TN": -5.8784
+    },
+    {
+      "variable": "Application order",
+      "TP": 1.4484,
+      "FN": 2.0694,
+      "FP": 1.5126,
+      "TN": 2.0543,
+      "FN - TP": 0.621,
+      "FP - TN": -0.5418
+    },
+    {
+      "variable": "Gender",
+      "TP": 0.5581,
+      "FN": 0.1944,
+      "FP": 0.4479,
+      "TN": 0.1444,
+      "FN - TP": -0.3636,
+      "FP - TN": 0.3035
+    },
+    {
+      "variable": "Displaced",
+      "TP": 0.4245,
+      "FN": 0.662,
+      "FP": 0.4722,
+      "TN": 0.6848,
+      "FN - TP": 0.2375,
+      "FP - TN": -0.2126
+    },
+    {
+      "variable": "Daytime/evening attendance",
+      "TP": 0.823,
+      "FN": 0.9861,
+      "FP": 0.8178,
+      "TN": 0.9899,
+      "FN - TP": 0.1631,
+      "FP - TN": -0.1721
+    },
+    {
+      "variable": "Scholarship holder",
+      "TP": 0.0782,
+      "FN": 0.1991,
+      "FP": 0.2226,
+      "TN": 0.4123,
+      "FN - TP": 0.1209,
+      "FP - TN": -0.1896
+    },
+    {
+      "variable": "Debtor",
+      "TP": 0.2182,
+      "FN": 0.2222,
+      "FP": 0.0745,
+      "TN": 0.0443,
+      "FN - TP": 0.004,
+      "FP - TN": 0.0303
+    },
+    {
+      "variable": "Tuition fees up to date",
+      "TP": 0.6645,
+      "FN": 0.7454,
+      "FP": 0.9722,
+      "TN": 0.9814,
+      "FN - TP": 0.0809,
+      "FP - TN": -0.0092
+    }
+  ],
+  "abstencion": {
+    "ancho": 0.05,
+    "zona": [
+      0.3315793950527566,
+      0.43157939505275655
+    ],
+    "tabla": [
+      {
+        "ancho": 0.0,
+        "zona": [
+          0.38157939505275656,
+          0.38157939505275656
+        ],
+        "n_zona": 0,
+        "pct_zona": 0.0,
+        "tasa_riesgo_zona": NaN,
+        "pct_fn_en_zona": 0.0,
+        "pct_fp_en_zona": 0.0,
+        "f1_macro_decididos": 0.6201021934760698,
+        "recall_riesgo_decididos": 0.8100263852242744,
+        "precision_riesgo_decididos": 0.45257985257985256,
+        "balanced_accuracy_decididos": 0.6731231010217957
+      },
+      {
+        "ancho": 0.025,
+        "zona": [
+          0.35657939505275654,
+          0.4065793950527566
+        ],
+        "n_zona": 374,
+        "pct_zona": 0.10567957050014128,
+        "tasa_riesgo_zona": 0.25935828877005346,
+        "pct_fn_en_zona": 0.22685185185185186,
+        "pct_fp_en_zona": 0.11310592459605028,
+        "f1_macro_decididos": 0.6325142656030458,
+        "recall_riesgo_decididos": 0.8394230769230769,
+        "precision_riesgo_decididos": 0.4691026329930145,
+        "balanced_accuracy_decididos": 0.6872409502262444
+      },
+      {
+        "ancho": 0.05,
+        "zona": [
+          0.3315793950527566,
+          0.43157939505275655
+        ],
+        "n_zona": 747,
+        "pct_zona": 0.21107657530375812,
+        "tasa_riesgo_zona": 0.23828647925033467,
+        "pct_fn_en_zona": 0.3611111111111111,
+        "pct_fp_en_zona": 0.23518850987432674,
+        "f1_macro_decididos": 0.644247164356142,
+        "recall_riesgo_decididos": 0.8561001042752867,
+        "precision_riesgo_decididos": 0.4907352062163778,
+        "balanced_accuracy_decididos": 0.6956441601572834
+      },
+      {
+        "ancho": 0.075,
+        "zona": [
+          0.30657939505275655,
+          0.4565793950527566
+        ],
+        "n_zona": 1093,
+        "pct_zona": 0.308844306301215,
+        "tasa_riesgo_zona": 0.2552607502287283,
+        "pct_fn_en_zona": 0.5833333333333334,
+        "pct_fp_en_zona": 0.3303411131059246,
+        "f1_macro_decididos": 0.6579043871623973,
+        "recall_riesgo_decididos": 0.8951048951048951,
+        "precision_riesgo_decididos": 0.5072655217965654,
+        "balanced_accuracy_decididos": 0.7126657976783921
+      },
+      {
+        "ancho": 0.1,
+        "zona": [
+          0.28157939505275653,
+          0.4815793950527566
+        ],
+        "n_zona": 1433,
+        "pct_zona": 0.4049166431195253,
+        "tasa_riesgo_zona": 0.24145150034891835,
+        "pct_fn_en_zona": 0.6759259259259259,
+        "pct_fp_en_zona": 0.42190305206463197,
+        "f1_macro_decididos": 0.6607774521198646,
+        "recall_riesgo_decididos": 0.911504424778761,
+        "precision_riesgo_decididos": 0.5282051282051282,
+        "balanced_accuracy_decididos": 0.7108852922372892
+      }
+    ]
+  },
+  "dominio_cv": {
+    "abstenerse": {
+      "n": 68,
+      "pct": 0.01921446736366205,
+      "recall_riesgo": 0.8695652173913043,
+      "fpr": 0.5111111111111111,
+      "recall_riesgo_resto": 0.8025169409486931,
+      "fpr_resto": 0.45671776375112716,
+      "motivos_frecuentes": {
+        "Father's occupation: código no visto en train": 25,
+        "Mother's occupation: código infrecuente en train": 16,
+        "Father's qualification: código no visto en train": 11,
+        "Mother's qualification: código no visto en train": 9,
+        "Mother's occupation: código no visto en train": 9
+      }
+    },
+    "escalar": {
+      "n": 220,
+      "pct": 0.062164453235377226,
+      "recall_riesgo": 0.8888888888888888,
+      "fpr": 0.5611510791366906,
+      "recall_riesgo_resto": 0.8025169409486931,
+      "fpr_resto": 0.45671776375112716,
+      "motivos_frecuentes": {
+        "Nacionality: código infrecuente en train": 47,
+        "Mother's qualification: código infrecuente en train": 42,
+        "Previous qualification: código infrecuente en train": 39,
+        "Father's occupation: código infrecuente en train": 39,
+        "Father's qualification: código infrecuente en train": 38
+      }
+    }
+  },
+  "sensibilidad": {
+    "modelo elegido": {
+      "neutralizadas": [],
+      "umbral": 0.38157939505275656,
+      "metricas_oof": {
+        "f1_macro": 0.6201021934760698,
+        "recall_riesgo": 0.8100263852242744,
+        "precision_riesgo": 0.45257985257985256,
+        "balanced_accuracy": 0.6731231010217957
+      },
+      "diferencia_recall": {
+        "diferencia": 0.0,
+        "ic_inf": 0.0,
+        "ic_sup": 0.0
+      },
+      "por_subgrupo": {
+        "Gender": [
+          {
+            "subgrupo": "Mujer",
+            "recall_riesgo": 0.7005163511187608,
+            "fpr": 0.3581828771112405,
+            "brecha_recall": -0.22394408053591552,
+            "brecha_recall_ic": [
+              -0.26713392624970583,
+              -0.18129403533971447
+            ],
+            "alerta": true
+          },
+          {
+            "subgrupo": "Hombre",
+            "recall_riesgo": 0.9244604316546763,
+            "fpr": 0.7284671532846715,
+            "brecha_recall": 0.22394408053591552,
+            "brecha_recall_ic": [
+              0.1820903862108248,
+              0.26806501442563674
+            ],
+            "alerta": false
+          }
+        ],
+        "Rango de edad": [
+          {
+            "subgrupo": "Hasta 20",
+            "recall_riesgo": 0.5632183908045977,
+            "fpr": 0.2859778597785978,
+            "brecha_recall": -0.39974457215836523,
+            "brecha_recall_ic": [
+              -0.44738014539738674,
+              -0.35179290696532073
+            ],
+            "alerta": true
+          },
+          {
+            "subgrupo": "21 a 25",
+            "recall_riesgo": 0.8987341772151899,
+            "fpr": 0.7055961070559611,
+            "brecha_recall": 0.11206751054852326,
+            "brecha_recall_ic": [
+              0.06610337552742616,
+              0.15738924050632908
+            ],
+            "alerta": false
+          },
+          {
+            "subgrupo": "Más de 25",
+            "recall_riesgo": 0.9956989247311828,
+            "fpr": 0.9835616438356164,
+            "brecha_recall": 0.31415130568356375,
+            "brecha_recall_ic": [
+              0.2800842453917051,
+              0.34839405721966193
+            ],
+            "alerta": false
+          }
+        ]
+      }
+    },
+    "sin Gender": {
+      "neutralizadas": [
+        "Gender"
+      ],
+      "umbral": 0.3883940854175013,
+      "metricas_oof": {
+        "f1_macro": 0.620853262589947,
+        "recall_riesgo": 0.7994722955145118,
+        "precision_riesgo": 0.4531405782652044,
+        "balanced_accuracy": 0.6713847739021352
+      },
+      "diferencia_recall": {
+        "diferencia": -0.01055408970976257,
+        "ic_inf": -0.026087935761848764,
+        "ic_sup": 0.004440694866721783
+      },
+      "por_subgrupo": {
+        "Gender": [
+          {
+            "subgrupo": "Mujer",
+            "recall_riesgo": 0.7469879518072289,
+            "fpr": 0.40652300524170065,
+            "brecha_recall": -0.10732859495536107,
+            "brecha_recall_ic": [
+              -0.1525453045480998,
+              -0.06375373023440108
+            ],
+            "alerta": true
+          },
+          {
+            "subgrupo": "Hombre",
+            "recall_riesgo": 0.85431654676259,
+            "fpr": 0.5824817518248175,
+            "brecha_recall": 0.10732859495536107,
+            "brecha_recall_ic": [
+              0.060694473680952044,
+              0.15301738815488053
+            ],
+            "alerta": false
+          }
+        ],
+        "Rango de edad": [
+          {
+            "subgrupo": "Hasta 20",
+            "recall_riesgo": 0.5494252873563218,
+            "fpr": 0.2810578105781058,
+            "brecha_recall": -0.4049906670596326,
+            "brecha_recall_ic": [
+              -0.4540450928381962,
+              -0.3569407603890363
+            ],
+            "alerta": true
+          },
+          {
+            "subgrupo": "21 a 25",
+            "recall_riesgo": 0.8734177215189873,
+            "fpr": 0.681265206812652,
+            "brecha_recall": 0.0934177215189873,
+            "brecha_recall_ic": [
+              0.04210407876230663,
+              0.14252285513361462
+            ],
+            "alerta": false
+          },
+          {
+            "subgrupo": "Más de 25",
+            "recall_riesgo": 0.9956989247311828,
+            "fpr": 0.9863013698630136,
+            "brecha_recall": 0.33200844854070666,
+            "brecha_recall_ic": [
+              0.29629416282642096,
+              0.3675636040706605
+            ],
+            "alerta": false
+          }
+        ]
+      }
+    },
+    "sin demográficas sensibles": {
+      "neutralizadas": [
+        "Gender",
+        "Age at enrollment",
+        "Marital Status",
+        "Nacionality",
+        "Displaced",
+        "Educational special needs"
+      ],
+      "umbral": 0.40099999283221593,
+      "metricas_oof": {
+        "f1_macro": 0.6203034754336447,
+        "recall_riesgo": 0.7897977132805629,
+        "precision_riesgo": 0.4526209677419355,
+        "balanced_accuracy": 0.6688372413197152
+      },
+      "diferencia_recall": {
+        "diferencia": -0.020228671943711474,
+        "ic_inf": -0.03928484974817941,
+        "ic_sup": -0.0008832180252273984
+      },
+      "por_subgrupo": {
+        "Gender": [
+          {
+            "subgrupo": "Mujer",
+            "recall_riesgo": 0.7452667814113597,
+            "fpr": 0.40302853814793244,
+            "brecha_recall": -0.09106415384043887,
+            "brecha_recall_ic": [
+              -0.13690192424373754,
+              -0.04428105536225056
+            ],
+            "alerta": false
+          },
+          {
+            "subgrupo": "Hombre",
+            "recall_riesgo": 0.8363309352517986,
+            "fpr": 0.5751824817518248,
+            "brecha_recall": 0.09106415384043887,
+            "brecha_recall_ic": [
+              0.04389410158620097,
+              0.139496836265927
+            ],
+            "alerta": false
+          }
+        ],
+        "Rango de edad": [
+          {
+            "subgrupo": "Hasta 20",
+            "recall_riesgo": 0.5977011494252874,
+            "fpr": 0.3087330873308733,
+            "brecha_recall": -0.3111307594066214,
+            "brecha_recall_ic": [
+              -0.36096129285784456,
+              -0.26349518616760004
+            ],
+            "alerta": true
+          },
+          {
+            "subgrupo": "21 a 25",
+            "recall_riesgo": 0.7974683544303798,
+            "fpr": 0.610705596107056,
+            "brecha_recall": 0.009690576652601979,
+            "brecha_recall_ic": [
+              -0.04940611814345984,
+              0.06655977496483828
+            ],
+            "alerta": false
+          },
+          {
+            "subgrupo": "Más de 25",
+            "recall_riesgo": 0.9655913978494624,
+            "fpr": 0.9123287671232877,
+            "brecha_recall": 0.2974366359447005,
+            "brecha_recall_ic": [
+              0.25890937019969285,
+              0.3346390168970814
+            ],
+            "alerta": false
+          }
+        ]
+      }
+    }
+  }
+}
