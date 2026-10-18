@@ -46,5 +46,6 @@ Una decisión aprobada **no se reescribe**. Se crea una nueva que indique "Reemp
 | [005](005_ajuste_y_metricas.md) | Ajuste de hiperparámetros (F1-macro, regla de una desviación estándar) y formato estándar de métricas | #9 | Manicaotex Mueses | Aprobada (PR #33); criterio de ajuste reemplazado por 006 para #11 y #12 |
 | [006](006_busqueda_aleatoria.md) | Búsqueda aleatoria (25 combinaciones, mayor F1-macro) para los candidatos | #11 | Jose Maduro | Aprobada (PR #34) |
 | [007](007_gradient_boosting.md) | Gradient Boosting: HistGradientBoosting con early stopping y class_weight | #12 | Jose Maduro | Aprobada (PR #35) |
+| [009](009_abstencion_y_condiciones.md) | Zona de abstención (umbral ± 0.06) y condiciones de detención y escalamiento | #14 | Roberto Byas | Propuesta |
 
 Decisiones previstas: umbral de decisión y criterio de elección del modelo (#13).

@@ -61,8 +61,9 @@ Desde la raíz del repositorio, en este orden. Cada paso es reproducible (semill
 | 5. Candidato 2: Gradient Boosting (#12) | `uv run python -m src.models.train_gb` | `models/gradient_boosting.joblib`, `reports/metrics/gradient_boosting.json` y `gradient_boosting_importancia.csv` | ~1 min |
 | 6. Comparación con CV y selección (#13) | `uv run python -m src.comparacion` | `reports/metrics/comparacion_cv.json` y `.md`, `reports/figures/13_*.png` | ~1 min |
 | 7. Evaluación final en test (#13), **una sola vez** | `uv run python -m src.comparacion --test` | `reports/metrics/test_final.json` y `reports/figures/13_confusion_test.png` | segundos |
+| 8. Análisis de errores y subgrupos (#14) | `uv run python -m src.errores` | `reports/metrics/analisis_errores.json`, `subgrupos.csv` y `reports/figures/14_*.png` | ~1 min |
 
-Los pasos 3 a 5 son independientes entre sí, pero todos requieren el paso 1. El paso 6 requiere los pasos 3 a 5. El paso 7 ya se ejecutó y su resultado está versionado: el script se niega a repetirlo mientras exista `test_final.json` ([decisión 008](docs/decisiones/008_criterio_seleccion.md)). Los modelos (`models/`) no se versionan; las métricas (`reports/metrics/`) sí.
+Los pasos 3 a 5 son independientes entre sí, pero todos requieren el paso 1. El paso 6 requiere los pasos 3 a 5. El paso 8 solo requiere los pasos 1 y 6 (lee los hiperparámetros y el umbral de `reports/metrics/`) y no usa el test. El paso 7 ya se ejecutó y su resultado está versionado: el script se niega a repetirlo mientras exista `test_final.json` ([decisión 008](docs/decisiones/008_criterio_seleccion.md)). Los modelos (`models/`) no se versionan; las métricas (`reports/metrics/`) sí.
 
 Para comprobar que todo funciona:
 
@@ -93,6 +94,7 @@ src/
   training.py    Ajuste de hiperparámetros y reporte estándar de métricas
   evaluation.py  Evaluación y comparación de modelos
   comparacion.py Comparación final, selección y evaluación única en test (#13)
+  errores.py     Análisis de errores, subgrupos, zona de abstención y condiciones de uso (#14)
 tests/         Pruebas automáticas con pytest
 ```
 

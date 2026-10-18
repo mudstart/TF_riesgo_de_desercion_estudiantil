@@ -1,0 +1,403 @@
+{
+  "fecha": "2026-10-18T15:39:04",
+  "modelo": "random_forest",
+  "umbral": 0.38157939505275656,
+  "datos": "predicciones out-of-fold de train (3,539 filas); test no se usa",
+  "parametros": {
+    "ancho_abstencion": 0.06,
+    "max_brecha": 0.1,
+    "min_desertores_subgrupo": 30,
+    "max_tasa_marcados": 0.95,
+    "n_bootstrap": 2000,
+    "confidence": 0.95
+  },
+  "global": {
+    "recall_riesgo": 0.8100263852242744,
+    "tasa_fp": 0.46378018318068276,
+    "metricas": {
+      "f1_macro": 0.6201021934760698,
+      "recall_riesgo": 0.8100263852242744,
+      "precision_riesgo": 0.45257985257985256,
+      "balanced_accuracy": 0.6731231010217957
+    },
+    "matriz_confusion": {
+      "tn": 1288,
+      "fp": 1114,
+      "fn": 216,
+      "tp": 921
+    }
+  },
+  "perfil_errores": {
+    "FN": {
+      "Age at enrollment": 19.1991,
+      "Gender": 0.1944,
+      "Admission grade": 128.9694,
+      "Previous qualification (grade)": 135.2556,
+      "Scholarship holder": 0.1991,
+      "Displaced": 0.662,
+      "Debtor": 0.2222,
+      "Tuition fees up to date": 0.7454,
+      "Daytime/evening attendance": 0.9861,
+      "n": 216.0
+    },
+    "TP": {
+      "Age at enrollment": 27.6775,
+      "Gender": 0.5581,
+      "Admission grade": 123.8392,
+      "Previous qualification (grade)": 130.0506,
+      "Scholarship holder": 0.0782,
+      "Displaced": 0.4245,
+      "Debtor": 0.2182,
+      "Tuition fees up to date": 0.6645,
+      "Daytime/evening attendance": 0.823,
+      "n": 921.0
+    },
+    "FP": {
+      "Age at enrollment": 25.2307,
+      "Gender": 0.4479,
+      "Admission grade": 125.7034,
+      "Previous qualification (grade)": 130.3114,
+      "Scholarship holder": 0.2226,
+      "Displaced": 0.4722,
+      "Debtor": 0.0745,
+      "Tuition fees up to date": 0.9722,
+      "Daytime/evening attendance": 0.8178,
+      "n": 1114.0
+    },
+    "TN": {
+      "Age at enrollment": 19.0489,
+      "Gender": 0.1444,
+      "Admission grade": 129.7127,
+      "Previous qualification (grade)": 136.1898,
+      "Scholarship holder": 0.4123,
+      "Displaced": 0.6848,
+      "Debtor": 0.0443,
+      "Tuition fees up to date": 0.9814,
+      "Daytime/evening attendance": 0.9899,
+      "n": 1288.0
+    }
+  },
+  "internacional_igual_a_otra_nacionalidad": true,
+  "brechas": [
+    {
+      "variable": "Género",
+      "nivel": "Hombre",
+      "referencia": "Mujer",
+      "metrica": "recall_riesgo",
+      "diferencia": 0.22394408053591552,
+      "ic_inf": 0.1820903862108248,
+      "ic_sup": 0.26806501442563674,
+      "ic_excluye_0": true,
+      "relevante": true
+    },
+    {
+      "variable": "Género",
+      "nivel": "Hombre",
+      "referencia": "Mujer",
+      "metrica": "tasa_fp",
+      "diferencia": 0.37028427617343096,
+      "ic_inf": 0.32857645103282335,
+      "ic_sup": 0.41114488434674296,
+      "ic_excluye_0": true,
+      "relevante": true
+    },
+    {
+      "variable": "Edad al ingreso",
+      "nivel": "20–24",
+      "referencia": "17–19",
+      "metrica": "recall_riesgo",
+      "diferencia": 0.33919138965010526,
+      "ic_inf": 0.27058312482624414,
+      "ic_sup": 0.40779493824218593,
+      "ic_excluye_0": true,
+      "relevante": true
+    },
+    {
+      "variable": "Edad al ingreso",
+      "nivel": "20–24",
+      "referencia": "17–19",
+      "metrica": "tasa_fp",
+      "diferencia": 0.28503698894602864,
+      "ic_inf": 0.24315661786062084,
+      "ic_sup": 0.32643652508926896,
+      "ic_excluye_0": true,
+      "relevante": true
+    },
+    {
+      "variable": "Edad al ingreso",
+      "nivel": "25–34",
+      "referencia": "17–19",
+      "metrica": "recall_riesgo",
+      "diferencia": 0.49830324553615474,
+      "ic_inf": 0.44325737397652165,
+      "ic_sup": 0.5562395185952451,
+      "ic_excluye_0": true,
+      "relevante": true
+    },
+    {
+      "variable": "Edad al ingreso",
+      "nivel": "25–34",
+      "referencia": "17–19",
+      "metrica": "tasa_fp",
+      "diferencia": 0.7306546813234418,
+      "ic_inf": 0.7014133318893161,
+      "ic_sup": 0.7598960307575675,
+      "ic_excluye_0": true,
+      "relevante": true
+    },
+    {
+      "variable": "Edad al ingreso",
+      "nivel": "35+",
+      "referencia": "17–19",
+      "metrica": "recall_riesgo",
+      "diferencia": 0.4963207186544342,
+      "ic_inf": 0.4443329510703363,
+      "ic_sup": 0.5504814124617736,
+      "ic_excluye_0": true,
+      "relevante": true
+    },
+    {
+      "variable": "Edad al ingreso",
+      "nivel": "35+",
+      "referencia": "17–19",
+      "metrica": "tasa_fp",
+      "diferencia": 0.7355556410947304,
+      "ic_inf": 0.7050620212479312,
+      "ic_sup": 0.7639439547326687,
+      "ic_excluye_0": true,
+      "relevante": true
+    },
+    {
+      "variable": "Becario",
+      "nivel": "Sí",
+      "referencia": "No",
+      "metrica": "recall_riesgo",
+      "diferencia": -0.2046371139283587,
+      "ic_inf": -0.29822449587339406,
+      "ic_sup": -0.11485578150259501,
+      "ic_excluye_0": true,
+      "relevante": true
+    },
+    {
+      "variable": "Becario",
+      "nivel": "Sí",
+      "referencia": "No",
+      "metrica": "tasa_fp",
+      "diferencia": -0.21522292273219457,
+      "ic_inf": -0.2565112230556103,
+      "ic_sup": -0.17136131603071067,
+      "ic_excluye_0": true,
+      "relevante": true
+    },
+    {
+      "variable": "Desplazado",
+      "nivel": "No",
+      "referencia": "Sí",
+      "metrica": "recall_riesgo",
+      "diferencia": 0.1467289023049546,
+      "ic_inf": 0.10162413587493242,
+      "ic_sup": 0.19140393537928332,
+      "ic_excluye_0": true,
+      "relevante": true
+    },
+    {
+      "variable": "Desplazado",
+      "nivel": "No",
+      "referencia": "Sí",
+      "metrica": "tasa_fp",
+      "diferencia": 0.2179697503201024,
+      "ic_inf": 0.1784928319919517,
+      "ic_sup": 0.2572155232531552,
+      "ic_excluye_0": true,
+      "relevante": true
+    },
+    {
+      "variable": "Nacionalidad",
+      "nivel": "Otra",
+      "referencia": "Portuguesa",
+      "metrica": "recall_riesgo",
+      "diferencia": -0.027983763952852958,
+      "ic_inf": -0.20907813597689484,
+      "ic_sup": 0.13695261884318166,
+      "ic_excluye_0": false,
+      "relevante": false
+    },
+    {
+      "variable": "Nacionalidad",
+      "nivel": "Otra",
+      "referencia": "Portuguesa",
+      "metrica": "tasa_fp",
+      "diferencia": 0.045345657145571594,
+      "ic_inf": -0.07357896129807202,
+      "ic_sup": 0.17026642779101084,
+      "ic_excluye_0": false,
+      "relevante": false
+    }
+  ],
+  "abstencion": {
+    "zona": [
+      0.32157939505275657,
+      0.44157939505275656
+    ],
+    "ancho": 0.06,
+    "umbral": 0.38157939505275656,
+    "riesgo": {
+      "n": 1616,
+      "fraccion": 0.45662616558349817,
+      "desertores": 799,
+      "fraccion_desertores": 0.702726473175022,
+      "tasa_desercion": 0.4944306930693069,
+      "error_al_umbral": 0.505569306930693
+    },
+    "no concluyente": {
+      "n": 869,
+      "fraccion": 0.24554959027974005,
+      "desertores": 222,
+      "fraccion_desertores": 0.19525065963060687,
+      "tasa_desercion": 0.2554660529344074,
+      "error_al_umbral": 0.4568469505178366
+    },
+    "sin riesgo": {
+      "n": 1054,
+      "fraccion": 0.2978242441367618,
+      "desertores": 116,
+      "fraccion_desertores": 0.10202286719437115,
+      "tasa_desercion": 0.11005692599620494,
+      "error_al_umbral": 0.11005692599620494
+    }
+  },
+  "perfil_poco_frecuente": {
+    "n": 222,
+    "error_al_umbral": 0.3963963963963964,
+    "error_resto": 0.37443473017787154,
+    "motivos": {
+      "Father's occupation: categoría poco frecuente o desconocida": 60,
+      "Mother's occupation: categoría poco frecuente o desconocida": 54,
+      "Father's qualification: categoría poco frecuente o desconocida": 54,
+      "Mother's qualification: categoría poco frecuente o desconocida": 52,
+      "Previous qualification: categoría poco frecuente o desconocida": 34,
+      "Nacionality: categoría poco frecuente o desconocida": 25,
+      "Marital Status: categoría poco frecuente o desconocida": 7,
+      "Application mode: categoría poco frecuente o desconocida": 6
+    }
+  },
+  "restricciones": [
+    {
+      "variable": "Género",
+      "nivel": "Mujer",
+      "condicion": "recall 0.22 menor que en Hombre",
+      "accion": "no descartar con 'sin riesgo': escalar a revisión humana"
+    },
+    {
+      "variable": "Edad al ingreso",
+      "nivel": "17–19",
+      "condicion": "recall 0.50 menor que en 25–34",
+      "accion": "no descartar con 'sin riesgo': escalar a revisión humana"
+    },
+    {
+      "variable": "Becario",
+      "nivel": "Sí",
+      "condicion": "recall 0.20 menor que en No",
+      "accion": "no descartar con 'sin riesgo': escalar a revisión humana"
+    },
+    {
+      "variable": "Desplazado",
+      "nivel": "Sí",
+      "condicion": "recall 0.15 menor que en No",
+      "accion": "no descartar con 'sin riesgo': escalar a revisión humana"
+    },
+    {
+      "variable": "Edad al ingreso",
+      "nivel": "25–34",
+      "condicion": "marca al 99% del grupo",
+      "accion": "la marca no prioriza dentro del grupo: no usarla para ordenar"
+    },
+    {
+      "variable": "Edad al ingreso",
+      "nivel": "35+",
+      "condicion": "marca al 99% del grupo",
+      "accion": "la marca no prioriza dentro del grupo: no usarla para ordenar"
+    },
+    {
+      "variable": "Nacionalidad",
+      "nivel": "Otra",
+      "condicion": "solo 23 desertores",
+      "accion": "evidencia insuficiente: tratar sus resultados como no concluyentes"
+    }
+  ],
+  "sensibilidad": {
+    "sin Gender": {
+      "umbral": 0.38839408541750137,
+      "metricas": {
+        "f1_macro": 0.620853262589947,
+        "recall_riesgo": 0.7994722955145118,
+        "precision_riesgo": 0.4531405782652044,
+        "balanced_accuracy": 0.6713847739021352
+      },
+      "recall_vs_completo": {
+        "diferencia": -0.01055408970976257,
+        "ic_inf": -0.026087935761848764,
+        "ic_sup": 0.004440694866721783
+      },
+      "brecha_mujer_hombre": {
+        "recall_riesgo": {
+          "diferencia": -0.10732859495536107,
+          "ic_inf": -0.1525453045480998,
+          "ic_sup": -0.06375373023440108
+        },
+        "tasa_fp": {
+          "diferencia": -0.1759587465831169,
+          "ic_inf": -0.21740799391231524,
+          "ic_sup": -0.12955364772200703
+        }
+      }
+    },
+    "sin Gender ni edad": {
+      "umbral": 0.4041385141777589,
+      "metricas": {
+        "f1_macro": 0.6243026607970704,
+        "recall_riesgo": 0.7827616534740546,
+        "precision_riesgo": 0.45617631983598156,
+        "balanced_accuracy": 0.6705232080859032
+      },
+      "recall_vs_completo": {
+        "diferencia": -0.027264731750219817,
+        "ic_inf": -0.04414575716299853,
+        "ic_sup": -0.009899440301811951
+      },
+      "brecha_mujer_hombre": {
+        "recall_riesgo": {
+          "diferencia": -0.11187298010128899,
+          "ic_inf": -0.15809383474287697,
+          "ic_sup": -0.06424051808467168
+        },
+        "tasa_fp": {
+          "diferencia": -0.17446063197990042,
+          "ic_inf": -0.21734074029987804,
+          "ic_sup": -0.12837371242491366
+        }
+      }
+    },
+    "completo": {
+      "umbral": 0.38157939505275656,
+      "metricas": {
+        "f1_macro": 0.6201021934760698,
+        "recall_riesgo": 0.8100263852242744,
+        "precision_riesgo": 0.45257985257985256,
+        "balanced_accuracy": 0.6731231010217957
+      },
+      "brecha_mujer_hombre": {
+        "recall_riesgo": {
+          "diferencia": -0.22394408053591552,
+          "ic_inf": -0.26713392624970583,
+          "ic_sup": -0.18129403533971447
+        },
+        "tasa_fp": {
+          "diferencia": -0.37028427617343096,
+          "ic_inf": -0.40937488574963127,
+          "ic_sup": -0.32775907732464954
+        }
+      }
+    }
+  }
+}

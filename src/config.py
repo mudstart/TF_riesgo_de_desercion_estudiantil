@@ -149,3 +149,24 @@ MIN_F1_MACRO = 0.62
 # Remuestreos del bootstrap pareado y nivel de los intervalos.
 N_BOOTSTRAP = 2000
 CONFIDENCE = 0.95
+
+# Análisis de errores, subgrupos y uso responsable (#14)
+# (ver docs/decisiones/009_abstencion_y_condiciones.md)
+
+# Modelo analizado: el elegido en #13 (decisión 008), con su umbral.
+MODELO_FINAL = RANDOM_FOREST
+
+# Zona de abstención: umbral ± este ancho. Dentro, la predicción se reporta
+# como "no concluyente" y se escala a revisión humana.
+ANCHO_ABSTENCION = 0.06
+
+# Brecha máxima de recall de riesgo (o de tasa de falsos positivos) entre un
+# subgrupo y el de referencia antes de restringir el uso del modelo en él.
+MAX_BRECHA = 0.10
+
+# Desertores mínimos en un subgrupo para sacar conclusiones sobre su recall.
+MIN_DESERTORES_SUBGRUPO = 30
+
+# Si el modelo marca a más de esta fracción de un subgrupo, la marca no
+# distingue a nadie dentro de él.
+MAX_TASA_MARCADOS = 0.95
