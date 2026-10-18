@@ -4,7 +4,7 @@
 - Rama: `feature/11-random-forest`.
 - Responsable: Jose Maduro.
 - Fecha: 2026-10-17.
-- Estado: Propuesta.
+- Estado: Aprobada (PR #34).
 - Reemplaza a: [005](005_ajuste_y_metricas.md), **solo el criterio de ajuste para #11 y #12**. El formato estándar de métricas de la 005 sigue vigente, y el baseline (#9) conserva su ajuste.
 
 ## 1. Contexto
