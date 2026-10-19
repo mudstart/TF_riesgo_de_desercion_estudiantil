@@ -436,6 +436,6 @@
       }
     ]
   },
-  "energia_kwh": null,
-  "emisiones_gco2eq": null
+  "energia_kwh": 0.0005456721831474658,
+  "emisiones_gco2eq": 0.31691549052838514
 }

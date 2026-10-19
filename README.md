@@ -62,8 +62,9 @@ Desde la raíz del repositorio, en este orden. Cada paso es reproducible (semill
 | 6. Comparación con CV y selección (#13) | `uv run python -m src.comparacion` | `reports/metrics/comparacion_cv.json` y `.md`, `reports/figures/13_*.png` | ~1 min |
 | 7. Evaluación final en test (#13), **una sola vez** | `uv run python -m src.comparacion --test` | `reports/metrics/test_final.json` y `reports/figures/13_confusion_test.png` | segundos |
 | 8. Análisis de errores y subgrupos (#14) | `uv run python -m src.errores` | `reports/metrics/analisis_errores.json` y `.md`, `reports/figures/14_*.png` | ~1.5 min |
+| 9. Medición Green AI (#15) | `uv run python -m src.green_ai` | `reports/metrics/green_ai.json` y `.md`, `reports/figures/15_desempeno_vs_costo.png`; energía y emisiones en `reports/metrics/<modelo>.json` | ~15 min (3 repeticiones) |
 
-Los pasos 3 a 5 son independientes entre sí, pero todos requieren el paso 1. El paso 6 requiere los pasos 3 a 5, y el paso 8 requiere el 6 (solo usa train). El paso 7 ya se ejecutó y su resultado está versionado: el script se niega a repetirlo mientras exista `test_final.json` ([decisión 008](docs/decisiones/008_criterio_seleccion.md)). Los modelos (`models/`) no se versionan; las métricas (`reports/metrics/`) sí.
+Los pasos 3 a 5 son independientes entre sí, pero todos requieren el paso 1. El paso 6 requiere los pasos 3 a 5, y los pasos 8 y 9 requieren el 6 (solo usan train). Después del paso 9 se repite el paso 6 para que la tabla de #13 muestre la energía y las emisiones. El paso 7 ya se ejecutó y su resultado está versionado: el script se niega a repetirlo mientras exista `test_final.json` ([decisión 008](docs/decisiones/008_criterio_seleccion.md)). Los modelos (`models/`) no se versionan; las métricas (`reports/metrics/`) sí.
 
 Para comprobar que todo funciona:
 
@@ -95,6 +96,7 @@ src/
   evaluation.py  Evaluación y comparación de modelos
   comparacion.py Comparación final, selección y evaluación única en test (#13)
   errores.py     Análisis de errores y subgrupos, zona de abstención y revisión de la entrada (#14)
+  green_ai.py    Costo computacional y energético de los tres modelos (#15)
 tests/         Pruebas automáticas con pytest
 ```
 

@@ -2,9 +2,9 @@ Umbral ajustado (decisión 008; el de cada fold se elige sin ese fold):
 
 | Modelo | Umbral | F1-macro | Recall riesgo | Precisión riesgo | Balanced acc. | Entrenamiento (s) | Inferencia (ms/1000) | Energía (kWh) | Emisiones (gCO2eq) |
 |---|---|---|---|---|---|---|---|---|---|
-| baseline | 0.431 ± 0.005 | 0.620 ± 0.023 | 0.773 ± 0.014 | 0.453 ± 0.021 | 0.665 ± 0.016 | 0.16 ± 0.07 | 35.7 ± 11.7 | pendiente (#15) | pendiente (#15) |
-| random_forest | 0.382 ± 0.007 | 0.620 ± 0.021 | 0.808 ± 0.021 | 0.454 ± 0.018 | 0.673 ± 0.014 | 2.01 ± 0.35 | 312.7 ± 92.0 | pendiente (#15) | pendiente (#15) |
-| gradient_boosting | 0.385 ± 0.007 | 0.618 ± 0.023 | 0.792 ± 0.012 | 0.452 ± 0.020 | 0.668 ± 0.017 | 1.53 ± 0.40 | 50.5 ± 22.2 | pendiente (#15) | pendiente (#15) |
+| baseline | 0.431 ± 0.005 | 0.620 ± 0.023 | 0.773 ± 0.014 | 0.453 ± 0.021 | 0.665 ± 0.016 | 0.06 ± 0.03 | 15.8 ± 0.8 | 4.41e-05 | 0.026 |
+| random_forest | 0.382 ± 0.007 | 0.620 ± 0.021 | 0.808 ± 0.021 | 0.454 ± 0.018 | 0.673 ± 0.014 | 0.84 ± 0.01 | 130.1 ± 6.1 | 9.15e-04 | 0.532 |
+| gradient_boosting | 0.385 ± 0.007 | 0.618 ± 0.023 | 0.792 ± 0.012 | 0.452 ± 0.020 | 0.668 ± 0.017 | 0.75 ± 0.08 | 25.6 ± 3.1 | 5.46e-04 | 0.317 |
 
 Umbral 0.5 (referencia):
 

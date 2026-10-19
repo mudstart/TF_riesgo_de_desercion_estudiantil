@@ -26,11 +26,11 @@ Al umbral ajustado; el umbral de cada fold se elige con los otros cuatro, así q
 
 | Modelo | Umbral | F1-macro | Recall Dropout | Precisión Dropout | Balanced acc. | Entrenamiento (s) | Inferencia (ms/1,000) | Emisiones (gCO2eq) |
 |---|---|---|---|---|---|---|---|---|
-| Baseline | 0.431 ± 0.005 | 0.620 ± 0.023 | 0.773 ± 0.014 | 0.453 ± 0.021 | 0.665 ± 0.016 | 0.07 ± 0.01 | 23.7 ± 7.4 | pendiente (#15) |
-| **Random Forest** | 0.382 ± 0.007 | 0.620 ± 0.021 | **0.808 ± 0.021** | 0.454 ± 0.018 | 0.673 ± 0.014 | 0.45 ± 0.00 | 90.5 ± 2.0 | pendiente (#15) |
-| Gradient Boosting | 0.385 ± 0.007 | 0.618 ± 0.023 | 0.792 ± 0.012 | 0.452 ± 0.020 | 0.668 ± 0.017 | 0.28 ± 0.02 | 13.3 ± 1.6 | pendiente (#15) |
+| Baseline | 0.431 ± 0.005 | 0.620 ± 0.023 | 0.773 ± 0.014 | 0.453 ± 0.021 | 0.665 ± 0.016 | 0.07 ± 0.01 | 23.7 ± 7.4 | 0.026 |
+| **Random Forest** | 0.382 ± 0.007 | 0.620 ± 0.021 | **0.808 ± 0.021** | 0.454 ± 0.018 | 0.673 ± 0.014 | 0.45 ± 0.00 | 90.5 ± 2.0 | 0.532 |
+| Gradient Boosting | 0.385 ± 0.007 | 0.618 ± 0.023 | 0.792 ± 0.012 | 0.452 ± 0.020 | 0.668 ± 0.017 | 0.28 ± 0.02 | 13.3 ± 1.6 | 0.317 |
 
-Coste de la búsqueda de hiperparámetros (una vez, no por fold): Random Forest 58 s y Gradient Boosting 36 s (25 combinaciones × 5 folds, decisión 006); el baseline ajusta un solo hiperparámetro, `C`, en menos de 1 s por valor. Las emisiones se añaden cuando #15 escriba `emisiones_gco2eq` en cada `reports/metrics/<modelo>.json`: basta con volver a ejecutar `uv run python -m src.comparacion` (solo CV, sin tocar test).
+Coste de la búsqueda de hiperparámetros (una vez, no por fold): Random Forest 58 s y Gradient Boosting 36 s (25 combinaciones × 5 folds, decisión 006); el baseline ajusta un solo hiperparámetro, `C`, en menos de 1 s por valor. Las emisiones (gCO2eq) son las del entrenamiento completo de cada modelo, incluida la búsqueda de hiperparámetros, medidas con codecarbon en #15; el detalle (energía, inferencia, tamaño y hardware) está en [green_ai.md](green_ai.md).
 
 Al umbral 0.5, como referencia (los valores de #9, #11 y #12):
 
@@ -100,7 +100,7 @@ De los 284 desertores de test, el modelo detecta 228 y deja sin detectar 56. Mar
 
 Se elige el **Random Forest (#11) con umbral 0.382**. Con la misma calidad global que los otros dos (F1-macro ≈ 0.62), es el que más desertores detecta: 4 de cada 5 en CV y en test, con una mejora sobre el baseline que no es ruido. El Gradient Boosting queda empatado en recall, y el criterio fijado de antemano prefiere el Random Forest por ser el más simple de los dos. El baseline pierde por recall pese a ser el más barato e interpretable.
 
-Limitaciones: la señal disponible al ingreso es moderada (AUC ≈ 0.75), así que más de la mitad de los estudiantes marcados no desertarían, y la lista sirve para priorizar el acompañamiento, no para decidir sobre una persona sin revisión humana. Quedan pendientes la energía y las emisiones (#15) y el análisis de errores por subgrupos, en especial por género, que es la tercera variable más importante (#14).
+Limitaciones: la señal disponible al ingreso es moderada (AUC ≈ 0.75), así que más de la mitad de los estudiantes marcados no desertarían, y la lista sirve para priorizar el acompañamiento, no para decidir sobre una persona sin revisión humana. La energía y las emisiones de cada modelo están medidas en [green_ai.md](green_ai.md) (#15), y el análisis de errores por subgrupos, en especial por género, que es la tercera variable más importante, en [analisis_errores.md](analisis_errores.md) (#14).
 
 Limitaciones del criterio, señaladas en la revisión del PR #37:
 
