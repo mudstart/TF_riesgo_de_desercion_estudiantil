@@ -4,10 +4,10 @@
 - Rama: `feature/13-comparacion-modelos`.
 - Responsable: Manicaotex Mueses.
 - Fecha: 2026-10-18 (primer borrador: 2026-10-14).
-- Estado: Propuesta.
+- - Estado: Aprobada (PR #37).
 - Reemplaza a: No aplica.
 
-> **Este criterio se fija ANTES de evaluar en test.** El commit que añade este documento es anterior a la primera ejecución de `uv run python -m src.comparacion --test`, y el historial de Git lo demuestra. Cambiarlo después de ver test invalidaría la evaluación final.
+> **Este criterio se fija ANTES de evaluar en test.** El commit que añade este documento es anterior a la primera ejecución de `uv run python -m src.comparacion --test`, y el historial de Git es coherente con ello: el commit del criterio es de las 10:07 del 2026-10-18 y `reports/metrics/test_final.json` registra la evaluación en test a las 10:19:43 del mismo día.. Cambiarlo después de ver test invalidaría la evaluación final.
 >
 > El criterio se redactó por primera vez el 2026-10-14 en una rama anterior, con modelos provisionales y numerado 005, número que después ocupó la decisión de ajuste y métricas. Esa rama nunca evaluó en test. Esta versión mantiene el mismo criterio y los mismos parámetros, y solo cambia la numeración y las referencias a los modelos finales de #9, #11 y #12.
 
@@ -72,3 +72,6 @@ Si ningún modelo alcanza el piso, no se usa el test: se documenta una decisión
 | Revisado por | POR COMPLETAR: revisión del PR |
 | Fecha | POR COMPLETAR |
 | Evidencia | POR COMPLETAR: enlace al PR |
+| Revisado por | Jose Maduro |
+| Fecha | 2026-10-18 |
+| Evidencia | [PR #37](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/pull/37): aprobado tras volver a ejecutar la comparación con CV y la evaluación en test, con los mismos resultados |
