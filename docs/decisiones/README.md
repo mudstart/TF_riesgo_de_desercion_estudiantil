@@ -47,4 +47,5 @@ Una decisión aprobada **no se reescribe**. Se crea una nueva que indique "Reemp
 | [006](006_busqueda_aleatoria.md) | Búsqueda aleatoria (25 combinaciones, mayor F1-macro) para los candidatos | #11 | Jose Maduro | Aprobada (PR #34) |
 | [007](007_gradient_boosting.md) | Gradient Boosting: HistGradientBoosting con early stopping y class_weight | #12 | Jose Maduro | Aprobada (PR #35) |
 | [008](008_criterio_seleccion.md) | Umbral de decisión (mayor recall con F1-macro ≥ 0.62) y criterio de selección del modelo final, fijados antes de test | #13 | Manicaotex Mueses | Aprobada (PR #37) |
+| [009](009_pruebas_y_ci.md) | Prueba de desempeño mínimo sin test (out-of-fold, F1-macro ≥ 0.60 y mejor que Dummy) y pytest en cada PR con GitHub Actions | #16 | Jose Maduro | Propuesta |
 
