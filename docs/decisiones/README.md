@@ -48,4 +48,3 @@ Una decisión aprobada **no se reescribe**. Se crea una nueva que indique "Reemp
 | [007](007_gradient_boosting.md) | Gradient Boosting: HistGradientBoosting con early stopping y class_weight | #12 | Jose Maduro | Aprobada (PR #35) |
 | [008](008_criterio_seleccion.md) | Umbral de decisión (mayor recall con F1-macro ≥ 0.62) y criterio de selección del modelo final, fijados antes de test | #13 | Manicaotex Mueses | Aprobada (PR #37) |
 
-Decisiones previstas: umbral de decisión y criterio de elección del modelo (#13).
