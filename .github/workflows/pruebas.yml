@@ -1,0 +1,34 @@
+# Ejecuta las pruebas automáticas (#16) en cada PR y en cada push a main.
+# Ver docs/decisiones/010_pruebas_y_ci.md.
+name: Pruebas
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version-file: .python-version
+          enable-cache: true
+
+      - name: Instalar dependencias (uv.lock)
+        run: uv sync --locked
+
+      # data/raw no se versiona: se descarga de UCI y se verifica su SHA-256.
+      # splits.json sí está versionado, así que se valida en lugar de recrearse.
+      - name: Descargar el dataset
+        run: uv run python -m src.data
+
+      - name: Pruebas
+        run: uv run pytest
