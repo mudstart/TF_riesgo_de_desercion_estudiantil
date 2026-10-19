@@ -39,7 +39,7 @@ SMALL = {
 
 # Tolerancia bajo el piso de F1-macro de la decisión 008 antes de dar por
 # degradado el modelo final.
-MARGIN = 0.02  # ver docs/decisiones/009_pruebas_y_ci.md
+MARGIN = 0.02  # ver docs/decisiones/010_pruebas_y_ci.md
 
 
 @pytest.fixture

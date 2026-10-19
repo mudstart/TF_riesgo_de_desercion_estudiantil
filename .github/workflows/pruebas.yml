@@ -1,5 +1,5 @@
 # Ejecuta las pruebas automáticas (#16) en cada PR y en cada push a main.
-# Ver docs/decisiones/009_pruebas_y_ci.md.
+# Ver docs/decisiones/010_pruebas_y_ci.md.
 name: Pruebas
 
 on:

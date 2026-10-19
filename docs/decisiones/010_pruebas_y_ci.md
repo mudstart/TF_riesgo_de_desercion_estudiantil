@@ -1,4 +1,4 @@
-# Decisión 009: prueba de desempeño mínimo sin test y pruebas en cada PR
+# Decisión 010: prueba de desempeño mínimo sin test y pruebas en cada PR
 
 - Issue: [#16](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/issues/16) Pruebas de pipeline y modelos (pruebas 4–8 de 8).
 - Rama: `feature/16-pruebas-pipeline-modelos`.
