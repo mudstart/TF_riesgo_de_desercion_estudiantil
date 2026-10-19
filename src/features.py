@@ -1,6 +1,7 @@
 """Funciones para transformación e ingeniería de características."""
 
 import pandas as pd
+from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import make_pipeline
@@ -49,6 +50,32 @@ def model_columns(sensibilidad: bool = False) -> list[str]:
     Ver docs/decisiones/004_preprocesamiento.md.
     """
     return [c for c in feature_columns(sensibilidad) if c not in FEATURES_REDUNDANTES]
+
+
+class ValidarColumnas(BaseEstimator, TransformerMixin):
+    """Rechaza registros a los que les falta alguna columna que usa el modelo.
+
+    Primer paso del pipeline: deja pasar X sin cambios y, si falta alguna de
+    `columns`, lanza un ValueError que las nombra, en lugar del error genérico
+    de scikit-learn en el preprocesador.
+    """
+
+    def __init__(self, columns):
+        self.columns = columns
+
+    def fit(self, X: pd.DataFrame, y=None):
+        self._check(X)
+        self.columns_ = list(self.columns)
+        return self
+
+    def transform(self, X: pd.DataFrame) -> pd.DataFrame:
+        self._check(X)
+        return X
+
+    def _check(self, X: pd.DataFrame) -> None:
+        missing = [c for c in self.columns if c not in X.columns]
+        if missing:
+            raise ValueError(f"Registro incompleto: faltan las columnas {missing} que necesita el modelo.")
 
 
 def build_preprocessor(sensibilidad: bool = False) -> ColumnTransformer:

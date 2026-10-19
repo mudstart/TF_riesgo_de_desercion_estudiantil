@@ -1,3 +1,4 @@
+import joblib
 import numpy as np
 import pandas as pd
 import pytest
@@ -73,13 +74,6 @@ def test_rare_categories_are_grouped(df):
     assert "Course_infrequent_sklearn" in names
 
 
-def test_unknown_category_does_not_break_prediction(df, y):
-    pipe = build_pipeline(LogisticRegression()).fit(df, y)
-    new = df.head(1).copy()
-    new["Course"] = 123456
-    assert pipe.predict(new).shape == (1,)
-
-
 @pytest.mark.parametrize(
     "model",
     [
@@ -108,3 +102,55 @@ def test_save_and_load_keep_predictions(tmp_path, df, y):
     save_pipeline(pipe, "prueba", models_dir=tmp_path)
     loaded = load_pipeline("prueba", models_dir=tmp_path)
     assert np.array_equal(pipe.predict_proba(df), loaded.predict_proba(df))
+
+
+# Pruebas del pipeline (#16, pruebas 4 y 7 de 8).
+
+
+def test_pipeline_sin_fuga(df):
+    """Prueba 4: transformar test no cambia lo aprendido con train.
+
+    Protege la decisión 004: el preprocesador se ajusta con train y, al
+    transformar test, no actualiza ninguna estadística (modas, medianas,
+    media y escala, categorías del one-hot). Test lleva valores extremos,
+    nulos y una categoría nueva para que cualquier recálculo se note.
+    Además, cada fila de test se transforma igual sola que en lote: el
+    resultado no depende de las demás filas de test.
+    """
+    train, test = df.iloc[:200], df.iloc[200:220].copy()
+    test["Admission grade"] += 1000
+    test.loc[test.index[:5], "Age at enrollment"] = np.nan
+    test["Course"] = 123456
+
+    pre = build_preprocessor().fit(train)
+    fitted = joblib.hash(pre)
+    batch = pre.transform(test)
+    assert joblib.hash(pre) == fitted
+
+    scaler = pre.named_transformers_["numericas"][-1]
+    i = list(pre.transformers_[1][2]).index("Admission grade")
+    assert scaler.mean_[i] == pytest.approx(train["Admission grade"].mean())
+
+    one_by_one = np.vstack([pre.transform(test.iloc[[k]]) for k in range(len(test))])
+    assert np.array_equal(batch, one_by_one)
+
+
+def test_robustez_de_entrada(df, y):
+    """Prueba 7: el pipeline acepta categorías nuevas y rechaza registros incompletos.
+
+    Protege el uso con cohortes futuras: un código de carrera que no estaba
+    en train no rompe la predicción (va a "infrecuentes", decisión 004), y
+    un registro al que le falta una columna del modelo se rechaza con un
+    ValueError propio (ValidarColumnas) que nombra la columna, en lugar de
+    predecir con datos incompletos.
+    """
+    pipe = build_pipeline(LogisticRegression()).fit(df, y)
+
+    new = df.head(1).copy()
+    new["Course"] = 123456
+    proba = pipe.predict_proba(new)
+    assert proba.shape == (1, 2)
+    assert np.isfinite(proba).all()
+
+    with pytest.raises(ValueError, match="Registro incompleto.*Admission grade"):
+        pipe.predict(df.head(1).drop(columns=["Admission grade"]))
