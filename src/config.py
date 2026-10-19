@@ -149,3 +149,35 @@ MIN_F1_MACRO = 0.62
 # Remuestreos del bootstrap pareado y nivel de los intervalos.
 N_BOOTSTRAP = 2000
 CONFIDENCE = 0.95
+
+# Análisis de errores, subgrupos y uso responsable (#14)
+# (ver docs/decisiones/009_abstencion_y_subgrupos.md)
+
+# Zona de abstención: si |probabilidad - umbral| < ANCHO_ABSTENCION el
+# resultado es "no concluyente" y se escala a revisión humana.
+ANCHO_ABSTENCION = 0.05
+
+# Un subgrupo queda en alerta si su recall de riesgo está más de
+# MAX_BRECHA_RECALL por debajo del resto y el IC de la brecha excluye 0.
+MAX_BRECHA_RECALL = 0.10
+
+# Desertores mínimos en un subgrupo para estimar su recall; con menos, la
+# evidencia es insuficiente y el subgrupo no se evalúa.
+MIN_RIESGO_SUBGRUPO = 30
+
+# Rangos de edad al ingreso: hasta 20, 21 a 25 y más de 25 años.
+LIMITES_EDAD = (20, 25)
+
+# Variables que describen subgrupos. Scholarship holder no entra al modelo
+# (sensibilidad) e International es redundante, pero sirven para describir.
+# "Rango de edad" y "Estado civil" se derivan en src/errores.py.
+SUBGRUPOS = (
+    "Gender",
+    "Rango de edad",
+    "Estado civil",
+    "Scholarship holder",
+    "Displaced",
+    "International",
+    "Educational special needs",
+    "Course",
+)
