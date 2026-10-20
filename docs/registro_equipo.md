@@ -13,14 +13,14 @@ Por medio del presente registramos nuestro equipo para el Trabajo final:
 | Integrante | Usuario de GitHub |
 |---|---|
 | Roberto Byas | RByas |
-| Mannix Mueses | mannixmueses-cloud |
-| Jose Maduro | mudstart |
+| Manicaotex Mueses | mannixmueses-cloud |
+| Jose M. Maduro | mudstart |
 
 - **Modalidad:** A, proyecto aplicado de ciencia de datos.
 - **Tema:** 01, riesgo de deserción estudiantil.
 - **Datos:** *Predict Students' Dropout and Academic Success* (UCI ML Repository, id 697, CC BY 4.0).
 - **Decisor:** coordinación académica. La decisión apoyada es la priorización de acompañamiento temprano, con revisión humana. Quedan excluidos explícitamente los usos para sancionar, excluir o decidir la admisión.
-- **Repositorio:** https://github.com/mudstart/riesgo_de_desercion_estudiantil
+- **Repositorio:** https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil
 
 **Alcance que nos comprometemos a entregar**, para un equipo de 3 integrantes:
 
@@ -33,7 +33,7 @@ Por medio del presente registramos nuestro equipo para el Trabajo final:
 Quedamos atentos a su confirmación.
 
 Atentamente,
-Roberto Byas, Mannix Mueses y Jose Maduro
+Roberto Byas, Manicaotex Mueses y Jose M. Maduro
 
 ---
 
@@ -51,5 +51,5 @@ Completar después de enviar el mensaje y pasar estos datos a la sección 3 de `
 ## Revisión previa al envío
 
 - [ ] Roberto Byas
-- [ ] Mannix Mueses
-- [ ] Jose Maduro
+- [ ] Manicaotex Mueses
+- [ ] Jose M. Maduro

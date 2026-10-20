@@ -5,7 +5,7 @@
 - Asignatura: INF-8239 Ciencia de Datos II.
 - Modalidad: A — Proyecto aplicado de ciencia de datos.
 - Tema: 01 — Riesgo de deserción estudiantil.
-- Repositorio: https://github.com/mudstart/riesgo_de_desercion_estudiantil
+- Repositorio: https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil
 - Rama de esta tarea: `feature/1-proyecto`.
 - Responsable de esta tarea: Roberto Byas.
 - Estado: documento revisado y aprobado por los tres integrantes (2026-10-07).
@@ -17,8 +17,8 @@ El equipo y la distribución de tareas ya fueron definidos. Esta tabla registra 
 | Integrante | Usuario de GitHub | Rol o responsabilidad acordada |
 |---|---|---|
 | Roberto Byas | RByas | Documentación inicial del proyecto: equipo, modalidad, tema, decisor, datos, riesgos y seguimiento de los requisitos de esta tarea (#1); partición estratificada y validación cruzada (#7); pruebas de contrato de datos y anti-fuga, 1–3 de 8 (#10); evaluación comparativa final de modelos (#13); pruebas de pipeline y modelos, 4–8 de 8 (#16) |
-| Mannix Mueses | mannixmueses-cloud | Estructura del repositorio y entorno reproducible (#2); adquisición del dataset y verificación de licencia, versión y limitaciones (#3); pipeline de preprocesamiento sin fuga (#8); modelo candidato 1: Random Forest (#11); análisis de errores y de subgrupos (#14); artefacto práctico: demo de predicción (#17) |
-| Jose Maduro | mudstart | Momento de intervención y variables permitidas/prohibidas (#4); formulación del target (#5); auditoría de datos, EDA (#6); modelo baseline: regresión logística (#9); modelo candidato 2: Gradient Boosting (#12); medición Green AI (#15); informe técnico, README y declaración de uso de IA (#18); ensayo de demo, versión final y defensa (#19) |
+| Manicaotex Mueses | mannixmueses-cloud | Estructura del repositorio y entorno reproducible (#2); adquisición del dataset y verificación de licencia, versión y limitaciones (#3); pipeline de preprocesamiento sin fuga (#8); modelo candidato 1: Random Forest (#11); análisis de errores y de subgrupos (#14); artefacto práctico: demo de predicción (#17) |
+| Jose M. Maduro | mudstart | Momento de intervención y variables permitidas/prohibidas (#4); formulación del target (#5); auditoría de datos, EDA (#6); modelo baseline: regresión logística (#9); modelo candidato 2: Gradient Boosting (#12); medición Green AI (#15); informe técnico, README y declaración de uso de IA (#18); ensayo de demo, versión final y defensa (#19) |
 
 ## 3. Registro del equipo y alcance fijo
 
@@ -50,7 +50,7 @@ La Modalidad A produce un análisis reproducible. No se presenta como un sistema
 
 ### Delimitación temporal aprobada por el equipo
 
-El riesgo se identifica al ingreso, una vez disponible la información de matrícula y antes de conocer resultados académicos del primer semestre. Las variables permitidas se derivan de esta delimitación (sección 6) y se formalizan en el issue [#4](https://github.com/mudstart/riesgo_de_desercion_estudiantil/issues/4).
+El riesgo se identifica al ingreso, una vez disponible la información de matrícula y antes de conocer resultados académicos del primer semestre. Las variables permitidas se derivan de esta delimitación (sección 6) y se formalizan en el issue [#4](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/issues/4).
 
 ### Pregunta de análisis
 
@@ -119,13 +119,13 @@ Las valoraciones son cualitativas. Cada responsable corresponde al integrante as
 
 | Riesgo | Probabilidad | Impacto | Mitigación | Responsable según reparto vigente |
 |---|---|---|---|---|
-| Fuga de información por variables posteriores a la intervención | Alta | Alto | Fijar el momento de intervención; documentar disponibilidad temporal; excluir información futura y variables de temporalidad no verificable | Jose Maduro (#4 anti-fuga, #6 EDA) |
+| Fuga de información por variables posteriores a la intervención | Alta | Alto | Fijar el momento de intervención; documentar disponibilidad temporal; excluir información futura y variables de temporalidad no verificable | Jose M. Maduro (#4 anti-fuga, #6 EDA) |
 | Desbalance de clases y recall insuficiente en Dropout | Media | Alto | Planificar partición estratificada y evaluación por clase; analizar recall junto con precisión y matriz de confusión | Roberto Byas (#7 partición, #13 evaluación comparativa) |
-| Sesgo contra subgrupos por género, edad o nacionalidad | Media | Alto | Comparar errores por subgrupos, reportar tamaños y limitaciones; evitar usos discriminatorios | Mannix Mueses (#14 análisis de errores y subgrupos) |
-| Baja generalización por provenir de una institución y contexto de Portugal | Alta | Alto | Limitar conclusiones al contexto estudiado y exigir validación local antes de aplicación en otra institución | Jose Maduro (#18 informe técnico: limitaciones y conclusiones) |
+| Sesgo contra subgrupos por género, edad o nacionalidad | Media | Alto | Comparar errores por subgrupos, reportar tamaños y limitaciones; evitar usos discriminatorios | Manicaotex Mueses (#14 análisis de errores y subgrupos) |
+| Baja generalización por provenir de una institución y contexto de Portugal | Alta | Alto | Limitar conclusiones al contexto estudiado y exigir validación local antes de aplicación en otra institución | Jose M. Maduro (#18 informe técnico: limitaciones y conclusiones) |
 | Atraso del cronograma, especialmente si S3 concentra tres semanas | Media | Alto | Confirmar calendario y significado de S3; establecer fechas internas y revisar dependencias semanalmente | Roberto Byas (#1 seguimiento de requisitos) |
 | Integrante sin evidencia verificable en Git | Media | Alto | Dar seguimiento a issues, commits sustantivos, PR y revisiones desde cuentas individuales; no confundir asignación con contribución | Cada integrante; seguimiento de esta tarea: Roberto Byas |
-| Uso indebido de los resultados para sancionar, excluir o etiquetar estudiantes | Baja | Alto | Repetir los usos excluidos de la sección 5 en el README, el informe y la demostración; presentar los resultados como apoyo a la revisión humana, no como decisión | Jose Maduro (#18 informe técnico, #19 demo final) |
+| Uso indebido de los resultados para sancionar, excluir o etiquetar estudiantes | Baja | Alto | Repetir los usos excluidos de la sección 5 en el README, el informe y la demostración; presentar los resultados como apoyo a la revisión humana, no como decisión | Jose M. Maduro (#18 informe técnico, #19 demo final) |
 
 La compresión de tres semanas en S3 se registra como condición por verificar: las orientaciones generales adjuntas presentan seis semanas y no explican esa compresión.
 
@@ -135,9 +135,9 @@ Se conservarán los issues y responsables ya acordados. No se crearán duplicado
 
 | Integrante | Issue o issues asignados: enlace real | Acceso efectivo confirmado |
 |---|---|---|
-| Roberto Byas (`RByas`) | [#1](https://github.com/mudstart/riesgo_de_desercion_estudiantil/issues/1) Registro del equipo, decisor, pregunta de análisis y registro de riesgos | Sí: colaborador con invitación aceptada |
-| Mannix Mueses (`mannixmueses-cloud`) | [#2](https://github.com/mudstart/riesgo_de_desercion_estudiantil/issues/2) Estructura del repositorio y entorno reproducible; [#3](https://github.com/mudstart/riesgo_de_desercion_estudiantil/issues/3) Adquisición del dataset UCI y verificación de licencia, versión y limitaciones | Sí: colaborador con invitación aceptada |
-| Jose Maduro (`mudstart`) | [#4](https://github.com/mudstart/riesgo_de_desercion_estudiantil/issues/4) Definir el momento de intervención y variables permitidas/prohibidas (anti-fuga); [#5](https://github.com/mudstart/riesgo_de_desercion_estudiantil/issues/5) Decidir formulación del target: 3 clases o binario | Sí: propietario del repositorio |
+| Roberto Byas (`RByas`) | [#1](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/issues/1) Registro del equipo, decisor, pregunta de análisis y registro de riesgos | Sí: colaborador con invitación aceptada |
+| Manicaotex Mueses (`mannixmueses-cloud`) | [#2](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/issues/2) Estructura del repositorio y entorno reproducible; [#3](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/issues/3) Adquisición del dataset UCI y verificación de licencia, versión y limitaciones | Sí: colaborador con invitación aceptada |
+| Jose M. Maduro (`mudstart`) | [#4](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/issues/4) Definir el momento de intervención y variables permitidas/prohibidas (anti-fuga); [#5](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/issues/5) Decidir formulación del target: 3 clases o binario | Sí: propietario del repositorio |
 
 Cuando falte un acceso, el propietario o administrador del repositorio enviará la invitación correspondiente y verificará su aceptación. Una invitación pendiente no equivale a acceso confirmado.
 
@@ -146,8 +146,8 @@ Cuando falte un acceso, el propietario o administrador del repositorio enviará 
 | Integrante | Fecha de revisión | Evidencia: comentario, revisión o PR |
 |---|---|---|
 | Roberto Byas | 2026-10-07 | Aprobación del documento por el equipo |
-| Mannix Mueses | 2026-10-07 | Aprobación del documento por el equipo |
-| Jose Maduro | 2026-10-07 | Aprobación del documento por el equipo |
+| Manicaotex Mueses | 2026-10-07 | Aprobación del documento por el equipo |
+| Jose M. Maduro | 2026-10-07 | Aprobación del documento por el equipo |
 
 - [x] Equipo registrado ante el profesor por el medio indicado.
 - [x] Alcance fijo declarado y confirmado en el registro.

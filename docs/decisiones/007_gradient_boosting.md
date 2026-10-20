@@ -2,7 +2,7 @@
 
 - Issue: [#12](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/issues/12) Modelo candidato 2: Gradient Boosting.
 - Rama: `feature/12-gradient-boosting`.
-- Responsable: Jose Maduro.
+- Responsable: Jose M. Maduro.
 - Fecha: 2026-10-17.
 - Estado: Aprobada (PR #35).
 - Reemplaza a: No aplica.

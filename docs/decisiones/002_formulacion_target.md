@@ -2,9 +2,9 @@
 
 - Issue: [#5](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/issues/5) Decidir formulación del target: 3 clases o binario.
 - Rama: `feature/5-formulacion-target`.
-- Responsable: Jose Maduro.
+- Responsable: Jose M. Maduro.
 - Fecha: 2026-10-10.
-- Estado: aprobada por el equipo.
+- Estado: Aprobada (PR #22).
 
 ## 1. Contexto
 
@@ -64,6 +64,6 @@ El recall de riesgo se reporta siempre junto a la precisión de Dropout y la mat
 
 | Campo | Valor |
 |---|---|
-| Acordado por | Roberto Byas, Mannix Mueses y Jose Maduro |
-| Medio y fecha del acuerdo | POR COMPLETAR |
-| Evidencia verificable | POR COMPLETAR: comentario en el issue #5 o revisión del PR |
+| Acordado por | Roberto Byas, Manicaotex Mueses y Jose M. Maduro |
+| Medio y fecha del acuerdo | Revisión del PR, 2026-10-12 |
+| Evidencia verificable | [PR #22](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/pull/22): aprobado y fusionado; revisado por Roberto Byas |
