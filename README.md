@@ -1,5 +1,7 @@
 # Riesgo de deserción estudiantil
 
+[![Pruebas](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/actions/workflows/pruebas.yml/badge.svg?branch=main)](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/actions/workflows/pruebas.yml)
+
 Trabajo final de la asignatura **INF-8239 Ciencia de Datos II** (Modalidad A, Tema 01).
 
 ## Descripción
@@ -72,9 +74,29 @@ Para comprobar que todo funciona:
 uv run pytest
 ```
 
+## Demo de predicción
+
+Una aplicación Streamlit (#17) que estima el riesgo de deserción de un estudiante al ingreso. Solo necesita el paso 1 (`data/raw/data.csv`); no necesita `models/`, porque reconstruye el modelo elegido en #13 con los hiperparámetros versionados (~1 s):
+
+```bash
+uv run streamlit run app/app.py
+```
+
+Se abre en el navegador (http://localhost:8501). Incluye tres perfiles ficticios, que no están en el dataset: uno de riesgo bajo, uno alto y uno no concluyente; también se pueden ingresar datos propios. Para cada perfil muestra:
+
+- la probabilidad y el nivel: **bajo**, **no concluyente – requiere revisión humana** (zona de abstención del #14) o **alto**;
+- una abstención, sin resultado, si un dato falta o está fuera de lo visto en train;
+- las variables que más pesan en el caso y qué **no** permite concluir el resultado;
+- avisos de revisión humana para los subgrupos donde el modelo falla más;
+- el desempeño en test y la trazabilidad: versión del modelo, fecha de entrenamiento, hash del dataset y umbral.
+
+Criterios en la [decisión 012](docs/decisiones/012_demo_prediccion.md).
+
 ## Estructura
 
 ```text
+app/
+  app.py       Demo de predicción con Streamlit (#17)
 data/
   raw/         Datos originales (no versionados)
   processed/   Datos procesados
@@ -97,6 +119,8 @@ src/
   comparacion.py Comparación final, selección y evaluación única en test (#13)
   errores.py     Análisis de errores y subgrupos, zona de abstención y revisión de la entrada (#14)
   green_ai.py    Costo computacional y energético de los tres modelos (#15)
+  predict.py     Lógica de la demo: validación, predicción, categorías, factores y trazabilidad (#17)
+  diccionario.py Etiquetas de los códigos del dataset UCI para el formulario de la demo (#17)
 tests/         Pruebas automáticas con pytest
 ```
 
