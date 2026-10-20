@@ -39,15 +39,16 @@ Una decisión aprobada **no se reescribe**. Se crea una nueva que indique "Reemp
 
 | N.º | Decisión | Issue | Responsable | Estado |
 |---|---|---|---|---|
-| [001](001_momento_intervencion.md) | Momento de intervención al ingreso y variables permitidas | #4 | Jose Maduro | Aprobada |
-| [002](002_formulacion_target.md) | Target binario (principal) y multiclase (secundaria) | #5 | Jose Maduro | Aprobada |
-| [003](003_particion_validacion.md) | Partición 80/20 estratificada y 5 folds fijos; test solo al final | #7 | Jose Maduro | Aprobada |
-| [004](004_preprocesamiento.md) | Preprocesamiento sin fuga: one-hot con infrecuentes, escalado y class_weight | #8 | Jose Maduro | Propuesta |
+| [001](001_momento_intervencion.md) | Momento de intervención al ingreso y variables permitidas | #4 | Jose M. Maduro | Aprobada (PR #24) |
+| [002](002_formulacion_target.md) | Target binario (principal) y multiclase (secundaria) | #5 | Jose M. Maduro | Aprobada (PR #22) |
+| [003](003_particion_validacion.md) | Partición 80/20 estratificada y 5 folds fijos; test solo al final | #7 | Jose M. Maduro | Aprobada (PR #26) |
+| [004](004_preprocesamiento.md) | Preprocesamiento sin fuga: one-hot con infrecuentes, escalado y class_weight | #8 | Jose M. Maduro | Aprobada (PR #29) |
 | [005](005_ajuste_y_metricas.md) | Ajuste de hiperparámetros (F1-macro, regla de una desviación estándar) y formato estándar de métricas | #9 | Manicaotex Mueses | Aprobada (PR #33); criterio de ajuste reemplazado por 006 para #11 y #12 |
-| [006](006_busqueda_aleatoria.md) | Búsqueda aleatoria (25 combinaciones, mayor F1-macro) para los candidatos | #11 | Jose Maduro | Aprobada (PR #34) |
-| [007](007_gradient_boosting.md) | Gradient Boosting: HistGradientBoosting con early stopping y class_weight | #12 | Jose Maduro | Aprobada (PR #35) |
+| [006](006_busqueda_aleatoria.md) | Búsqueda aleatoria (25 combinaciones, mayor F1-macro) para los candidatos | #11 | Jose M. Maduro | Aprobada (PR #34) |
+| [007](007_gradient_boosting.md) | Gradient Boosting: HistGradientBoosting con early stopping y class_weight | #12 | Jose M. Maduro | Aprobada (PR #35) |
 | [008](008_criterio_seleccion.md) | Umbral de decisión (mayor recall con F1-macro ≥ 0.62) y criterio de selección del modelo final, fijados antes de test | #13 | Manicaotex Mueses | Aprobada (PR #37) |
-| [010](010_pruebas_y_ci.md) | Prueba de desempeño mínimo sin test (out-of-fold, F1-macro ≥ 0.60 y mejor que Dummy) y pytest en cada PR con GitHub Actions | #16 | Jose Maduro | Propuesta |
-| [011](011_medicion_green_ai.md) | Medición Green AI: codecarbon sin conexión (país DOM), entrenamiento con búsqueda, 3 repeticiones alternadas | #15 | Manicaotex Mueses | Propuesta |
-| [012](012_demo_prediccion.md) | Demo: categorías bajo / no concluyente / alto con el umbral y la zona aprobados, factores globales y locales, modelo reconstruido desde archivos versionados | #17 | Jose Maduro | Propuesta |
+| [009](009_abstencion_y_subgrupos.md) | Análisis de subgrupos, zona de abstención y condiciones de detención, abstención y escalamiento | #14 | Roberto Byas | Aprobada (PR #40) |
+| [010](010_pruebas_y_ci.md) | Prueba de desempeño mínimo sin test (out-of-fold, F1-macro ≥ 0.60 y mejor que Dummy) y pytest en cada PR con GitHub Actions | #16 | Jose M. Maduro | Aprobada (PR #41) |
+| [011](011_medicion_green_ai.md) | Medición Green AI: codecarbon sin conexión (país DOM), entrenamiento con búsqueda, 3 repeticiones alternadas | #15 | Manicaotex Mueses | Aprobada (PR #42) |
+| [012](012_demo_prediccion.md) | Demo: categorías bajo / no concluyente / alto con el umbral y la zona aprobados, factores globales y locales, modelo reconstruido desde archivos versionados | #17 | Jose M. Maduro | Aprobada (PR #43) |
 

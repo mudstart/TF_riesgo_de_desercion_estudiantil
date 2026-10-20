@@ -2,7 +2,7 @@
 
 - Issue: [#11](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/issues/11) Modelo candidato 1: Random Forest.
 - Rama: `feature/11-random-forest`.
-- Responsable: Jose Maduro.
+- Responsable: Jose M. Maduro.
 - Fecha: 2026-10-17.
 - Estado: Aprobada (PR #34).
 - Reemplaza a: [005](005_ajuste_y_metricas.md), **solo el criterio de ajuste para #11 y #12**. El formato estándar de métricas de la 005 sigue vigente, y el baseline (#9) conserva su ajuste.
@@ -85,6 +85,6 @@ Referencia: Bergstra, J. y Bengio, Y. (2012). Random search for hyper-parameter 
 
 | Campo | Valor |
 |---|---|
-| Revisado por | POR COMPLETAR: revisión del PR |
-| Fecha | POR COMPLETAR |
-| Evidencia | POR COMPLETAR: enlace al PR |
+| Revisado por | Roberto Byas |
+| Fecha | 2026-10-17 |
+| Evidencia | [PR #34](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/pull/34): aprobado y fusionado |

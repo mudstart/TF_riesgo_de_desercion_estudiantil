@@ -4,7 +4,7 @@
 - Rama: `feature/9-baseline-logistica`.
 - Responsable: Manicaotex Mueses.
 - Fecha: 2026-10-16.
-- Estado: Propuesta.
+- Estado: Aprobada (PR #33).
 - Reemplaza a: No aplica.
 
 ## 1. Contexto
@@ -94,6 +94,6 @@ Referencias:
 
 | Campo | Valor |
 |---|---|
-| Revisado por | POR COMPLETAR: revisión del PR |
-| Fecha | POR COMPLETAR |
-| Evidencia | [PR #33](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/pull/33) |
+| Revisado por | Roberto Byas |
+| Fecha | 2026-10-16 |
+| Evidencia | [PR #33](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/pull/33): aprobado y fusionado, tras dos solicitudes de cambios atendidas |

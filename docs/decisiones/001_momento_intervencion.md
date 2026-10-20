@@ -2,7 +2,7 @@
 
 - Issue: [#4](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/issues/4) Definir el momento de intervención y variables permitidas/prohibidas (anti-fuga).
 - Rama: `feature/4-momento-intervencion`.
-- Responsable: Jose Maduro.
+- Responsable: Jose M. Maduro.
 - Fecha: 2026-10-13.
 - Estado: Aprobada (PR #24).
 
@@ -87,5 +87,6 @@ Relacionada con la pregunta de defensa. La recomendación de priorizar acompaña
 
 | Campo | Valor |
 |---|---|
-| Revisado por | POR COMPLETAR: revisión del PR |
-| Fecha | POR COMPLETAR |
+| Revisado por | Roberto Byas |
+| Fecha | 2026-10-13 |
+| Evidencia | [PR #24](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/pull/24): aprobado y fusionado |

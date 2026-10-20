@@ -2,9 +2,9 @@
 
 - Issue: [#8](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/issues/8) Pipeline de preprocesamiento sin fuga.
 - Rama: `feature/8-pipeline-sin-fuga`.
-- Responsable: Jose Maduro.
+- Responsable: Jose M. Maduro.
 - Fecha: 2026-10-14.
-- Estado: Propuesta.
+- Estado: Aprobada (PR #29).
 - Reemplaza a: No aplica.
 
 ## 1. Contexto
@@ -96,6 +96,6 @@ cross_validate(pipe, X_train, y_train, cv=cv_folds(splits), scoring="f1_macro")
 
 | Campo | Valor |
 |---|---|
-| Revisado por | POR COMPLETAR: revisión del PR |
-| Fecha | POR COMPLETAR |
-| Evidencia | POR COMPLETAR: enlace al PR |
+| Revisado por | Manicaotex Mueses |
+| Fecha | 2026-10-15 |
+| Evidencia | [PR #29](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/pull/29): aprobado y fusionado |

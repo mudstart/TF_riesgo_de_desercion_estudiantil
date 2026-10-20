@@ -2,9 +2,9 @@
 
 - Issue: [#16](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/issues/16) Pruebas de pipeline y modelos (pruebas 4–8 de 8).
 - Rama: `feature/16-pruebas-pipeline-modelos`.
-- Responsable: Jose Maduro.
+- Responsable: Jose M. Maduro.
 - Fecha: 2026-10-19.
-- Estado: Propuesta.
+- Estado: Aprobada (PR #41).
 - Reemplaza a: No aplica.
 
 ## 1. Contexto
@@ -68,6 +68,6 @@ Además, `models/*.joblib` y `data/raw/` no se versionan, así que la prueba 8 n
 
 | Campo | Valor |
 |---|---|
-| Revisado por | POR COMPLETAR: revisión del PR |
-| Fecha | POR COMPLETAR |
-| Evidencia | POR COMPLETAR: enlace al PR |
+| Revisado por | Roberto Byas |
+| Fecha | 2026-10-19 |
+| Evidencia | [PR #41](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/pull/41): aprobado y fusionado: `uv run pytest` en verde (79 pruebas) y CI en verde |

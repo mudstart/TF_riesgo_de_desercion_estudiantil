@@ -227,9 +227,7 @@ def predecir(modelo: Modelo, perfil: dict) -> dict:
     del caso y alertas de subgrupo; e3 indica que un "sin riesgo" no debe
     usarse para excluir al estudiante del acompañamiento.
     """
-    # Un campo vacío del formulario llega como None: se convierte en NaN para
-    # que revisar_entrada lo marque como "sin valor".
-    X = pd.DataFrame([perfil]).apply(pd.to_numeric, errors="coerce")
+    X = pd.DataFrame([perfil])
     revision = revisar_entrada(X, modelo.dominio).iloc[0]
     if revision["abstenerse"]:
         return {"estado": "abstencion", "motivos": revision["motivos"].split("; ")}

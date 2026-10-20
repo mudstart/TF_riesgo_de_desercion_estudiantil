@@ -69,6 +69,6 @@ Si ningún modelo alcanza el piso, no se usa el test: se documenta una decisión
 
 | Campo | Valor |
 |---|---|
-| Revisado por | Jose Maduro |
+| Revisado por | Jose M. Maduro |
 | Fecha | 2026-10-18 |
 | Evidencia | [PR #37](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/pull/37): aprobado tras volver a ejecutar la comparación con CV y la evaluación en test, con los mismos resultados |

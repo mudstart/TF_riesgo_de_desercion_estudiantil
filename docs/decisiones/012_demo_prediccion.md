@@ -2,9 +2,9 @@
 
 - Issue: [#17](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/issues/17) Artefacto práctico: demo de predicción.
 - Rama: `feature/17-demo-prediccion`.
-- Responsable: Jose Maduro.
+- Responsable: Jose M. Maduro.
 - Fecha: 2026-10-19.
-- Estado: Propuesta.
+- Estado: Aprobada (PR #43).
 - Reemplaza a: No aplica.
 
 ## 1. Contexto
@@ -80,6 +80,6 @@ El issue #17 pide una demo (`streamlit run app/app.py`) que, para un estudiante 
 
 | Campo | Valor |
 |---|---|
-| Revisado por | POR COMPLETAR: revisión del PR |
-| Fecha | POR COMPLETAR |
-| Evidencia | POR COMPLETAR: enlace al PR |
+| Revisado por | Roberto Byas |
+| Fecha | 2026-10-20 |
+| Evidencia | [PR #43](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/pull/43): aprobado y fusionado: `uv run pytest` en verde (109 pruebas) y la demo probada con cada perfil de ejemplo |

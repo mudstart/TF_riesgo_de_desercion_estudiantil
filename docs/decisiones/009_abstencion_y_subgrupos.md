@@ -4,7 +4,7 @@
 - Rama: `feature/14-errores-subgrupos`.
 - Responsable: Roberto Byas.
 - Fecha: 2026-10-18.
-- Estado: Propuesta.
+- Estado: Aprobada (PR #40).
 - Reemplaza a: No aplica.
 
 ## 1. Contexto
@@ -72,6 +72,6 @@ Resultados en [reports/analisis_errores.md](../../reports/analisis_errores.md).
 
 | Campo | Valor |
 |---|---|
-| Revisado por | POR COMPLETAR: revisión del PR |
-| Fecha | POR COMPLETAR |
-| Evidencia | POR COMPLETAR: enlace al PR |
+| Revisado por | Jose M. Maduro |
+| Fecha | 2026-10-19 |
+| Evidencia | [PR #40](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/pull/40): aprobado y fusionado: `uv run pytest` en verde (81 pruebas) y `src.errores` reproduce `analisis_errores.json` exactamente |

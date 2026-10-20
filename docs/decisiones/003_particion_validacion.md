@@ -2,7 +2,7 @@
 
 - Issue: [#7](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/issues/7) Partición estratificada train/test fija y validación cruzada.
 - Rama: `feature/7-particion-train-test`.
-- Responsable: Jose Maduro.
+- Responsable: Jose M. Maduro.
 - Fecha: 2026-10-13.
 - Estado: Aprobada (PR #26).
 - Reemplaza a: No aplica.
@@ -82,6 +82,6 @@ X_train, y_train = X.iloc[splits["train"]], y.iloc[splits["train"]]
 
 | Campo | Valor |
 |---|---|
-| Revisado por | POR COMPLETAR: revisión del PR |
-| Fecha | POR COMPLETAR |
-| Evidencia | POR COMPLETAR: enlace al PR |
+| Revisado por | Roberto Byas |
+| Fecha | 2026-10-14 |
+| Evidencia | [PR #26](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/pull/26): aprobado y fusionado |

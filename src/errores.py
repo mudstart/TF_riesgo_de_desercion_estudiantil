@@ -341,9 +341,13 @@ def revisar_entrada(X: pd.DataFrame, dominio: dict) -> pd.DataFrame:
         if c not in X.columns:
             mark(np.ones(len(X), dtype=bool), abstain, f"falta la columna {c}")
             continue
-        values = X[c].to_numpy()
-        missing = pd.isna(values)
-        mark(missing, abstain, f"{c} sin valor")
+        # Un campo vacío (None) o un texto dejan la columna como object: se
+        # convierten a número para poder comparar, y se marcan aparte.
+        empty = X[c].isna().to_numpy()
+        values = pd.to_numeric(X[c], errors="coerce").to_numpy(dtype=float)
+        mark(empty, abstain, f"{c} sin valor")
+        mark(~empty & np.isnan(values), abstain, f"{c}: valor no numérico")
+        missing = np.isnan(values)
         if c in dominio["numericas"]:
             lo, hi = dominio["numericas"][c]
             mark(~missing & ((values < lo) | (values > hi)), abstain, f"{c} fuera del rango de train [{lo:g}, {hi:g}]")

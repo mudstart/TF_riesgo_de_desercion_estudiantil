@@ -4,7 +4,7 @@
 - Rama: `feature/15-green-ai`.
 - Responsable: Manicaotex Mueses.
 - Fecha: 2026-10-19.
-- Estado: Propuesta.
+- Estado: Aprobada (PR #42).
 - Reemplaza a: No aplica.
 
 ## 1. Contexto
@@ -52,6 +52,6 @@ El equipo de medición es un portátil sin GPU y sin medidor de potencia por har
 
 | Campo | Valor |
 |---|---|
-| Revisado por | |
-| Fecha | |
-| Evidencia | Enlace al PR |
+| Revisado por | Jose M. Maduro |
+| Fecha | 2026-10-19 |
+| Evidencia | [PR #42](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/pull/42): aprobado y fusionado: CI en verde y cifras de `green_ai.md` verificadas contra `green_ai.json` |
