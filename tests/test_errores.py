@@ -111,6 +111,18 @@ def test_revisar_entrada_abstains_and_escalates(X):
     assert "Course" in review.loc[4, "motivos"]
 
 
+def test_revisar_entrada_handles_empty_and_non_numeric_values(X):
+    """Un campo vacío (None) o un texto no rompen la revisión: se abstiene con el motivo."""
+    new = X.iloc[[10, 11, 12]].copy().reset_index(drop=True).astype(object)
+    new.loc[0, "Age at enrollment"] = None
+    new.loc[1, "Course"] = "abc"
+    review = revisar_entrada(new, dominio_entrenamiento(X))
+
+    assert review["abstenerse"].tolist() == [True, True, False]
+    assert "Age at enrollment sin valor" in review.loc[0, "motivos"]
+    assert "Course: valor no numérico" in review.loc[1, "motivos"]
+
+
 def test_revisar_entrada_missing_column_abstains(X):
     review = revisar_entrada(X.drop(columns="Admission grade"), dominio_entrenamiento(X))
     assert review["abstenerse"].all()
