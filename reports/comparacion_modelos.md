@@ -22,15 +22,15 @@ El commit del criterio (`docs: criterio de seleccion y umbral de decision antes 
 
 ## 2. Tabla comparativa (validación cruzada, 5 folds, media ± desviación)
 
-Al umbral ajustado; el umbral de cada fold se elige con los otros cuatro, así que estas cifras no están infladas. Los tiempos son por fold y salen de `reports/metrics/<modelo>.json`, medidos al entrenar cada modelo (#9, #11, #12):
+Al umbral ajustado; el umbral de cada fold se elige con los otros cuatro, así que estas cifras no están infladas. Los tiempos son por fold y salen de `reports/metrics/<modelo>.json`. Todos los resultados se regeneraron el 2026-10-20 en un único equipo de referencia (AMD Ryzen 5 5600X, 12 hilos, 31.9 GB de RAM, sin GPU), así que los tiempos de los tres modelos son comparables entre sí:
 
-| Modelo | Umbral | F1-macro | Recall Dropout | Precisión Dropout | Balanced acc. | Entrenamiento (s) | Inferencia (ms/1,000) | Emisiones (gCO2eq) |
+| Modelo | Umbral | F1-macro | Recall Dropout | Precisión Dropout | Balanced acc. | Entrenamiento (s) | Inferencia (ms/1,000) | Emisiones del entrenamiento completo (gCO2eq) |
 |---|---|---|---|---|---|---|---|---|
-| Baseline | 0.431 ± 0.005 | 0.620 ± 0.023 | 0.773 ± 0.014 | 0.453 ± 0.021 | 0.665 ± 0.016 | 0.07 ± 0.01 | 23.7 ± 7.4 | 0.026 |
-| **Random Forest** | 0.382 ± 0.007 | 0.620 ± 0.021 | **0.808 ± 0.021** | 0.454 ± 0.018 | 0.673 ± 0.014 | 0.45 ± 0.00 | 90.5 ± 2.0 | 0.532 |
-| Gradient Boosting | 0.385 ± 0.007 | 0.618 ± 0.023 | 0.792 ± 0.012 | 0.452 ± 0.020 | 0.668 ± 0.017 | 0.28 ± 0.02 | 13.3 ± 1.6 | 0.317 |
+| Baseline | 0.431 ± 0.005 | 0.620 ± 0.023 | 0.773 ± 0.014 | 0.453 ± 0.021 | 0.665 ± 0.016 | 0.03 ± 0.00 | 12.4 ± 1.8 | 0.043 |
+| **Random Forest** | 0.382 ± 0.007 | 0.620 ± 0.021 | **0.808 ± 0.021** | 0.454 ± 0.018 | 0.673 ± 0.014 | 0.47 ± 0.01 | 94.2 ± 3.1 | 0.876 |
+| Gradient Boosting | 0.385 ± 0.007 | 0.618 ± 0.023 | 0.792 ± 0.012 | 0.452 ± 0.020 | 0.668 ± 0.017 | 0.36 ± 0.05 | 17.6 ± 1.2 | 0.595 |
 
-Coste de la búsqueda de hiperparámetros (una vez, no por fold): Random Forest 58 s y Gradient Boosting 36 s (25 combinaciones × 5 folds, decisión 006); el baseline ajusta un solo hiperparámetro, `C`, en menos de 1 s por valor. Las emisiones (gCO2eq) son las del entrenamiento completo de cada modelo, incluida la búsqueda de hiperparámetros, medidas con codecarbon en #15; el detalle (energía, inferencia, tamaño y hardware) está en [green_ai.md](green_ai.md).
+Coste de la búsqueda de hiperparámetros (una vez, no por fold): Random Forest 61 s y Gradient Boosting 43 s (25 combinaciones × 5 folds, decisión 006); el baseline ajusta un solo hiperparámetro, `C`, en menos de 1 s por valor. Las emisiones (gCO2eq) son las del entrenamiento completo de cada modelo, incluida la búsqueda de hiperparámetros, medidas con codecarbon en #15; el detalle (energía, inferencia, tamaño y hardware) está en [green_ai.md](green_ai.md).
 
 Al umbral 0.5, como referencia (los valores de #9, #11 y #12):
 
@@ -40,7 +40,7 @@ Al umbral 0.5, como referencia (los valores de #9, #11 y #12):
 | Random Forest | 0.676 ± 0.016 | 0.602 ± 0.018 | 0.545 ± 0.029 | 0.681 ± 0.014 |
 | Gradient Boosting | 0.674 ± 0.006 | 0.653 ± 0.015 | 0.526 ± 0.012 | 0.687 ± 0.004 |
 
-`comparacion_cv.md` incluye además los tiempos medidos durante la comparación. Allí son más altos porque se midieron con el equipo bajo más carga, así que para comparar coste se usan los de esta tabla.
+`comparacion_cv.md` incluye además los tiempos medidos durante la comparación, en el mismo equipo. Difieren poco de los de esta tabla porque son otra ejecución.
 
 ## 3. ¿Diferencias reales o ruido?
 
@@ -104,5 +104,5 @@ Limitaciones: la señal disponible al ingreso es moderada (AUC ≈ 0.75), así q
 
 Limitaciones del criterio, señaladas en la revisión del PR #37:
 
-- **Desempate por simplicidad.** La decisión 008 ordena los modelos de más simple a más complejo (baseline < Random Forest < Gradient Boosting) y justifica ese orden en parte por el coste. En nuestras cifras, sin embargo, el Gradient Boosting es más barato que el Random Forest en inferencia (13 vs 90 ms por 1,000 registros), entrenamiento (0.28 vs 0.45 s por fold) y búsqueda de hiperparámetros (36 vs 58 s). La elección se mantiene porque el criterio se fijó antes de usar test y cambiarlo después lo invalidaría, pero el Gradient Boosting es una alternativa equivalente en recall y más eficiente.
+- **Desempate por simplicidad.** La decisión 008 ordena los modelos de más simple a más complejo (baseline < Random Forest < Gradient Boosting) y justifica ese orden en parte por el coste. En nuestras cifras, sin embargo, el Gradient Boosting es más barato que el Random Forest en inferencia (18 vs 94 ms por 1,000 registros), entrenamiento (0.36 vs 0.47 s por fold) y búsqueda de hiperparámetros (43 vs 61 s). La elección se mantiene porque el criterio se fijó antes de usar test y cambiarlo después lo invalidaría, pero el Gradient Boosting es una alternativa equivalente en recall y más eficiente.
 - **Umbral sin validación anidada.** El umbral final de cada modelo se elige y se evalúa sobre las mismas predicciones out-of-fold; por eso los tres quedan justo en F1-macro ≈ 0.620. Afecta a los tres por igual, así que no cambia la comparación; la tabla de la sección 2, en cambio, elige el umbral de cada fold sin ese fold.
