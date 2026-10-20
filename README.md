@@ -1,10 +1,6 @@
 # Riesgo de deserción estudiantil
 
-[![Pruebas](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/actions/workflows/pruebas.yml/badge.svg?branch=main)](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/actions/workflows/pruebas.yml)
-![Python 3.12](https://img.shields.io/badge/python-3.12-3776AB?logo=python&logoColor=white)
-[![uv](https://img.shields.io/badge/entorno-uv-DE5FE9)](https://docs.astral.sh/uv/)
-[![Demo Streamlit](https://img.shields.io/badge/demo-Streamlit-FF4B4B?logo=streamlit&logoColor=white)](#demo-de-predicción)
-[![Datos CC BY 4.0](https://img.shields.io/badge/datos-CC%20BY%204.0-lightgrey)](https://doi.org/10.24432/C5MC89)
+[![Pruebas](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/actions/workflows/pruebas.yml/badge.svg?branch=main)](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/actions/workflows/pruebas.yml) [![Python 3.12](https://img.shields.io/badge/python-3.12-3776AB.svg?logo=python&logoColor=white)](https://www.python.org/) [![uv](https://img.shields.io/badge/entorno-uv-DE5FE9.svg)](https://docs.astral.sh/uv/) [![Demo Streamlit](https://img.shields.io/badge/demo-Streamlit-FF4B4B.svg?logo=streamlit&logoColor=white)](#demo-de-predicción) [![Datos CC BY 4.0](https://img.shields.io/badge/datos-CC%20BY%204.0-lightgrey.svg)](https://doi.org/10.24432/C5MC89)
 
 Trabajo final de la asignatura **INF-8239 Ciencia de Datos II** (Modalidad A, Tema 01).
 
