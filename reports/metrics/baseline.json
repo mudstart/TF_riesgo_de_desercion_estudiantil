@@ -16,7 +16,7 @@
     "verbose": 0,
     "warm_start": false
   },
-  "fecha": "2026-10-16T20:48:51",
+  "fecha": "2026-10-20T10:26:23",
   "n_train": 3539,
   "umbral": 0.5,
   "cv": {
@@ -24,14 +24,14 @@
     "recall_riesgo_media": 0.6314746116392302,
     "precision_riesgo_media": 0.5271376228965997,
     "balanced_accuracy_media": 0.6806363875936968,
-    "fit_time_s_media": 0.06910608001053334,
-    "predict_time_ms_1000_media": 23.703095123165944,
+    "fit_time_s_media": 0.02994311999937054,
+    "predict_time_ms_1000_media": 12.364538911837112,
     "f1_macro_std": 0.018320643152744176,
     "recall_riesgo_std": 0.03087507173058836,
     "precision_riesgo_std": 0.03038458344770298,
     "balanced_accuracy_std": 0.015408455924158201,
-    "fit_time_s_std": 0.012117424958078948,
-    "predict_time_ms_1000_std": 7.353414125266234
+    "fit_time_s_std": 0.0005968927000841947,
+    "predict_time_ms_1000_std": 1.8021308754315815
   },
   "oof": {
     "f1_macro": 0.6699943841493313,
@@ -46,9 +46,9 @@
     "tp": 718
   },
   "tiempos": {
-    "entrenamiento_s": 0.06910608001053334,
-    "inferencia_ms_1000": 23.703095123165944,
-    "entrenamiento_train_completo_s": 0.07742720004171133
+    "entrenamiento_s": 0.02994311999937054,
+    "inferencia_ms_1000": 12.364538911837112,
+    "entrenamiento_train_completo_s": 0.03480989999661688
   },
   "ajuste": {
     "parametro": "C",
@@ -187,14 +187,14 @@
       "recall_riesgo_media": 0.32100239585748513,
       "precision_riesgo_media": 0.33213781652137814,
       "balanced_accuracy_media": 0.5077157682683129,
-      "fit_time_s_media": 0.06592802002560347,
-      "predict_time_ms_1000_media": 17.84596480239803,
+      "fit_time_s_media": 0.03344733999983873,
+      "predict_time_ms_1000_media": 13.486750850114143,
       "f1_macro_std": 0.01993487260439218,
       "recall_riesgo_std": 0.026657051356311794,
       "precision_riesgo_std": 0.028103968941992477,
       "balanced_accuracy_std": 0.019762930218125464,
-      "fit_time_s_std": 0.07390685801347553,
-      "predict_time_ms_1000_std": 2.8764436311755093
+      "fit_time_s_std": 0.024290467408035168,
+      "predict_time_ms_1000_std": 1.9137020215834561
     }
   },
   "coeficientes": {
@@ -325,6 +325,6 @@
       }
     ]
   },
-  "energia_kwh": 4.4070562869770084e-05,
-  "emisiones_gco2eq": 0.02559530150350507
+  "energia_kwh": 7.395559231514297e-05,
+  "emisiones_gco2eq": 0.04295192890478874
 }

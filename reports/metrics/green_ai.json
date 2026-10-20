@@ -1,11 +1,11 @@
 {
-  "fecha": "2026-10-19T15:28:17",
+  "fecha": "2026-10-20T10:37:40",
   "hardware": {
-    "cpu": "Intel(R) Core(TM) i5-6300U CPU @ 2.40GHz",
-    "nucleos_logicos": 4,
-    "ram_gb": 7.9,
+    "cpu": "AMD Ryzen 5 5600X 6-Core Processor",
+    "nucleos_logicos": 12,
+    "ram_gb": 31.9,
     "gpu": "ninguna",
-    "sistema_operativo": "Windows-11-10.0.22000-SP0",
+    "sistema_operativo": "Windows-11-10.0.26300-SP0",
     "python": "3.12.14",
     "scikit_learn": "1.9.1",
     "codecarbon": "3.3.1",
@@ -24,47 +24,47 @@
   "modelos": {
     "baseline": {
       "entrenamiento": {
-        "tiempo_s_media": 7.528863699990325,
-        "tiempo_s_std": 1.231109700078637,
-        "energia_kwh_media": 4.4070562869770084e-05,
-        "energia_kwh_std": 1.2789121721662979e-05,
-        "emisiones_gco2eq_media": 0.02559530150350507,
-        "emisiones_gco2eq_std": 0.007427666113507425,
-        "energia_cpu_kwh_media": 2.328049749966667e-05,
-        "energia_cpu_kwh_std": 9.411554670103674e-06,
-        "energia_ram_kwh_media": 2.0790065370103413e-05,
-        "energia_ram_kwh_std": 3.378012749113216e-06
+        "tiempo_s_media": 3.5121018333302345,
+        "tiempo_s_std": 0.2977182081607885,
+        "energia_kwh_media": 7.395559231514297e-05,
+        "energia_kwh_std": 8.631522025897711e-06,
+        "emisiones_gco2eq_media": 0.04295192890478874,
+        "emisiones_gco2eq_std": 0.005013015362200872,
+        "energia_cpu_kwh_media": 6.430120000033334e-05,
+        "energia_cpu_kwh_std": 7.811825139252507e-06,
+        "energia_ram_kwh_media": 9.654392314809632e-06,
+        "energia_ram_kwh_std": 8.198408000102796e-07
       },
       "repeticiones": [
         {
-          "tiempo_s": 8.949340299936011,
-          "energia_kwh": 5.8817543054475076e-05,
-          "emisiones_gco2eq": 0.03416005265517803,
-          "energia_cpu_kwh": 3.4129838888000004e-05,
-          "energia_ram_kwh": 2.4687704166475064e-05
+          "tiempo_s": 3.8548393999953987,
+          "energia_kwh": 8.390655472219525e-05,
+          "emisiones_gco2eq": 0.04873124885155655,
+          "energia_cpu_kwh": 7.330810000000002e-05,
+          "energia_ram_kwh": 1.059845472219523e-05
         },
         {
-          "tiempo_s": 6.866747800027952,
-          "energia_kwh": 3.737276944416282e-05,
-          "emisiones_gco2eq": 0.02170535703778088,
-          "energia_cpu_kwh": 1.8400073889e-05,
-          "energia_ram_kwh": 1.8972695555162824e-05
+          "tiempo_s": 3.3638491000019712,
+          "energia_kwh": 6.946686861143746e-05,
+          "emisiones_gco2eq": 0.04034496795215064,
+          "energia_cpu_kwh": 6.0223691667000004e-05,
+          "energia_ram_kwh": 9.243176944437436e-06
         },
         {
-          "tiempo_s": 6.770503000007011,
-          "energia_kwh": 3.602137611067236e-05,
-          "emisiones_gco2eq": 0.02092049481755629,
-          "energia_cpu_kwh": 1.7311579722000003e-05,
-          "energia_ram_kwh": 1.8709796388672354e-05
+          "tiempo_s": 3.3176169999933336,
+          "energia_kwh": 6.849335361179623e-05,
+          "emisiones_gco2eq": 0.03977956991065901,
+          "energia_cpu_kwh": 5.937180833400001e-05,
+          "energia_ram_kwh": 9.121545277796234e-06
         }
       ],
       "inferencia": {
         "lotes": 200,
         "tamano_lote": 1000,
-        "inferencia_ms_1000_media": 13.320070999325253,
-        "inferencia_ms_1000_std": 4.522831746480486,
-        "energia_kwh_1000": 7.434931527727057e-08,
-        "emisiones_gco2eq_1000": 4.318059532673319e-05
+        "inferencia_ms_1000_media": 7.52753649969236,
+        "inferencia_ms_1000_std": 2.535078048042777,
+        "energia_kwh_1000": 1.5807349166837093e-07,
+        "emisiones_gco2eq_1000": 9.180592249115647e-05
       },
       "tamano_mb": 0.011209487915039062,
       "desempeno": {
@@ -76,47 +76,47 @@
     },
     "random_forest": {
       "entrenamiento": {
-        "tiempo_s_media": 141.78036213336358,
-        "tiempo_s_std": 18.363070230701577,
-        "energia_kwh_media": 0.0009151858938885502,
-        "energia_kwh_std": 0.00018079294272654994,
-        "emisiones_gco2eq_media": 0.5315216634525921,
-        "emisiones_gco2eq_std": 0.10500092527672565,
-        "energia_cpu_kwh_media": 0.0005244604681483335,
-        "energia_cpu_kwh_std": 0.00013076629246121889,
-        "energia_ram_kwh_media": 0.00039072542574021665,
-        "energia_ram_kwh_std": 5.019257831891846e-05
+        "tiempo_s_media": 66.60722716666835,
+        "tiempo_s_std": 1.9162371260107784,
+        "energia_kwh_media": 0.001507717472963064,
+        "energia_kwh_std": 5.878189063100246e-05,
+        "emisiones_gco2eq_media": 0.8756521539474883,
+        "emisiones_gco2eq_std": 0.034139346440673596,
+        "energia_cpu_kwh_media": 0.001325302829166667,
+        "energia_cpu_kwh_std": 5.37222162943383e-05,
+        "energia_ram_kwh_media": 0.0001824146437963969,
+        "energia_ram_kwh_std": 5.062920596718785e-06
       },
       "repeticiones": [
         {
-          "tiempo_s": 162.4284050000133,
-          "energia_kwh": 0.0011212596363907893,
-          "emisiones_gco2eq": 0.6512051716230426,
-          "energia_cpu_kwh": 0.0006741002741670003,
-          "energia_ram_kwh": 0.00044715936222378816
+          "tiempo_s": 68.45654689999355,
+          "energia_kwh": 0.0015668205183330115,
+          "emisiones_gco2eq": 0.9099780206374464,
+          "energia_cpu_kwh": 0.001379416670833,
+          "energia_ram_kwh": 0.0001874038475000109
         },
         {
-          "tiempo_s": 127.27948869997635,
-          "energia_kwh": 0.0007832302116648788,
-          "emisiones_gco2eq": 0.4548844423307283,
-          "energia_cpu_kwh": 0.000432154296667,
-          "energia_ram_kwh": 0.00035107591499787907
+          "tiempo_s": 64.63043750000361,
+          "energia_kwh": 0.0014492620891665782,
+          "emisiones_gco2eq": 0.8417024361461652,
+          "energia_cpu_kwh": 0.001271980995833,
+          "energia_ram_kwh": 0.00017728109333357782
         },
         {
-          "tiempo_s": 135.63319270010106,
-          "energia_kwh": 0.0008410678336099825,
-          "emisiones_gco2eq": 0.48847537640400557,
-          "energia_cpu_kwh": 0.00046712683361100016,
-          "energia_ram_kwh": 0.0003739409999989826
+          "tiempo_s": 66.7346971000079,
+          "energia_kwh": 0.0015070698113896024,
+          "emisiones_gco2eq": 0.8752760050588532,
+          "energia_cpu_kwh": 0.0013245108208340003,
+          "energia_ram_kwh": 0.00018255899055560196
         }
       ],
       "inferencia": {
         "lotes": 200,
         "tamano_lote": 1000,
-        "inferencia_ms_1000_media": 115.23587500210851,
-        "inferencia_ms_1000_std": 16.056527525376083,
-        "energia_kwh_1000": 6.122348875021498e-07,
-        "emisiones_gco2eq_1000": 0.00035557377796349856
+        "inferencia_ms_1000_media": 70.2662955008418,
+        "inferencia_ms_1000_std": 8.192736921292108,
+        "energia_kwh_1000": 1.5043350166683595e-06,
+        "emisiones_gco2eq_1000": 0.0008736876909806497
       },
       "tamano_mb": 18.582026481628418,
       "desempeno": {
@@ -128,47 +128,47 @@
     },
     "gradient_boosting": {
       "entrenamiento": {
-        "tiempo_s_media": 92.15787429998939,
-        "tiempo_s_std": 6.669693810949822,
-        "energia_kwh_media": 0.0005456721831474658,
-        "energia_kwh_std": 3.73562438238695e-05,
-        "emisiones_gco2eq_media": 0.31691549052838514,
-        "emisiones_gco2eq_std": 0.021695759288026934,
-        "energia_cpu_kwh_media": 0.000291365347778,
-        "energia_cpu_kwh_std": 1.914212397251762e-05,
-        "energia_ram_kwh_media": 0.00025430683536946575,
-        "energia_ram_kwh_std": 1.8254206797699572e-05
+        "tiempo_s_media": 43.98272693333274,
+        "tiempo_s_std": 2.3220288345792857,
+        "energia_kwh_media": 0.001024674532222258,
+        "energia_kwh_std": 5.752607978287633e-05,
+        "emisiones_gco2eq_media": 0.5951104748240429,
+        "emisiones_gco2eq_std": 0.03340999661629898,
+        "energia_cpu_kwh_media": 0.0009041921930556668,
+        "energia_cpu_kwh_std": 5.126513270394172e-05,
+        "energia_ram_kwh_media": 0.00012048233916659092,
+        "energia_ram_kwh_std": 6.261468016294194e-06
       },
       "repeticiones": [
         {
-          "tiempo_s": 85.51328489999287,
-          "energia_kwh": 0.0005094749202756017,
-          "emisiones_gco2eq": 0.29589284419766393,
-          "energia_cpu_kwh": 0.00027337949777800005,
-          "energia_ram_kwh": 0.00023609542249760124
+          "tiempo_s": 45.042301399997086,
+          "energia_kwh": 0.0010505354272224523,
+          "emisiones_gco2eq": 0.6101299654222558,
+          "energia_cpu_kwh": 0.000927157354167,
+          "energia_ram_kwh": 0.00012337807305545236
         },
         {
-          "tiempo_s": 98.85239220003132,
-          "energia_kwh": 0.0005840884811095338,
-          "emisiones_gco2eq": 0.339226908058795,
-          "energia_cpu_kwh": 0.0003114849438889999,
-          "energia_ram_kwh": 0.0002726035372205338
+          "tiempo_s": 45.5859644000011,
+          "energia_kwh": 0.0010647314458333496,
+          "emisiones_gco2eq": 0.6183747291110928,
+          "energia_cpu_kwh": 0.0009399596375000002,
+          "energia_ram_kwh": 0.0001247718083333489
         },
         {
-          "tiempo_s": 92.10794579994399,
-          "energia_kwh": 0.0005434531480572619,
-          "emisiones_gco2eq": 0.31562671932869657,
-          "energia_cpu_kwh": 0.00028923160166700006,
-          "energia_ram_kwh": 0.0002542215463902621
+          "tiempo_s": 41.31991500000004,
+          "energia_kwh": 0.0009587567236109717,
+          "emisiones_gco2eq": 0.55682672993878,
+          "energia_cpu_kwh": 0.0008454595875,
+          "energia_ram_kwh": 0.00011329713611097153
         }
       ],
       "inferencia": {
         "lotes": 200,
         "tamano_lote": 1000,
-        "inferencia_ms_1000_media": 17.89600000018254,
-        "inferencia_ms_1000_std": 1.869986417234423,
-        "energia_kwh_1000": 1.0391032222668108e-07,
-        "emisiones_gco2eq_1000": 6.0349036942811834e-05
+        "inferencia_ms_1000_media": 10.461049499281216,
+        "inferencia_ms_1000_std": 1.9575426790443233,
+        "energia_kwh_1000": 2.4817732916653847e-07,
+        "emisiones_gco2eq_1000": 0.0001441364292333422
       },
       "tamano_mb": 0.2795886993408203,
       "desempeno": {
