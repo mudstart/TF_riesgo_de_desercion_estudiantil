@@ -16,6 +16,16 @@ Con solo las 18 variables disponibles al ingreso (sin rendimiento semestral, par
 
 Informe completo, legible sin abrir el código: [reports/informe_tecnico.md](reports/informe_tecnico.md).
 
+## Versión 1.0
+
+La versión entregada es el tag **`v1.0`**, con su [release en GitHub](https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil/releases/tag/v1.0). Para obtener exactamente esa versión:
+
+```bash
+git clone --branch v1.0 https://github.com/mudstart/TF_riesgo_de_desercion_estudiantil.git
+```
+
+**Verificación de reproducibilidad (2026-10-20).** Se clonó el repositorio en una carpeta vacía y se siguieron los pasos de este README: `uv sync`, descarga de los datos (mismo SHA-256), auditoría, entrenamiento de los tres modelos, comparación en validación cruzada y análisis de errores. Las métricas, los hiperparámetros, la selección y las alertas salieron idénticos a los versionados, y las figuras, byte a byte iguales. La evaluación en test se negó a repetirse, como exige la decisión 008. Pasaron las 110 pruebas, y la demo funcionó con un perfil inventado en vivo.
+
 ## Integrantes y roles
 
 | Integrante | GitHub | Responsabilidades (issues) |
@@ -132,6 +142,7 @@ Criterios en la [decisión 012](docs/decisiones/012_demo_prediccion.md).
 | [docs/ficha_datos.md](docs/ficha_datos.md) | Procedencia, licencia, versión y limitaciones del dataset (#3) |
 | [docs/decisiones/](docs/decisiones/README.md) | Registro de decisiones del proyecto (001–012) |
 | [docs/declaracion_ia.md](docs/declaracion_ia.md) | Declaración de uso de herramientas de IA |
+| [docs/guia_defensa.md](docs/guia_defensa.md) | Evidencia para la defensa individual, aporte de cada integrante y guion del ensayo de la demo |
 | Informes parciales | [Auditoría de datos](reports/auditoria_datos.md) · [baseline](reports/baseline.md) · [comparación de modelos](reports/comparacion_modelos.md) · [errores y subgrupos](reports/analisis_errores.md) · [Green AI](reports/green_ai.md) |
 
 ## Estructura
